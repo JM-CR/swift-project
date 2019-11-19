@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="4Ll-Z8-5ze">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--NewQuestion-->
+        <scene sceneID="Qal-f3-JYH">
+            <objects>
+                <viewControllerPlaceholder storyboardName="NewQuestion" id="uKr-u2-HkZ" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="IbL-O6-lDR"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cqR-jo-x1A" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1289" y="943"/>
+        </scene>
+        <!--Settings-->
+        <scene sceneID="tf5-63-wrA">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Settings" id="4Ni-7S-gIq" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="itY-2n-9BB"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zrZ-ED-ELX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1001" y="943"/>
+        </scene>
+        <!--Principal-->
+        <scene sceneID="20Y-Iw-VNN">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Principal" id="lXv-uV-85j" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="riK-8c-ogt"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="o6P-QD-8b2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1572" y="943"/>
+        </scene>
+        <!--Navigation View Controller-->
+        <scene sceneID="ART-pF-6kV">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="4Ll-Z8-5ze" customClass="NavigationViewController" customModule="you_say_" customModuleProvider="target" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="jMP-VI-Ys4">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="lXv-uV-85j" kind="relationship" relationship="viewControllers" id="SQe-YB-0a2"/>
+                        <segue destination="uKr-u2-HkZ" kind="relationship" relationship="viewControllers" id="BYy-TA-vLG"/>
+                        <segue destination="4Ni-7S-gIq" kind="relationship" relationship="viewControllers" id="CXf-yk-fBW"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yAA-bt-tdv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1288.4057971014495" y="525.66964285714289"/>
+        </scene>
+    </scenes>
+</document>

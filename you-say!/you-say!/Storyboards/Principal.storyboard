@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="58w-Wc-1bb">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--General-->
+        <scene sceneID="Q0F-5R-98B">
+            <objects>
+                <viewController storyboardIdentifier="GeneralVC" title="General" useStoryboardIdentifierAsRestorationIdentifier="YES" id="58w-Wc-1bb" customClass="GeneralViewController" customModule="you_say_" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="2Ot-5a-ihY">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bbt-bV-oc8">
+                                <rect key="frame" x="38" y="64" width="43" height="30"/>
+                                <state key="normal" title="Filtros"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cy9-wI-e8v">
+                                <rect key="frame" x="281" y="64" width="98" height="30"/>
+                                <state key="normal" title="Mis preguntas"/>
+                                <connections>
+                                    <segue destination="z8O-Jm-2BY" kind="presentation" id="7DW-dF-S87"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pantalla principal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gWU-uF-y48">
+                                <rect key="frame" x="142" y="380" width="130" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mcM-aU-wKl">
+                                <rect key="frame" x="150.5" y="419" width="113" height="30"/>
+                                <state key="normal" title="Abrir respuestas"/>
+                                <connections>
+                                    <segue destination="D5n-Oh-Yj7" kind="presentation" id="9Dz-7e-kHk"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="bbt-bV-oc8" firstAttribute="top" secondItem="Hx9-c4-S7G" secondAttribute="top" constant="20" id="0wC-U9-ZhB"/>
+                            <constraint firstItem="bbt-bV-oc8" firstAttribute="leading" secondItem="Hx9-c4-S7G" secondAttribute="leading" constant="38" id="31A-Al-TIu"/>
+                            <constraint firstItem="cy9-wI-e8v" firstAttribute="top" secondItem="Hx9-c4-S7G" secondAttribute="top" constant="20" id="9XW-6e-Nzv"/>
+                            <constraint firstItem="gWU-uF-y48" firstAttribute="centerX" secondItem="mcM-aU-wKl" secondAttribute="centerX" id="S2U-Mc-1qK"/>
+                            <constraint firstItem="Hx9-c4-S7G" firstAttribute="trailing" secondItem="cy9-wI-e8v" secondAttribute="trailing" constant="35" id="Tcw-29-GdQ"/>
+                            <constraint firstItem="cy9-wI-e8v" firstAttribute="leading" secondItem="bbt-bV-oc8" secondAttribute="trailing" constant="200" id="c9S-un-wM3"/>
+                            <constraint firstItem="gWU-uF-y48" firstAttribute="centerX" secondItem="2Ot-5a-ihY" secondAttribute="centerX" id="hWm-CW-E7g"/>
+                            <constraint firstItem="mcM-aU-wKl" firstAttribute="top" secondItem="gWU-uF-y48" secondAttribute="bottom" constant="18" id="khJ-gf-Cah"/>
+                            <constraint firstItem="gWU-uF-y48" firstAttribute="top" secondItem="Hx9-c4-S7G" secondAttribute="top" constant="336" id="rq6-RC-49F"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Hx9-c4-S7G"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="STN-WI-MbE"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5lr-Zo-plL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-139" y="526"/>
+        </scene>
+        <!--MyQuestions-->
+        <scene sceneID="C9t-rn-5Qg">
+            <objects>
+                <viewController storyboardIdentifier="MyQuestionsVC" title="MyQuestions" useStoryboardIdentifierAsRestorationIdentifier="YES" id="z8O-Jm-2BY" customClass="MyQuestionsViewController" customModule="you_say_" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="c9E-IV-wTP">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pantalla de mis preguntas realizadas" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nhl-YW-hE4">
+                                <rect key="frame" x="67.5" y="326" width="279" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QuM-Qd-uCz">
+                                <rect key="frame" x="176" y="810" width="62" height="30"/>
+                                <state key="normal" title="Regresar"/>
+                                <connections>
+                                    <action selector="botonRegresarPresionado:" destination="z8O-Jm-2BY" eventType="touchUpInside" id="MUf-Ix-zK2"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cvK-Vi-MuP">
+                                <rect key="frame" x="150.5" y="401" width="113" height="30"/>
+                                <state key="normal" title="Abrir respuestas"/>
+                                <connections>
+                                    <segue destination="D5n-Oh-Yj7" kind="presentation" id="ZaV-UA-0Wf"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="4Or-MM-caF" firstAttribute="bottom" secondItem="QuM-Qd-uCz" secondAttribute="bottom" constant="22" id="9sg-cz-c8p"/>
+                            <constraint firstItem="cvK-Vi-MuP" firstAttribute="top" secondItem="Nhl-YW-hE4" secondAttribute="bottom" constant="54" id="RuK-1G-nhp"/>
+                            <constraint firstItem="Nhl-YW-hE4" firstAttribute="top" secondItem="4Or-MM-caF" secondAttribute="top" constant="282" id="bUV-w0-xpx"/>
+                            <constraint firstItem="cvK-Vi-MuP" firstAttribute="centerX" secondItem="Nhl-YW-hE4" secondAttribute="centerX" id="f9o-uq-YCu"/>
+                            <constraint firstItem="cvK-Vi-MuP" firstAttribute="centerX" secondItem="QuM-Qd-uCz" secondAttribute="centerX" id="hdL-3W-Az2"/>
+                            <constraint firstItem="Nhl-YW-hE4" firstAttribute="centerX" secondItem="c9E-IV-wTP" secondAttribute="centerX" id="ixo-Da-w8e"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="4Or-MM-caF"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CxB-cQ-y3e" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="787" y="526"/>
+        </scene>
+        <!--MyAnswers-->
+        <scene sceneID="mtB-5V-Hrd">
+            <objects>
+                <viewController storyboardIdentifier="MyAnswersVC" title="MyAnswers" useStoryboardIdentifierAsRestorationIdentifier="YES" id="D5n-Oh-Yj7" customClass="MyAnswersViewController" customModule="you_say_" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="sQy-On-QSW">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T02-5h-wFC">
+                                <rect key="frame" x="176" y="812" width="62" height="30"/>
+                                <state key="normal" title="Regresar"/>
+                                <connections>
+                                    <action selector="botonRegresarPresionado:" destination="D5n-Oh-Yj7" eventType="touchUpInside" id="Od3-nb-MbP"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pantalla con mis respuestas " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5GR-Yv-9M8">
+                                <rect key="frame" x="100.5" y="371" width="213" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="5GR-Yv-9M8" firstAttribute="centerX" secondItem="T02-5h-wFC" secondAttribute="centerX" id="1aS-fP-vES"/>
+                            <constraint firstItem="3wb-7M-Mc3" firstAttribute="bottom" secondItem="T02-5h-wFC" secondAttribute="bottom" constant="20" id="EYz-j5-t2G"/>
+                            <constraint firstItem="5GR-Yv-9M8" firstAttribute="top" secondItem="3wb-7M-Mc3" secondAttribute="top" constant="327" id="XbK-tH-Q3i"/>
+                            <constraint firstItem="5GR-Yv-9M8" firstAttribute="centerX" secondItem="sQy-On-QSW" secondAttribute="centerX" id="alf-ka-YyJ"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="3wb-7M-Mc3"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Hyl-DZ-yAf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="316" y="1256"/>
+        </scene>
+    </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="9Dz-7e-kHk"/>
+    </inferredMetricsTieBreakers>
+</document>
