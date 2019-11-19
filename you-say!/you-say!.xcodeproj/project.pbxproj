@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CA3C391C23837ECA00F4CDE5 /* NavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3C391B23837ECA00F4CDE5 /* NavigationViewController.swift */; };
+		CA3C391F23837F5000F4CDE5 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3C391E23837F5000F4CDE5 /* CoreDataManager.swift */; };
 		CA526D7A2368E43D003E396D /* MyAnswersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA526D792368E43D003E396D /* MyAnswersViewController.swift */; };
 		CA526D7C2368E619003E396D /* NewQuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA526D7B2368E619003E396D /* NewQuestionViewController.swift */; };
 		CA526D7E2368E935003E396D /* MyAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA526D7D2368E935003E396D /* MyAccountViewController.swift */; };
@@ -16,7 +18,7 @@
 		CAA9B0552368C61000B6016C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAA9B0542368C61000B6016C /* AppDelegate.swift */; };
 		CAA9B0572368C61000B6016C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAA9B0562368C61000B6016C /* LoginViewController.swift */; };
 		CAA9B05A2368C61000B6016C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CAA9B0582368C61000B6016C /* Main.storyboard */; };
-		CAA9B05D2368C61000B6016C /* you_say_.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CAA9B05B2368C61000B6016C /* you_say_.xcdatamodeld */; };
+		CAA9B05D2368C61000B6016C /* model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CAA9B05B2368C61000B6016C /* model.xcdatamodeld */; };
 		CAA9B05F2368C61100B6016C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CAA9B05E2368C61100B6016C /* Assets.xcassets */; };
 		CAA9B0622368C61100B6016C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CAA9B0602368C61100B6016C /* LaunchScreen.storyboard */; };
 		CAA9B06B2368C86500B6016C /* NewUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAA9B06A2368C86500B6016C /* NewUserViewController.swift */; };
@@ -26,6 +28,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CA3C391B23837ECA00F4CDE5 /* NavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationViewController.swift; sourceTree = "<group>"; };
+		CA3C391E23837F5000F4CDE5 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		CA526D792368E43D003E396D /* MyAnswersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAnswersViewController.swift; sourceTree = "<group>"; };
 		CA526D7B2368E619003E396D /* NewQuestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewQuestionViewController.swift; sourceTree = "<group>"; };
 		CA526D7D2368E935003E396D /* MyAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAccountViewController.swift; sourceTree = "<group>"; };
@@ -57,6 +61,65 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CA3C391423837CAF00F4CDE5 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				CA3C391823837DDC00F4CDE5 /* Navigation */,
+				CAA9B0692368C82200B6016C /* Authentication */,
+				CAA9B06E2368CFE800B6016C /* Principal */,
+				CA526D7F2368E946003E396D /* Settings */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		CA3C391523837CF500F4CDE5 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				CAA9B0582368C61000B6016C /* Main.storyboard */,
+				CAA9B0602368C61100B6016C /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		CA3C391623837D1900F4CDE5 /* Aplication Delegate */ = {
+			isa = PBXGroup;
+			children = (
+				CAA9B0542368C61000B6016C /* AppDelegate.swift */,
+			);
+			path = "Aplication Delegate";
+			sourceTree = "<group>";
+		};
+		CA3C391723837D9700F4CDE5 /* Core Data */ = {
+			isa = PBXGroup;
+			children = (
+				CAA9B05B2368C61000B6016C /* model.xcdatamodeld */,
+			);
+			path = "Core Data";
+			sourceTree = "<group>";
+		};
+		CA3C391823837DDC00F4CDE5 /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				CA3C391B23837ECA00F4CDE5 /* NavigationViewController.swift */,
+			);
+			path = Navigation;
+			sourceTree = "<group>";
+		};
+		CA3C391D23837F0700F4CDE5 /* Core Data Manager */ = {
+			isa = PBXGroup;
+			children = (
+				CA3C391E23837F5000F4CDE5 /* CoreDataManager.swift */,
+			);
+			path = "Core Data Manager";
+			sourceTree = "<group>";
+		};
+		CA3C39202384323800F4CDE5 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		CA526D772368E39E003E396D /* Filters */ = {
 			isa = PBXGroup;
 			children = (
@@ -104,15 +167,14 @@
 		CAA9B0532368C61000B6016C /* you-say! */ = {
 			isa = PBXGroup;
 			children = (
-				CAA9B0542368C61000B6016C /* AppDelegate.swift */,
-				CAA9B0582368C61000B6016C /* Main.storyboard */,
-				CAA9B0602368C61100B6016C /* LaunchScreen.storyboard */,
 				CAA9B0632368C61100B6016C /* Info.plist */,
-				CAA9B05B2368C61000B6016C /* you_say_.xcdatamodeld */,
-				CAA9B0692368C82200B6016C /* Authentication */,
-				CAA9B06E2368CFE800B6016C /* Principal */,
-				CA526D7F2368E946003E396D /* Settings */,
 				CAA9B05E2368C61100B6016C /* Assets.xcassets */,
+				CA3C391623837D1900F4CDE5 /* Aplication Delegate */,
+				CA3C391523837CF500F4CDE5 /* Storyboards */,
+				CA3C391423837CAF00F4CDE5 /* View Controllers */,
+				CA3C39202384323800F4CDE5 /* Extensions */,
+				CA3C391D23837F0700F4CDE5 /* Core Data Manager */,
+				CA3C391723837D9700F4CDE5 /* Core Data */,
 			);
 			path = "you-say!";
 			sourceTree = "<group>";
@@ -211,15 +273,17 @@
 				CA526D7A2368E43D003E396D /* MyAnswersViewController.swift in Sources */,
 				CA526D7C2368E619003E396D /* NewQuestionViewController.swift in Sources */,
 				CA526D7E2368E935003E396D /* MyAccountViewController.swift in Sources */,
+				CA3C391F23837F5000F4CDE5 /* CoreDataManager.swift in Sources */,
 				CA526D852368EFB6003E396D /* HelpViewController.swift in Sources */,
 				CA526D832368EE1D003E396D /* NotificationsViewController.swift in Sources */,
 				CA526D812368EC5F003E396D /* UserViewController.swift in Sources */,
 				CAA9B0702368D2A700B6016C /* FiltersViewController.swift in Sources */,
 				CAA9B0572368C61000B6016C /* LoginViewController.swift in Sources */,
 				CAA9B0722368D4CF00B6016C /* MyQuestionsViewController.swift in Sources */,
-				CAA9B05D2368C61000B6016C /* you_say_.xcdatamodeld in Sources */,
+				CAA9B05D2368C61000B6016C /* model.xcdatamodeld in Sources */,
 				CAA9B06B2368C86500B6016C /* NewUserViewController.swift in Sources */,
 				CAA9B0552368C61000B6016C /* AppDelegate.swift in Sources */,
+				CA3C391C23837ECA00F4CDE5 /* NavigationViewController.swift in Sources */,
 				CAA9B06D2368CFDB00B6016C /* GeneralViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -422,13 +486,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		CAA9B05B2368C61000B6016C /* you_say_.xcdatamodeld */ = {
+		CAA9B05B2368C61000B6016C /* model.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
 				CAA9B05C2368C61000B6016C /* you_say_.xcdatamodel */,
 			);
 			currentVersion = CAA9B05C2368C61000B6016C /* you_say_.xcdatamodel */;
-			path = you_say_.xcdatamodeld;
+			path = model.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

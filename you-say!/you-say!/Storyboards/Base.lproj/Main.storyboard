@@ -236,7 +236,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pantalla de ayuda" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Gn-XA-Dgl">
-                                <rect key="frame" x="140" y="332" width="135" height="21"/>
+                                <rect key="frame" x="139.5" y="332" width="135" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -263,10 +263,10 @@
             </objects>
             <point key="canvasLocation" x="-346" y="1988"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Navigation View Controller-->
         <scene sceneID="hpt-q4-wei">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="cgw-WR-7Ze" sceneMemberID="viewController">
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="cgw-WR-7Ze" customClass="NavigationViewController" customModule="you_say_" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="G7n-vp-tgF">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
