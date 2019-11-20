@@ -10,10 +10,11 @@ import UIKit
 
 class LoginViewController: UIViewController {
 
-    // MARK: - Properties
+    // MARK: - Outlets
     
-    @IBOutlet weak var emailTextField: UITextField!
-    @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var textFieldEmail: UITextField!
+    @IBOutlet weak var textFieldPassword: UITextField!
+    
     
     // MARK: - View Life Cycle
     
@@ -31,8 +32,8 @@ class LoginViewController: UIViewController {
      Sets the delegates for the view controller.
      */
     private func setupDelegates() {
-        self.emailTextField.delegate = self
-        self.passwordTextField.delegate = self
+        self.textFieldEmail.delegate = self
+        self.textFieldPassword.delegate = self
     }
     
     /**
@@ -44,7 +45,7 @@ class LoginViewController: UIViewController {
         self.view.addGestureRecognizer(tap)
     }
     
-    // MARK: - Gesture Methods
+    // MARK:  Gestures
     
     /**
      Hides the keyboard when the user taps on the screen.

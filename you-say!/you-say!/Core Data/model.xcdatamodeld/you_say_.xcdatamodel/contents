@@ -37,6 +37,7 @@
     <entity name="User" representedClassName="User" syncable="YES" codeGenerationType="class">
         <attribute name="alias" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="bio" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="birthDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="gender" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="lastName" attributeType="String" syncable="YES"/>
         <attribute name="latitude" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
@@ -49,7 +50,7 @@
     </entity>
     <elements>
         <element name="Login" positionX="-120.03515625" positionY="-60.59375" width="128" height="105"/>
-        <element name="User" positionX="-297.25390625" positionY="-105.31640625" width="128" height="208"/>
+        <element name="User" positionX="-297.25390625" positionY="-105.31640625" width="128" height="223"/>
         <element name="Question" positionX="-490.75390625" positionY="-0.94140625" width="128" height="193"/>
         <element name="Answer" positionX="-661.83984375" positionY="-2.1640625" width="128" height="103"/>
         <element name="Category" positionX="-663.328125" positionY="164.1875" width="128" height="88"/>
