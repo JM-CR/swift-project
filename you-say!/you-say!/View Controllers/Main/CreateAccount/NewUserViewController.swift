@@ -20,8 +20,8 @@ class NewUserViewController: UIViewController {
     @IBOutlet weak var datePicker: UIDatePicker!
     
     // MARK:  Properties
-    
-    var gender: String? = nil
+
+    var gender: String?
     
     
     // MARK: - View Life Cycle
@@ -187,7 +187,7 @@ class NewUserViewController: UIViewController {
      - Parameter sender: View controller that presents.
      */
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "muestraDetalle" {
+        if segue.identifier == "genderSegue" {
             // Pass data to destination
             let genderVC = segue.destination as! GenderViewController
             genderVC.delegate = self

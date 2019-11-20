@@ -10,11 +10,9 @@ import UIKit
 
 class GenderViewController: UIViewController {
 
-    // MARK: - Outlets
+    // MARK: - Properties
     
-    
-    // MARK: Properties
-    
+    var gender: String!
     weak var delegate: GenderDelegate?
     
     
@@ -23,5 +21,38 @@ class GenderViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
+    
+    
+    // MARK: - Actions
 
+    /**
+     Informs to newUserVC that male was selected.
+     
+     - Parameter sender: Button that triggered the action.
+     */
+    @IBAction func maleButtonPressed(_ sender: UIButton) {
+        self.delegate?.readyToProcess(value: "M")
+        dismiss(animated: true, completion: nil)
+    }
+    
+    /**
+     Informs to newUserVC that female was selected.
+     
+     - Parameter sender: Button that triggered the action.
+     */
+    @IBAction func femaleButtonPressed(_ sender: UIButton) {
+        self.delegate?.readyToProcess(value: "F")
+        dismiss(animated: true, completion: nil)
+    }
+    
+    /**
+     Informs to newUserVC that other was selected.
+     
+     - Parameter sender: Button that triggered the action.
+     */
+    @IBAction func otherButtonPressed(_ sender: UIButton) {
+        self.delegate?.readyToProcess(value: "N")
+        dismiss(animated: true, completion: nil)
+    }
+    
 }
