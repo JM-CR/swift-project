@@ -10,4 +10,6 @@ import Foundation
 
 enum InputError: Error {
     case EmptyField(description: String)
+    case GenderNotChosen(description: String)
+    case UnderMinimumAge(description: String)
 }

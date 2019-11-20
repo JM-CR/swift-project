@@ -10,6 +10,16 @@ import UIKit
 
 class GenderViewController: UIViewController {
 
+    // MARK: - Outlets
+    
+    
+    // MARK: Properties
+    
+    weak var delegate: GenderDelegate?
+    
+    
+    // MARK: - View Life Cycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }

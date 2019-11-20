@@ -279,7 +279,7 @@
                                                         <rect key="frame" x="0.0" y="240" width="382" height="45"/>
                                                         <nil key="textColor"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                        <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
+                                                        <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="new-password"/>
                                                     </textField>
                                                 </subviews>
                                             </stackView>
@@ -293,7 +293,7 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
-                                            <segue destination="3ec-H3-hn1" kind="showDetail" id="rQV-qJ-igq"/>
+                                            <segue destination="3ec-H3-hn1" kind="showDetail" identifier="genderSegue" id="rQV-qJ-igq"/>
                                         </connections>
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="bAc-GZ-Ak9">

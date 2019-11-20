@@ -35,6 +35,7 @@ class NewUserViewController: UIViewController {
         // Initial setup
         setupDelegates()
         setupGestures()
+        setupViews()
     }
     
     // MARK: Setup
@@ -57,6 +58,14 @@ class NewUserViewController: UIViewController {
         // Remove keyboard
         let tap = UITapGestureRecognizer(target: self, action: #selector(didTapView))
         self.view.addGestureRecognizer(tap)
+    }
+    
+    /**
+     Configures initial values for views in the form.
+     */
+    private func setupViews() {
+        let today = Date()
+        self.datePicker.maximumDate = today
     }
     
     // MARK: Gestures
@@ -88,10 +97,21 @@ class NewUserViewController: UIViewController {
      */
     @IBAction func createButtonPressed(_ sender: UIButton) {
         do {
+            // Validate input data
             try validateTextFields()
+            try validateGender()
+            try validateAge()
             self.view.endEditing(true)
+            
+            // Create user
+            
+            
         } catch InputError.EmptyField(let description) {
             showAlert(title: "Campo inválido", message: description)
+        } catch InputError.GenderNotChosen(let description) {
+            showAlert(title: "Elige un sexo", message: description)
+        } catch InputError.UnderMinimumAge(let description) {
+            showAlert(title: "Eres menor de edad", message: description)
         } catch { }
     }
     
@@ -103,7 +123,7 @@ class NewUserViewController: UIViewController {
      
      - Throws: InputError.EmptyField
      */
-    func validateTextFields() throws {
+    private func validateTextFields() throws {
         // Validate name
         guard let name = self.textFieldName.text, !name.isEmpty else {
             throw InputError.EmptyField(description: "Debes introducir un nombre.")
@@ -124,8 +144,36 @@ class NewUserViewController: UIViewController {
             throw InputError.EmptyField(description: "Debes introducir una contraseña.")
         }
         
-        guard password.count < 8 else {
-            throw InputError.EmptyField(description: "Tu contraseña debe tener 8 caracteres mínimo.")
+        guard password.count > 7 else {
+            throw InputError.EmptyField(description: "Tu contraseña debe tener 8 caracteres como mínimo.")
+        }
+    }
+    
+    /**
+     Validate the selected gender by the user.
+     
+     - Throws: InputError.GenderNotChosen
+     */
+    private func validateGender() throws {
+        guard let _ = self.gender else {
+            throw InputError.GenderNotChosen(description: "")
+        }
+    }
+    
+    
+    /**
+     Validate if the user has a minimum of 18 years.
+     */
+    private func validateAge() throws {
+        // Calculate years from birth date
+        let dateOfBirth = self.datePicker.date
+        let today = Date()
+        let gregorian = Calendar(identifier: Calendar.Identifier.gregorian)
+        let age = gregorian.dateComponents([.year], from: dateOfBirth, to: today)
+        
+        // Validate
+        guard let years = age.year, years >= 18 else {
+            throw InputError.UnderMinimumAge(description: "Para usar la aplicación debes ser mayor de edad.")
         }
     }
     
@@ -133,10 +181,17 @@ class NewUserViewController: UIViewController {
     // MARK: - Navigation
 
     /**
+     Prepares the controller to perform the segue.
      
+     - Parameter segue: Segue's type.
+     - Parameter sender: View controller that presents.
      */
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
+        if segue.identifier == "muestraDetalle" {
+            // Pass data to destination
+            let genderVC = segue.destination as! GenderViewController
+            genderVC.delegate = self
+        }
     }
 
 }
@@ -153,4 +208,17 @@ extension NewUserViewController: UITextFieldDelegate {
         self.view.endEditing(true)
         return true
     }
+}
+
+extension NewUserViewController: GenderDelegate {
+    
+    /**
+     Update the content for the gender's variable.
+     
+     - Parameter value: Chosen gender.
+     */
+    func readyToProcess(value: String) {
+        self.gender = value
+    }
+    
 }
