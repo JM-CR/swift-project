@@ -11,26 +11,30 @@ import CoreData
 
 class NavigationViewController: UITabBarController {
 
-    // MARK: - Core Data
+    // MARK: - Properties
+    
+    let categories = [
+        "Animales",
+        "Arte",
+        "Ciencia",
+        "Comida",
+        "Diversión",
+        "Entretenimiento",
+        "Familia",
+        "Filosofía",
+        "Finanzas",
+        "Libros",
+        "Música",
+        "Psicología",
+        "Relaciones",
+        "Salud",
+        "Tecnología",
+        "Trabajo",
+        "Viajes"
+    ]
+    
+    // MARK: Core Data
     
     var viewContext: NSManagedObjectContext!
-    
-    
-    // MARK: - View Life Cycle
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

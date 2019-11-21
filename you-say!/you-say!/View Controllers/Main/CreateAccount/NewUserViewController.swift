@@ -47,7 +47,7 @@ class NewUserViewController: UIViewController, NSFetchedResultsControllerDelegat
     // MARK: - View Life Cycle
     
     /**
-     Perform an action after the view is instantiated.
+     Initial setup for the controller.
      */
     override func viewDidLoad() {
         super.viewDidLoad()
