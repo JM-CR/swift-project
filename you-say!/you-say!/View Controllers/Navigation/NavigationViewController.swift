@@ -7,13 +7,19 @@
 //
 
 import UIKit
+import CoreData
 
 class NavigationViewController: UITabBarController {
 
+    // MARK: - Core Data
+    
+    var viewContext: NSManagedObjectContext!
+    
+    
+    // MARK: - View Life Cycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
     
 

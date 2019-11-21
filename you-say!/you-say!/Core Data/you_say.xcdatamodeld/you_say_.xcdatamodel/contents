@@ -6,10 +6,10 @@
         <attribute name="likes" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <relationship name="question" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Question" inverseName="answers" inverseEntity="Question" syncable="YES"/>
     </entity>
-    <entity name="Category" representedClassName="Category" syncable="YES" codeGenerationType="class">
+    <entity name="Filters" representedClassName="Filters" syncable="YES" codeGenerationType="class">
+        <attribute name="category" attributeType="String" syncable="YES"/>
         <attribute name="status" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="topic" attributeType="String" syncable="YES"/>
-        <relationship name="questions" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Question" inverseName="category" inverseEntity="Question" syncable="YES"/>
+        <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="filters" inverseEntity="User" syncable="YES"/>
     </entity>
     <entity name="Login" representedClassName="Login" syncable="YES" codeGenerationType="class">
         <attribute name="createdAt" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
@@ -23,6 +23,7 @@
         <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="notifications" inverseEntity="User" syncable="YES"/>
     </entity>
     <entity name="Question" representedClassName="Question" syncable="YES" codeGenerationType="class">
+        <attribute name="category" attributeType="String" syncable="YES"/>
         <attribute name="content" attributeType="String" syncable="YES"/>
         <attribute name="createdAt" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="id" attributeType="UUID" usesScalarValueType="NO" syncable="YES"/>
@@ -31,7 +32,6 @@
         <attribute name="longitude" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="reports" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <relationship name="answers" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Answer" inverseName="question" inverseEntity="Answer" syncable="YES"/>
-        <relationship name="category" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Category" inverseName="questions" inverseEntity="Category" syncable="YES"/>
         <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="questions" inverseEntity="User" syncable="YES"/>
     </entity>
     <entity name="User" representedClassName="User" syncable="YES" codeGenerationType="class">
@@ -44,16 +44,17 @@
         <attribute name="latitude" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="longitude" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="name" attributeType="String" syncable="YES"/>
+        <relationship name="filters" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Filters" inverseName="user" inverseEntity="Filters" syncable="YES"/>
         <relationship name="login" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Login" inverseName="user" inverseEntity="Login" syncable="YES"/>
         <relationship name="notifications" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Notification" inverseName="user" inverseEntity="Notification" syncable="YES"/>
         <relationship name="questions" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Question" inverseName="user" inverseEntity="Question" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Login" positionX="-120.03515625" positionY="-60.59375" width="128" height="103"/>
-        <element name="User" positionX="-297.25390625" positionY="-105.31640625" width="128" height="223"/>
-        <element name="Question" positionX="-490.75390625" positionY="-0.94140625" width="128" height="193"/>
         <element name="Answer" positionX="-661.83984375" positionY="-2.1640625" width="128" height="103"/>
-        <element name="Category" positionX="-663.328125" positionY="164.1875" width="128" height="88"/>
-        <element name="Notification" positionX="-490.7265625" positionY="-156.1328125" width="128" height="88"/>
+        <element name="Filters" positionX="-127.44921875" positionY="-71.34375" width="128" height="88"/>
+        <element name="Login" positionX="-127.17578125" positionY="79.09765625" width="128" height="103"/>
+        <element name="Notification" positionX="-489.5546875" positionY="-136.06640625" width="128" height="88"/>
+        <element name="Question" positionX="-490.89453125" positionY="10.49609375" width="128" height="193"/>
+        <element name="User" positionX="-297.25390625" positionY="-105.31640625" width="128" height="238"/>
     </elements>
 </model>

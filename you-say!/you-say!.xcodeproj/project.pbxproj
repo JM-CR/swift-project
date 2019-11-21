@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CA2F544623861F04009C1841 /* LoginError.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA2F544523861F04009C1841 /* LoginError.swift */; };
 		CA3C391C23837ECA00F4CDE5 /* NavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3C391B23837ECA00F4CDE5 /* NavigationViewController.swift */; };
 		CA3C391F23837F5000F4CDE5 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3C391E23837F5000F4CDE5 /* CoreDataManager.swift */; };
 		CA3C392323843F3700F4CDE5 /* Navigation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA3C392223843F3700F4CDE5 /* Navigation.storyboard */; };
@@ -15,7 +16,7 @@
 		CA3C392B2384425100F4CDE5 /* Principal.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA3C392A2384425100F4CDE5 /* Principal.storyboard */; };
 		CA3C393023844DC600F4CDE5 /* DesignableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3C392F23844DC600F4CDE5 /* DesignableView.swift */; };
 		CA3C39362384AF6200F4CDE5 /* GenderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3C39352384AF6200F4CDE5 /* GenderViewController.swift */; };
-		CA3C393A2384B4D300F4CDE5 /* InputError.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3C39392384B4D300F4CDE5 /* InputError.swift */; };
+		CA3C393A2384B4D300F4CDE5 /* NewUserError.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3C39392384B4D300F4CDE5 /* NewUserError.swift */; };
 		CA3C393E2384C97200F4CDE5 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3C393D2384C97200F4CDE5 /* UIViewController.swift */; };
 		CA3C39402384D31E00F4CDE5 /* GenderDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3C393F2384D31E00F4CDE5 /* GenderDelegate.swift */; };
 		CA526D7A2368E43D003E396D /* MyAnswersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA526D792368E43D003E396D /* MyAnswersViewController.swift */; };
@@ -37,6 +38,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CA2F544523861F04009C1841 /* LoginError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginError.swift; sourceTree = "<group>"; };
 		CA3C391B23837ECA00F4CDE5 /* NavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationViewController.swift; sourceTree = "<group>"; };
 		CA3C391E23837F5000F4CDE5 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		CA3C392223843F3700F4CDE5 /* Navigation.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Navigation.storyboard; sourceTree = "<group>"; };
@@ -45,7 +47,7 @@
 		CA3C392A2384425100F4CDE5 /* Principal.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Principal.storyboard; sourceTree = "<group>"; };
 		CA3C392F23844DC600F4CDE5 /* DesignableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignableView.swift; sourceTree = "<group>"; };
 		CA3C39352384AF6200F4CDE5 /* GenderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderViewController.swift; sourceTree = "<group>"; };
-		CA3C39392384B4D300F4CDE5 /* InputError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputError.swift; sourceTree = "<group>"; };
+		CA3C39392384B4D300F4CDE5 /* NewUserError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewUserError.swift; sourceTree = "<group>"; };
 		CA3C393D2384C97200F4CDE5 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		CA3C393F2384D31E00F4CDE5 /* GenderDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderDelegate.swift; sourceTree = "<group>"; };
 		CA526D792368E43D003E396D /* MyAnswersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAnswersViewController.swift; sourceTree = "<group>"; };
@@ -197,7 +199,8 @@
 		CA3C39382384B4A000F4CDE5 /* Errors */ = {
 			isa = PBXGroup;
 			children = (
-				CA3C39392384B4D300F4CDE5 /* InputError.swift */,
+				CA2F544523861F04009C1841 /* LoginError.swift */,
+				CA3C39392384B4D300F4CDE5 /* NewUserError.swift */,
 			);
 			path = Errors;
 			sourceTree = "<group>";
@@ -254,8 +257,9 @@
 				CA3C392123843E9900F4CDE5 /* Resources */,
 				CA3C391523837CF500F4CDE5 /* Storyboards */,
 				CA3C391423837CAF00F4CDE5 /* View Controllers */,
-				CA3C39382384B4A000F4CDE5 /* Errors */,
 				CA3C39202384323800F4CDE5 /* Extensions */,
+				CA3C39372384B31F00F4CDE5 /* Delegates */,
+				CA3C39382384B4A000F4CDE5 /* Errors */,
 				CA3C391D23837F0700F4CDE5 /* Core Data Manager */,
 				CA3C391723837D9700F4CDE5 /* Core Data */,
 			);
@@ -267,7 +271,6 @@
 			children = (
 				CAA9B0562368C61000B6016C /* LoginViewController.swift */,
 				CA3C39322384AD4800F4CDE5 /* CreateAccount */,
-				CA3C39372384B31F00F4CDE5 /* Delegates */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -358,7 +361,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CA526D7A2368E43D003E396D /* MyAnswersViewController.swift in Sources */,
-				CA3C393A2384B4D300F4CDE5 /* InputError.swift in Sources */,
+				CA3C393A2384B4D300F4CDE5 /* NewUserError.swift in Sources */,
 				CA526D7C2368E619003E396D /* NewQuestionViewController.swift in Sources */,
 				CA3C393E2384C97200F4CDE5 /* UIViewController.swift in Sources */,
 				CA526D7E2368E935003E396D /* MyAccountViewController.swift in Sources */,
@@ -377,6 +380,7 @@
 				CA3C391C23837ECA00F4CDE5 /* NavigationViewController.swift in Sources */,
 				CAA9B06D2368CFDB00B6016C /* GeneralViewController.swift in Sources */,
 				CA3C39402384D31E00F4CDE5 /* GenderDelegate.swift in Sources */,
+				CA2F544623861F04009C1841 /* LoginError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

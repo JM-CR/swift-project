@@ -34,7 +34,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
                 let initialViewController = storyboard.instantiateViewController(withIdentifier: "LoginVC") as! LoginViewController
-                initialViewController.coreDataManager = self.coreDataManager
+                initialViewController.viewContext = self.coreDataManager.viewContext
                 
                 // Show
                 self.window?.rootViewController = initialViewController

@@ -29,7 +29,7 @@ class NewUserViewController: UIViewController, NSFetchedResultsControllerDelegat
 
     // MARK: Core Data
     
-    var contextObject: NSManagedObjectContext?
+    var viewContext: NSManagedObjectContext!
     
     private var fetchedLogin: Login? {
         // Create request
@@ -39,7 +39,7 @@ class NewUserViewController: UIViewController, NSFetchedResultsControllerDelegat
         fetchRequest.predicate = NSPredicate(format: "email == %@", self.emailToSearch)
         
         // Get results
-        let fetchedResults = try? self.contextObject?.fetch(fetchRequest)
+        let fetchedResults = try? self.viewContext.fetch(fetchRequest)
         return fetchedResults?.count == 0 ? nil : fetchedResults?.first
     }
     
@@ -126,11 +126,11 @@ class NewUserViewController: UIViewController, NSFetchedResultsControllerDelegat
             // Create new account
             createUser()
             
-        } catch InputError.EmptyField(let description) {
+        } catch NewUserError.EmptyField(let description) {
             showAlert(title: "Campo inválido", message: description)
-        } catch InputError.GenderNotChosen(let description) {
+        } catch NewUserError.GenderNotChosen(let description) {
             showAlert(title: "Elige un sexo", message: description)
-        } catch InputError.UnderMinimumAge(let description) {
+        } catch NewUserError.UnderMinimumAge(let description) {
             showAlert(title: "Eres menor de edad", message: description)
         } catch { }
     }
@@ -141,51 +141,53 @@ class NewUserViewController: UIViewController, NSFetchedResultsControllerDelegat
     /**
      Validate the data introduced by the user in the textfields.
      
-     - Throws: InputError.EmptyField
+     - Throws: NewUserError.EmptyField
      */
     private func validateTextFields() throws {
         // Validate name
         guard let name = self.textFieldName.text, !name.isEmpty else {
-            throw InputError.EmptyField(description: "Debes introducir un nombre.")
+            throw NewUserError.EmptyField(description: "Debes introducir un nombre.")
         }
         
         // Validate last name
         guard let lastName = self.textFieldLastName.text, !lastName.isEmpty else {
-            throw InputError.EmptyField(description: "Debes introducir un apellido.")
+            throw NewUserError.EmptyField(description: "Debes introducir un apellido.")
         }
         
         // Validate email
         guard let email = self.textFieldEmail.text, !email.isEmpty else {
-            throw InputError.EmptyField(description: "Debes introducir un correo.")
+            throw NewUserError.EmptyField(description: "Debes introducir un correo.")
         }
         
         guard self.fetchedLogin == nil else {
-            throw InputError.EmptyField(description: "Un usuario ya se registró con ese correo.")
+            throw NewUserError.EmptyField(description: "Un usuario ya se registró con ese correo.")
         }
         
         // Validate password
         guard let password = self.textFieldPassword.text, !password.isEmpty else {
-            throw InputError.EmptyField(description: "Debes introducir una contraseña.")
+            throw NewUserError.EmptyField(description: "Debes introducir una contraseña.")
         }
         
         guard password.count > 7 else {
-            throw InputError.EmptyField(description: "Tu contraseña debe tener 8 caracteres como mínimo.")
+            throw NewUserError.EmptyField(description: "Tu contraseña debe tener 8 caracteres como mínimo.")
         }
     }
     
     /**
      Validate the selected gender by the user.
      
-     - Throws: InputError.GenderNotChosen
+     - Throws: NewUserError.GenderNotChosen
      */
     private func validateGender() throws {
         guard let _ = self.gender else {
-            throw InputError.GenderNotChosen(description: "")
+            throw NewUserError.GenderNotChosen(description: "")
         }
     }
     
     /**
      Validate if the user has a minimum of 18 years.
+     
+     - Throws: NewUserError.UnderMinimumAge
      */
     private func validateAge() throws {
         // Calculate years from birth date
@@ -196,7 +198,7 @@ class NewUserViewController: UIViewController, NSFetchedResultsControllerDelegat
         
         // Validate
         guard let years = age.year, years >= 18 else {
-            throw InputError.UnderMinimumAge(description: "Para usar la aplicación debes ser mayor de edad.")
+            throw NewUserError.UnderMinimumAge(description: "Para usar la aplicación debes ser mayor de edad.")
         }
     }
     
@@ -207,16 +209,14 @@ class NewUserViewController: UIViewController, NSFetchedResultsControllerDelegat
      Adds a new account to Core Data.
      */
     private func createUser() {
-        guard let contextObject = self.contextObject else { return }
-        
         // Create credentials for user
-        let login = Login(context: contextObject)
+        let login = Login(context: self.viewContext)
         login.email = self.textFieldEmail.text
         login.password = self.textFieldPassword.text
         login.createdAt = Date()
         
         // Create user account
-        let user = User(context: contextObject)
+        let user = User(context: self.viewContext)
         user.name = self.textFieldName.text
         user.lastName = self.textFieldLastName.text
         user.alias = self.textFieldAlias.text
@@ -229,8 +229,8 @@ class NewUserViewController: UIViewController, NSFetchedResultsControllerDelegat
         
         // Save
         do {
-            try contextObject.save()
-            showAlert(title: "Ya puedes iniciar sesión", message: "") {
+            try self.viewContext.save()
+            showAlert(title: "Usuario creado con éxito", message: "Ya puedes iniciar sesión.") {
                 self.dismiss(animated: true, completion: nil)
             }
         } catch {

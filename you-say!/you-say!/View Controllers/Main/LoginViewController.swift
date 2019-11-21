@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class LoginViewController: UIViewController {
 
@@ -15,9 +16,31 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var textFieldEmail: UITextField!
     @IBOutlet weak var textFieldPassword: UITextField!
     
+    // MARK: Properties
+    
+    var emailToAuth: String {
+        return self.textFieldEmail.text!
+    }
+    
+    var passwordToAuth: String {
+        return self.textFieldPassword.text!
+    }
+    
     // MARK: Core Data
     
-    var coreDataManager: CoreDataManager?
+    var viewContext: NSManagedObjectContext!
+    
+    private var fetchedLogin: Login? {
+        // Create request
+        let fetchRequest: NSFetchRequest<Login> = Login.fetchRequest()
+        
+        // Configure request
+        fetchRequest.predicate = NSPredicate(format: "email == %@", self.emailToAuth)
+        
+        // Get results
+        let fetchedResults = try? self.viewContext.fetch(fetchRequest)
+        return fetchedResults?.count == 0 ? nil : fetchedResults?.first
+    }
     
     
     // MARK: - View Life Cycle
@@ -59,7 +82,52 @@ class LoginViewController: UIViewController {
     }
     
     
+    // MARK: - Auth
+    
+    /**
+     Searchs the user in the persistent store.
+     
+     - Throws: LoginError.InvalidUser
+     */
+    private func validateCredentials() throws {
+        guard let fetchedLogin = self.fetchedLogin else {
+            throw LoginError.InvalidUser(description: "El usuario no existe.")
+        }
+        
+        guard fetchedLogin.password == self.passwordToAuth else {
+            throw LoginError.InvalidUser(description: "Contraseña incorrecta.")
+        }
+    }
+    
+    
     // MARK: - Navigation
+    
+    /**
+     Authenticates the user if correct credentials are introduced.
+     
+     - Parameter segue: Segue's type.
+     - Parameter sender: View controller that presents.
+     */
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        // Flag that validates the segue
+        var flag = true
+        
+        // Check auth
+        if identifier == "authSegue" {
+            do {
+                // Try to authenticate
+                try validateCredentials()
+                
+            } catch LoginError.InvalidUser(let description) {
+                showAlert(title: "No fue posible iniciar sesión", message: description)
+                flag.toggle()
+            } catch {
+                flag.toggle()
+            }
+        }
+        
+        return flag
+    }
     
     /**
      Prepares the controller to perform the segue.
@@ -68,13 +136,19 @@ class LoginViewController: UIViewController {
      - Parameter sender: View controller that presents.
      */
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "createAccountSegue" {
-            // Validate Core Data
-            guard let coreDataManager = self.coreDataManager else { return }
-            
+        switch segue.identifier {
+        case "createAccountSegue":
             // Pass data to destination
             let newUserVC = segue.destination as! NewUserViewController
-            newUserVC.contextObject = coreDataManager.viewContext
+            newUserVC.viewContext = self.viewContext
+            
+        case "authSegue":
+            // Pass data to destination
+            let navigationVC = segue.destination as! NavigationViewController
+            navigationVC.viewContext = self.viewContext
+            
+        default:
+            return
         }
     }
     

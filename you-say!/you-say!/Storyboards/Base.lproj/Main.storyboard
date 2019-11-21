@@ -127,7 +127,7 @@
                                                     <userDefinedRuntimeAttribute type="string" keyPath="cornerRadius" value="25"/>
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
-                                                    <segue destination="Ma0-X1-FFe" kind="presentation" id="BMg-EV-AR6"/>
+                                                    <segue destination="Ma0-X1-FFe" kind="presentation" identifier="authSegue" id="BMg-EV-AR6"/>
                                                 </connections>
                                             </button>
                                         </subviews>
