@@ -15,6 +15,10 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var textFieldEmail: UITextField!
     @IBOutlet weak var textFieldPassword: UITextField!
     
+    // MARK: Core Data
+    
+    var coreDataManager: CoreDataManager?
+    
     
     // MARK: - View Life Cycle
     
@@ -45,13 +49,33 @@ class LoginViewController: UIViewController {
         self.view.addGestureRecognizer(tap)
     }
     
-    // MARK:  Gestures
+    // MARK: Gestures
     
     /**
      Hides the keyboard when the user taps on the screen.
      */
     @objc func didTapView(){
         self.view.endEditing(true)
+    }
+    
+    
+    // MARK: - Navigation
+    
+    /**
+     Prepares the controller to perform the segue.
+     
+     - Parameter segue: Segue's type.
+     - Parameter sender: View controller that presents.
+     */
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "createAccountSegue" {
+            // Validate Core Data
+            guard let coreDataManager = self.coreDataManager else { return }
+            
+            // Pass data to destination
+            let newUserVC = segue.destination as! NewUserViewController
+            newUserVC.contextObject = coreDataManager.viewContext
+        }
     }
     
 }

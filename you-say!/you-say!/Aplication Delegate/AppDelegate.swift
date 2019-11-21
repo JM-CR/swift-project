@@ -11,11 +11,39 @@ import UIKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
+    // MARK: - Properties
+    
     var window: UIWindow?
+    
+    // MARK: Core Data
+    
+    let coreDataManager = CoreDataManager(name: "you_say")
 
 
+    // MARK: - App Life Cycle
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch
+        // Load persistent store
+        self.coreDataManager.loadPersistentStores { (persistentStoreDescription, error) in
+            if error == nil {
+                // Register Core Data with the App Delegate
+                self.coreDataManager.setupNotificationHandling()
+                
+                // Send manager to the first VC
+                self.window = self.window ?? UIWindow(frame: UIScreen.main.bounds)
+                
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let initialViewController = storyboard.instantiateViewController(withIdentifier: "LoginVC") as! LoginViewController
+                initialViewController.coreDataManager = self.coreDataManager
+                
+                // Show
+                self.window?.rootViewController = initialViewController
+                self.window?.makeKeyAndVisible()
+            } else {
+                
+            }
+        }
+        
         return true
     }
 

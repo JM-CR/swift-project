@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import CoreData
 
-class NewUserViewController: UIViewController {
+class NewUserViewController: UIViewController, NSFetchedResultsControllerDelegate {
     
     // MARK: - Outlets
     
@@ -22,6 +23,25 @@ class NewUserViewController: UIViewController {
     // MARK:  Properties
 
     var gender: String?
+    var emailToSearch: String {
+        return self.textFieldEmail.text!
+    }
+
+    // MARK: Core Data
+    
+    var contextObject: NSManagedObjectContext?
+    
+    private var fetchedLogin: Login? {
+        // Create request
+        let fetchRequest: NSFetchRequest<Login> = Login.fetchRequest()
+        
+        // Configure request
+        fetchRequest.predicate = NSPredicate(format: "email == %@", self.emailToSearch)
+        
+        // Get results
+        let fetchedResults = try? self.contextObject?.fetch(fetchRequest)
+        return fetchedResults?.count == 0 ? nil : fetchedResults?.first
+    }
     
     
     // MARK: - View Life Cycle
@@ -103,8 +123,8 @@ class NewUserViewController: UIViewController {
             try validateAge()
             self.view.endEditing(true)
             
-            // Create user
-            
+            // Create new account
+            createUser()
             
         } catch InputError.EmptyField(let description) {
             showAlert(title: "Campo inválido", message: description)
@@ -139,6 +159,10 @@ class NewUserViewController: UIViewController {
             throw InputError.EmptyField(description: "Debes introducir un correo.")
         }
         
+        guard self.fetchedLogin == nil else {
+            throw InputError.EmptyField(description: "Un usuario ya se registró con ese correo.")
+        }
+        
         // Validate password
         guard let password = self.textFieldPassword.text, !password.isEmpty else {
             throw InputError.EmptyField(description: "Debes introducir una contraseña.")
@@ -160,7 +184,6 @@ class NewUserViewController: UIViewController {
         }
     }
     
-    
     /**
      Validate if the user has a minimum of 18 years.
      */
@@ -174,6 +197,44 @@ class NewUserViewController: UIViewController {
         // Validate
         guard let years = age.year, years >= 18 else {
             throw InputError.UnderMinimumAge(description: "Para usar la aplicación debes ser mayor de edad.")
+        }
+    }
+    
+    
+    // MARK: - User Creation
+    
+    /**
+     Adds a new account to Core Data.
+     */
+    private func createUser() {
+        guard let contextObject = self.contextObject else { return }
+        
+        // Create credentials for user
+        let login = Login(context: contextObject)
+        login.email = self.textFieldEmail.text
+        login.password = self.textFieldPassword.text
+        login.createdAt = Date()
+        
+        // Create user account
+        let user = User(context: contextObject)
+        user.name = self.textFieldName.text
+        user.lastName = self.textFieldLastName.text
+        user.alias = self.textFieldAlias.text
+        user.gender = self.gender
+        user.birthDate = self.datePicker.date
+        user.id = UUID()
+        
+        // Link between model objects
+        user.login = login
+        
+        // Save
+        do {
+            try contextObject.save()
+            showAlert(title: "Ya puedes iniciar sesión", message: "") {
+                self.dismiss(animated: true, completion: nil)
+            }
+        } catch {
+            showAlert(title: "Intenta más tarde", message: "Hubo un error al crear tu cuenta")
         }
     }
     

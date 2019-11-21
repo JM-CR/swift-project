@@ -155,7 +155,7 @@
                                                             <color key="titleColor" red="0.28235294117647058" green="0.66274509803921566" blue="0.59999999999999998" alpha="0.84705882352941175" colorSpace="calibratedRGB"/>
                                                         </state>
                                                         <connections>
-                                                            <segue destination="gkC-wR-BBd" kind="show" id="XRY-sJ-mjc"/>
+                                                            <segue destination="gkC-wR-BBd" kind="show" identifier="createAccountSegue" id="XRY-sJ-mjc"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
