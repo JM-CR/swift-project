@@ -18,34 +18,42 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Opciones para nueva pregunta" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f9p-we-gMy">
-                                <rect key="frame" x="89.5" y="422" width="235" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mapa de localización incrustado" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nEc-e8-YwA">
-                                <rect key="frame" x="84" y="106" width="246" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" rotateEnabled="NO" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hdx-4G-mhq">
+                                <rect key="frame" x="0.0" y="44" width="414" height="747.5"/>
+                            </mapView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="GC3-Ga-8vo">
+                                <rect key="frame" x="0.0" y="792.5" width="414" height="20.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="248" verticalCompressionResistancePriority="749" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FWy-IX-4oo">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="i36-Gn-2cd" firstAttribute="bottom" secondItem="f9p-we-gMy" secondAttribute="bottom" constant="370" id="71b-P5-Y3e"/>
-                            <constraint firstItem="nEc-e8-YwA" firstAttribute="top" secondItem="i36-Gn-2cd" secondAttribute="top" constant="62" id="NoE-aF-8Qm"/>
-                            <constraint firstItem="nEc-e8-YwA" firstAttribute="centerX" secondItem="UWw-4r-Wep" secondAttribute="centerX" id="amc-x0-GjL"/>
-                            <constraint firstItem="nEc-e8-YwA" firstAttribute="centerX" secondItem="f9p-we-gMy" secondAttribute="centerX" id="hK7-kY-hUT"/>
+                            <constraint firstItem="GC3-Ga-8vo" firstAttribute="leading" secondItem="i36-Gn-2cd" secondAttribute="leading" id="FJn-AM-nJb"/>
+                            <constraint firstItem="GC3-Ga-8vo" firstAttribute="trailing" secondItem="i36-Gn-2cd" secondAttribute="trailing" id="LvV-Hb-xLk"/>
+                            <constraint firstItem="GC3-Ga-8vo" firstAttribute="top" secondItem="hdx-4G-mhq" secondAttribute="bottom" constant="1" id="QZc-d5-4xX"/>
+                            <constraint firstItem="hdx-4G-mhq" firstAttribute="leading" secondItem="i36-Gn-2cd" secondAttribute="leading" id="QhX-4o-QSQ"/>
+                            <constraint firstItem="hdx-4G-mhq" firstAttribute="trailing" secondItem="i36-Gn-2cd" secondAttribute="trailing" id="ZDc-hP-s4m"/>
+                            <constraint firstItem="GC3-Ga-8vo" firstAttribute="bottom" secondItem="i36-Gn-2cd" secondAttribute="bottom" id="cWZ-2Z-jyh"/>
+                            <constraint firstItem="hdx-4G-mhq" firstAttribute="top" secondItem="i36-Gn-2cd" secondAttribute="top" id="jBz-Ea-zy7"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="i36-Gn-2cd"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="Evw-QX-mF8"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="mapView" destination="hdx-4G-mhq" id="uyr-bs-Rrd"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kxm-8P-p4f" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2446" y="526"/>
+            <point key="canvasLocation" x="-2446.376811594203" y="525.66964285714289"/>
         </scene>
     </scenes>
 </document>

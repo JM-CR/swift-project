@@ -109,7 +109,7 @@ extension FiltersViewController: UITableViewDelegate {
             // Remove filter
             let filterObjects = self.currentUser.filters as! Set<Filter>
             let filterToDelete = filterObjects.filter { $0.category == self.categories[indexPath.row] }.first!
-            self.currentUser.removeFromFilters(filterToDelete)
+            self.currentUser.managedObjectContext!.delete(filterToDelete)
         }
     }
     
