@@ -6,9 +6,8 @@
         <attribute name="likes" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <relationship name="question" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Question" inverseName="answers" inverseEntity="Question" syncable="YES"/>
     </entity>
-    <entity name="Filters" representedClassName="Filters" syncable="YES" codeGenerationType="class">
+    <entity name="Filter" representedClassName="Filter" syncable="YES" codeGenerationType="class">
         <attribute name="category" attributeType="String" syncable="YES"/>
-        <attribute name="status" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
         <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="filters" inverseEntity="User" syncable="YES"/>
     </entity>
     <entity name="Login" representedClassName="Login" syncable="YES" codeGenerationType="class">
@@ -44,17 +43,17 @@
         <attribute name="latitude" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="longitude" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="name" attributeType="String" syncable="YES"/>
-        <relationship name="filters" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Filters" inverseName="user" inverseEntity="Filters" syncable="YES"/>
+        <relationship name="filters" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Filter" inverseName="user" inverseEntity="Filter" syncable="YES"/>
         <relationship name="login" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Login" inverseName="user" inverseEntity="Login" syncable="YES"/>
         <relationship name="notifications" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Notification" inverseName="user" inverseEntity="Notification" syncable="YES"/>
         <relationship name="questions" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Question" inverseName="user" inverseEntity="Question" syncable="YES"/>
     </entity>
     <elements>
         <element name="Answer" positionX="-661.83984375" positionY="-2.1640625" width="128" height="103"/>
-        <element name="Filters" positionX="-127.44921875" positionY="-71.34375" width="128" height="88"/>
+        <element name="Filter" positionX="-127.44921875" positionY="-71.34375" width="128" height="73"/>
         <element name="Login" positionX="-127.17578125" positionY="79.09765625" width="128" height="103"/>
         <element name="Notification" positionX="-489.5546875" positionY="-136.06640625" width="128" height="88"/>
         <element name="Question" positionX="-490.89453125" positionY="10.49609375" width="128" height="193"/>
-        <element name="User" positionX="-297.25390625" positionY="-105.31640625" width="128" height="238"/>
+        <element name="User" positionX="-297.25390625" positionY="-106.31640625" width="128" height="238"/>
     </elements>
 </model>

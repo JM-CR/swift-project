@@ -18,7 +18,6 @@ class NavigationViewController: UITabBarController {
         "Arte",
         "Ciencia",
         "Comida",
-        "Diversión",
         "Entretenimiento",
         "Familia",
         "Filosofía",
@@ -33,8 +32,8 @@ class NavigationViewController: UITabBarController {
         "Viajes"
     ]
     
-    // MARK: Core Data
+    // MARK: Core Data Model
     
-    var viewContext: NSManagedObjectContext!
+    var currentUser: User!
 
 }

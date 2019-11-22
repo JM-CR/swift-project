@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		CA2F544623861F04009C1841 /* LoginError.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA2F544523861F04009C1841 /* LoginError.swift */; };
+		CA2F54482387263D009C1841 /* FilterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA2F54472387263D009C1841 /* FilterTableViewCell.swift */; };
 		CA3C391C23837ECA00F4CDE5 /* NavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3C391B23837ECA00F4CDE5 /* NavigationViewController.swift */; };
 		CA3C391F23837F5000F4CDE5 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3C391E23837F5000F4CDE5 /* CoreDataManager.swift */; };
 		CA3C392323843F3700F4CDE5 /* Navigation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA3C392223843F3700F4CDE5 /* Navigation.storyboard */; };
@@ -39,6 +40,7 @@
 
 /* Begin PBXFileReference section */
 		CA2F544523861F04009C1841 /* LoginError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginError.swift; sourceTree = "<group>"; };
+		CA2F54472387263D009C1841 /* FilterTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterTableViewCell.swift; sourceTree = "<group>"; };
 		CA3C391B23837ECA00F4CDE5 /* NavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationViewController.swift; sourceTree = "<group>"; };
 		CA3C391E23837F5000F4CDE5 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		CA3C392223843F3700F4CDE5 /* Navigation.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Navigation.storyboard; sourceTree = "<group>"; };
@@ -81,6 +83,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CA2F5449238726B8009C1841 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				CA2F54472387263D009C1841 /* FilterTableViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		CA3C391423837CAF00F4CDE5 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -209,6 +219,7 @@
 			isa = PBXGroup;
 			children = (
 				CAA9B06F2368D2A700B6016C /* FiltersViewController.swift */,
+				CA2F5449238726B8009C1841 /* Cell */,
 			);
 			path = Filters;
 			sourceTree = "<group>";
@@ -377,6 +388,7 @@
 				CAA9B05D2368C61000B6016C /* you_say.xcdatamodeld in Sources */,
 				CAA9B06B2368C86500B6016C /* NewUserViewController.swift in Sources */,
 				CAA9B0552368C61000B6016C /* AppDelegate.swift in Sources */,
+				CA2F54482387263D009C1841 /* FilterTableViewCell.swift in Sources */,
 				CA3C391C23837ECA00F4CDE5 /* NavigationViewController.swift in Sources */,
 				CAA9B06D2368CFDB00B6016C /* GeneralViewController.swift in Sources */,
 				CA3C39402384D31E00F4CDE5 /* GenderDelegate.swift in Sources */,

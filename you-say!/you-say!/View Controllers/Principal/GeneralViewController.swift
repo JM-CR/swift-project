@@ -10,21 +10,31 @@ import UIKit
 
 class GeneralViewController: UIViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
     
-
-    /*
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    /**
+     Prepares the controller to perform the segue.
+     
+     - Parameter segue: Segue's type.
+     - Parameter sender: View controller that presents.
+     */
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        switch segue.identifier {
+        case "filterSegue":
+            // Get parent controller
+            guard let navigationVC = self.tabBarController as? NavigationViewController else {
+                return
+            }
+            
+            // Pass data to destination
+            let filtersVC = segue.destination as! FiltersViewController
+            filtersVC.currentUser = navigationVC.currentUser
+            filtersVC.categories = navigationVC.categories
+            
+        default:
+            return
+        }
     }
-    */
 
 }

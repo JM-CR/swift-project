@@ -30,6 +30,7 @@ class LoginViewController: UIViewController {
     
     var viewContext: NSManagedObjectContext!
     
+    private var authUser: User?
     private var fetchedLogin: Login? {
         // Create request
         let fetchRequest: NSFetchRequest<Login> = Login.fetchRequest()
@@ -100,6 +101,9 @@ class LoginViewController: UIViewController {
         guard fetchedLogin.password == self.passwordToAuth else {
             throw LoginError.InvalidUser(description: "Contraseña incorrecta.")
         }
+        
+        // Save authenticated user
+        self.authUser = fetchedLogin.user
     }
     
     
@@ -148,7 +152,7 @@ class LoginViewController: UIViewController {
         case "authSegue":
             // Pass data to destination
             let navigationVC = segue.destination as! NavigationViewController
-            navigationVC.viewContext = self.viewContext
+            navigationVC.currentUser = self.authUser
             
         default:
             return

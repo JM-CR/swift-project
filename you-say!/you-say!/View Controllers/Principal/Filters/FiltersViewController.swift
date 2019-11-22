@@ -7,27 +7,110 @@
 //
 
 import UIKit
+import CoreData
 
 class FiltersViewController: UIViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
+    // MARK: - Outlets
     
-    @IBAction func botonRegresarPresionado(_ sender: UIButton) {
+    @IBOutlet weak var tableView: UITableView!
+    
+    // MARK: Properties
+    
+    var categories: [String]!
+    
+    // MARK: Core Data
+    
+    var currentUser: User!
+    
+    
+    // MARK: - Actions
+    
+    /**
+     Returns to the generalVC.
+     
+     - Parameter sender: Button that triggered the action.
+     */
+    @IBAction func returnButtonPressed(_ sender: UIBarButtonItem) {
         dismiss(animated: true, completion: nil)
     }
     
-    /*
-    // MARK: - Navigation
+}
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+extension FiltersViewController: UITableViewDataSource {
+    
+    /**
+     Indicates the number of rows for a given section.
+     
+     - Parameter tableView: TableView object.
+     - Parameter section: Section to query.
+     - Returns: Total of rows for section.
+     */
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.categories.count
     }
-    */
+    
+    /**
+     Formats a cell in the tableView.
+     
+     - Parameter tableView: TableView object.
+     - Parameter indexPath: Current position of cell.
+     - Returns: Cell ready to display.
+     */
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        // Get reusable cell
+        let filterCell = tableView.dequeueReusableCell(withIdentifier: "filterCell", for: indexPath) as! FilterTableViewCell
+        
+        // Set up cell
+        filterCell.categoryDescription.text = self.categories[indexPath.row]
+        filterCell.categoryDescription.sizeToFit()
+        
+        // Check active filters
+        let filterObjects = self.currentUser.filters as! Set<Filter>
+        if (filterObjects.contains { $0.category == self.categories[indexPath.row] }) {
+            filterCell.accessoryType = .checkmark
+            tableView.selectRow(at: indexPath, animated: false, scrollPosition: .none)
+        }
+        
+        return filterCell
+    }
+    
+}
 
+extension FiltersViewController: UITableViewDelegate {
+
+    /**
+     Adds a checkmark when the row is selected.
+     
+     - Parameter tableView: TableView object.
+     - Parameter indexPath: Position of the selected cell.
+     */
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let filterCell = tableView.cellForRow(at: indexPath) {
+            filterCell.accessoryType = .checkmark
+            
+            // Add new filter
+            let newFilter = Filter(context: self.currentUser.managedObjectContext!)
+            newFilter.category = self.categories[indexPath.row]
+            self.currentUser.addToFilters(newFilter)
+        }
+    }
+    
+    /**
+     Removes the checkmark when the row is selected.
+     
+     - Parameter tableView: TableView object.
+     - Parameter indexPath: Position of the selected cell.
+     */
+    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+        if let filterCell = tableView.cellForRow(at: indexPath) {
+            filterCell.accessoryType = .none
+            
+            // Remove filter
+            let filterObjects = self.currentUser.filters as! Set<Filter>
+            let filterToDelete = filterObjects.filter { $0.category == self.categories[indexPath.row] }.first!
+            self.currentUser.removeFromFilters(filterToDelete)
+        }
+    }
+    
 }
