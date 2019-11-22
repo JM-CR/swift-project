@@ -10,19 +10,16 @@ import UIKit
 import CoreLocation
 import MapKit
 
-class NewQuestionViewController: UIViewController {
+class LocationViewController: UIViewController {
 
     // MARK: - Outlets
     
     @IBOutlet weak var mapView: MKMapView!
-    
-    // MARK: Properties
 
-    var selectedCoordinate: CLLocationCoordinate2D!
-    
     // MARK: Core Location
     
     var locationManager = CLLocationManager()
+    var selectedCoordinate: CLLocationCoordinate2D!
     
     
     // MARK: - View Life Cycle
@@ -98,14 +95,27 @@ class NewQuestionViewController: UIViewController {
      - Parameter sender: View controller that presents.
      */
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
+        switch segue.identifier {
+        case "createSegue":
+            // Get parent controller
+            guard let navigationVC = self.tabBarController as? NavigationViewController else { return }
+            
+            // Pass data to destination
+            let createVC = segue.destination as! CreateQuestionViewController
+            createVC.currentUser = navigationVC.currentUser
+            createVC.categories = navigationVC.categories
+            createVC.selectedCoordinate = self.selectedCoordinate
+            
+        default:
+            return
+        }
     }
 
 }
 
 // MARK: - CoreLocation Delegate
 
-extension NewQuestionViewController: CLLocationManagerDelegate {
+extension LocationViewController: CLLocationManagerDelegate {
     
     /**
      Starts or stops tracking the user when authorization status changes.
@@ -129,11 +139,10 @@ extension NewQuestionViewController: CLLocationManagerDelegate {
      - Parameter error: Status error.
      */
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        // Format error
-        let strError = "Error \((error as NSError).code): \(error.localizedDescription)"
-        
-        // Alert with the error
-        showAlert(title: "No se pudo calcular tu ubicación", message: strError)
+        showAlert(
+            title: "No se pudo calcular tu ubicación",
+            message: "Asegúrate de habilitar el GPS y de dar permisos"
+        )
     }
     
     /**
@@ -162,7 +171,7 @@ extension NewQuestionViewController: CLLocationManagerDelegate {
 
 // MARK: - MapKit Delegate
 
-extension NewQuestionViewController: MKMapViewDelegate {
+extension LocationViewController: MKMapViewDelegate {
     
     /**
      Adds an annotation at the given coordinate.

@@ -23,9 +23,7 @@ class GeneralViewController: UIViewController {
         switch segue.identifier {
         case "filterSegue":
             // Get parent controller
-            guard let navigationVC = self.tabBarController as? NavigationViewController else {
-                return
-            }
+            guard let navigationVC = self.tabBarController as? NavigationViewController else { return }
             
             // Pass data to destination
             let filtersVC = segue.destination as! FiltersViewController
