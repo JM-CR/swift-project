@@ -11,7 +11,11 @@ import CoreLocation
 
 class CreateQuestionViewController: UIViewController {
     
-    // MARK: - Properties
+    // MARK: - Outlet
+    
+    @IBOutlet weak var categoryLabel: UILabel!
+    
+    // MARK: Properties
     
     var categories: [String]!
     var selectedCategory: String?
@@ -34,6 +38,37 @@ class CreateQuestionViewController: UIViewController {
      */
     @IBAction func backButtonPressed(_ sender: UIBarButtonItem) {
         dismiss(animated: true, completion: nil)
+    }
+    
+    /**
+     Creates a new question when all fields are full.
+     
+     - Parameter sender: Button that triggered the action.
+     */
+    @IBAction func saveButtonPressed(_ sender: UIBarButtonItem) {
+        do {
+            // Validate input
+            try validateQuestion()
+            
+        } catch NewQuestionError.InvalidCategory(let description) {
+            showAlert(title: description, message: "")
+        } catch {
+            
+        }
+    }
+    
+    
+    // MARK: - Validation
+    
+    /**
+     Validates if the question is ready to process.
+     
+     - Throws: NewQuestionError.InvalidCategory
+     */
+    private func validateQuestion() throws {
+        guard let _ = self.selectedCategory else {
+            throw NewQuestionError.InvalidCategory(description: "No has elegido una categoría.")
+        }
     }
     
     
@@ -72,6 +107,7 @@ extension CreateQuestionViewController: CategoriesDelegate {
      */
     func optionSelected(value: String) {
         self.selectedCategory = value
+        self.categoryLabel.text = value
     }
     
 }

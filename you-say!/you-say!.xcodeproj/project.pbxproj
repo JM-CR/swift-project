@@ -30,6 +30,7 @@
 		CA6A19B123886F71005D2BAA /* CategoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6A19B023886F71005D2BAA /* CategoriesViewController.swift */; };
 		CA6A19B4238870F5005D2BAA /* OptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6A19B3238870F5005D2BAA /* OptionTableViewCell.swift */; };
 		CA6A19B7238877CC005D2BAA /* CategoriesDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6A19B6238877CC005D2BAA /* CategoriesDelegate.swift */; };
+		CA6A19BA23889CD0005D2BAA /* NewQuestionError.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6A19B923889CD0005D2BAA /* NewQuestionError.swift */; };
 		CAA9B0552368C61000B6016C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAA9B0542368C61000B6016C /* AppDelegate.swift */; };
 		CAA9B0572368C61000B6016C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAA9B0562368C61000B6016C /* LoginViewController.swift */; };
 		CAA9B05A2368C61000B6016C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CAA9B0582368C61000B6016C /* Main.storyboard */; };
@@ -66,6 +67,7 @@
 		CA6A19B023886F71005D2BAA /* CategoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesViewController.swift; sourceTree = "<group>"; };
 		CA6A19B3238870F5005D2BAA /* OptionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionTableViewCell.swift; sourceTree = "<group>"; };
 		CA6A19B6238877CC005D2BAA /* CategoriesDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesDelegate.swift; sourceTree = "<group>"; };
+		CA6A19B923889CD0005D2BAA /* NewQuestionError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewQuestionError.swift; sourceTree = "<group>"; };
 		CAA9B0512368C61000B6016C /* you-say!.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "you-say!.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CAA9B0542368C61000B6016C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CAA9B0562368C61000B6016C /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -181,6 +183,7 @@
 				CA6A19AC238865A3005D2BAA /* CreateQuestion */,
 				CA6A19AF23886EAA005D2BAA /* Categories */,
 				CA6A19B5238877B4005D2BAA /* Delegates */,
+				CA6A19B823889C5A005D2BAA /* Errors */,
 			);
 			path = NewQuestion;
 			sourceTree = "<group>";
@@ -286,6 +289,14 @@
 				CA6A19B6238877CC005D2BAA /* CategoriesDelegate.swift */,
 			);
 			path = Delegates;
+			sourceTree = "<group>";
+		};
+		CA6A19B823889C5A005D2BAA /* Errors */ = {
+			isa = PBXGroup;
+			children = (
+				CA6A19B923889CD0005D2BAA /* NewQuestionError.swift */,
+			);
+			path = Errors;
 			sourceTree = "<group>";
 		};
 		CAA9B0482368C61000B6016C = {
@@ -418,6 +429,7 @@
 				CA526D7A2368E43D003E396D /* MyAnswersViewController.swift in Sources */,
 				CA3C393A2384B4D300F4CDE5 /* NewUserError.swift in Sources */,
 				CA526D7C2368E619003E396D /* LocationViewController.swift in Sources */,
+				CA6A19BA23889CD0005D2BAA /* NewQuestionError.swift in Sources */,
 				CA3C393E2384C97200F4CDE5 /* UIViewController.swift in Sources */,
 				CA526D7E2368E935003E396D /* MyAccountViewController.swift in Sources */,
 				CA3C391F23837F5000F4CDE5 /* CoreDataManager.swift in Sources */,
