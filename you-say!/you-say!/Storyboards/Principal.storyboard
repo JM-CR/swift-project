@@ -127,7 +127,7 @@
                                 <rect key="frame" x="281" y="64" width="98" height="30"/>
                                 <state key="normal" title="Mis preguntas"/>
                                 <connections>
-                                    <segue destination="z8O-Jm-2BY" kind="presentation" id="7DW-dF-S87"/>
+                                    <segue destination="z8O-Jm-2BY" kind="presentation" identifier="myQuestionsSegue" id="7DW-dF-S87"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pantalla principal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gWU-uF-y48">
@@ -173,42 +173,62 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pantalla de mis preguntas realizadas" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nhl-YW-hE4">
-                                <rect key="frame" x="67.5" y="326" width="279" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QuM-Qd-uCz">
-                                <rect key="frame" x="176" y="810" width="62" height="30"/>
-                                <state key="normal" title="Regresar"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="B5w-Id-Gkd">
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="questionCell" id="Gl0-ir-Wpq">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Gl0-ir-Wpq" id="GU6-Dl-OrX">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
                                 <connections>
-                                    <action selector="botonRegresarPresionado:" destination="z8O-Jm-2BY" eventType="touchUpInside" id="MUf-Ix-zK2"/>
+                                    <outlet property="dataSource" destination="z8O-Jm-2BY" id="K67-1u-ecw"/>
+                                    <outlet property="delegate" destination="z8O-Jm-2BY" id="CK8-lM-gII"/>
                                 </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cvK-Vi-MuP">
-                                <rect key="frame" x="150.5" y="401" width="113" height="30"/>
-                                <state key="normal" title="Abrir respuestas"/>
-                                <connections>
-                                    <segue destination="D5n-Oh-Yj7" kind="presentation" id="ZaV-UA-0Wf"/>
-                                </connections>
-                            </button>
+                            </tableView>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FGW-ol-sai">
+                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                                <color key="backgroundColor" red="0.0" green="0.47450980390000003" blue="0.41960784309999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="tintColor" red="0.0" green="0.29803921570000003" blue="0.25098039220000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <textAttributes key="titleTextAttributes">
+                                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
+                                    <color key="textColor" red="0.0" green="0.29803921570000003" blue="0.25098039220000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </textAttributes>
+                                <items>
+                                    <navigationItem leftItemsSupplementBackButton="YES" id="oZ8-uL-2Qe">
+                                        <barButtonItem key="leftBarButtonItem" title="Regresar" id="DIu-3x-ToD">
+                                            <connections>
+                                                <action selector="backButtonPressed:" destination="z8O-Jm-2BY" id="rYo-z5-OhA"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="4Or-MM-caF" firstAttribute="bottom" secondItem="QuM-Qd-uCz" secondAttribute="bottom" constant="22" id="9sg-cz-c8p"/>
-                            <constraint firstItem="cvK-Vi-MuP" firstAttribute="top" secondItem="Nhl-YW-hE4" secondAttribute="bottom" constant="54" id="RuK-1G-nhp"/>
-                            <constraint firstItem="Nhl-YW-hE4" firstAttribute="top" secondItem="4Or-MM-caF" secondAttribute="top" constant="282" id="bUV-w0-xpx"/>
-                            <constraint firstItem="cvK-Vi-MuP" firstAttribute="centerX" secondItem="Nhl-YW-hE4" secondAttribute="centerX" id="f9o-uq-YCu"/>
-                            <constraint firstItem="cvK-Vi-MuP" firstAttribute="centerX" secondItem="QuM-Qd-uCz" secondAttribute="centerX" id="hdL-3W-Az2"/>
-                            <constraint firstItem="Nhl-YW-hE4" firstAttribute="centerX" secondItem="c9E-IV-wTP" secondAttribute="centerX" id="ixo-Da-w8e"/>
+                            <constraint firstItem="FGW-ol-sai" firstAttribute="leading" secondItem="4Or-MM-caF" secondAttribute="leading" id="2GA-Xh-6Ue"/>
+                            <constraint firstItem="B5w-Id-Gkd" firstAttribute="leading" secondItem="4Or-MM-caF" secondAttribute="leading" id="AE0-t0-pUJ"/>
+                            <constraint firstItem="B5w-Id-Gkd" firstAttribute="bottom" secondItem="4Or-MM-caF" secondAttribute="bottom" id="Gxg-tR-JoM"/>
+                            <constraint firstItem="B5w-Id-Gkd" firstAttribute="top" secondItem="FGW-ol-sai" secondAttribute="bottom" id="IRy-cV-hZ1"/>
+                            <constraint firstItem="B5w-Id-Gkd" firstAttribute="trailing" secondItem="4Or-MM-caF" secondAttribute="trailing" id="noL-CU-ZYV"/>
+                            <constraint firstItem="FGW-ol-sai" firstAttribute="top" secondItem="4Or-MM-caF" secondAttribute="top" id="pTT-mw-uVG"/>
+                            <constraint firstItem="FGW-ol-sai" firstAttribute="trailing" secondItem="4Or-MM-caF" secondAttribute="trailing" id="stl-C3-wP3"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="4Or-MM-caF"/>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="B5w-Id-Gkd" id="88g-Of-zrF"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CxB-cQ-y3e" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="787" y="526"/>
+            <point key="canvasLocation" x="786.95652173913049" y="525.66964285714289"/>
         </scene>
         <!--MyAnswers-->
         <scene sceneID="mtB-5V-Hrd">
@@ -247,7 +267,4 @@
             <point key="canvasLocation" x="316" y="1256"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="9Dz-7e-kHk"/>
-    </inferredMetricsTieBreakers>
 </document>

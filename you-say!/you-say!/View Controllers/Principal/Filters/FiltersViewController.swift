@@ -36,6 +36,8 @@ class FiltersViewController: UIViewController {
     
 }
 
+// MARK: - TableView Data Source
+
 extension FiltersViewController: UITableViewDataSource {
     
     /**
@@ -75,6 +77,8 @@ extension FiltersViewController: UITableViewDataSource {
     }
     
 }
+
+// MARK: - TableView Delegate
 
 extension FiltersViewController: UITableViewDelegate {
 

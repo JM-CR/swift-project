@@ -9,7 +9,6 @@
 import UIKit
 
 class GeneralViewController: UIViewController {
-
     
     // MARK: - Navigation
 

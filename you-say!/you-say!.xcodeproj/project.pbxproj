@@ -31,6 +31,7 @@
 		CA6A19B4238870F5005D2BAA /* OptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6A19B3238870F5005D2BAA /* OptionTableViewCell.swift */; };
 		CA6A19B7238877CC005D2BAA /* CategoriesDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6A19B6238877CC005D2BAA /* CategoriesDelegate.swift */; };
 		CA6A19BA23889CD0005D2BAA /* NewQuestionError.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6A19B923889CD0005D2BAA /* NewQuestionError.swift */; };
+		CA6A19BE238B2A09005D2BAA /* QuestionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6A19BD238B2A09005D2BAA /* QuestionTableViewCell.swift */; };
 		CAA9B0552368C61000B6016C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAA9B0542368C61000B6016C /* AppDelegate.swift */; };
 		CAA9B0572368C61000B6016C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAA9B0562368C61000B6016C /* LoginViewController.swift */; };
 		CAA9B05A2368C61000B6016C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CAA9B0582368C61000B6016C /* Main.storyboard */; };
@@ -68,6 +69,7 @@
 		CA6A19B3238870F5005D2BAA /* OptionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionTableViewCell.swift; sourceTree = "<group>"; };
 		CA6A19B6238877CC005D2BAA /* CategoriesDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesDelegate.swift; sourceTree = "<group>"; };
 		CA6A19B923889CD0005D2BAA /* NewQuestionError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewQuestionError.swift; sourceTree = "<group>"; };
+		CA6A19BD238B2A09005D2BAA /* QuestionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionTableViewCell.swift; sourceTree = "<group>"; };
 		CAA9B0512368C61000B6016C /* you-say!.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "you-say!.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CAA9B0542368C61000B6016C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CAA9B0562368C61000B6016C /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -238,13 +240,13 @@
 			path = Filters;
 			sourceTree = "<group>";
 		};
-		CA526D782368E3B6003E396D /* Responses */ = {
+		CA526D782368E3B6003E396D /* MyQuestions */ = {
 			isa = PBXGroup;
 			children = (
 				CAA9B0712368D4CF00B6016C /* MyQuestionsViewController.swift */,
-				CA526D792368E43D003E396D /* MyAnswersViewController.swift */,
+				CA6A19BC238B29E1005D2BAA /* Cell */,
 			);
-			path = Responses;
+			path = MyQuestions;
 			sourceTree = "<group>";
 		};
 		CA526D7F2368E946003E396D /* Settings */ = {
@@ -299,6 +301,22 @@
 			path = Errors;
 			sourceTree = "<group>";
 		};
+		CA6A19BB238B278E005D2BAA /* MyAnswers */ = {
+			isa = PBXGroup;
+			children = (
+				CA526D792368E43D003E396D /* MyAnswersViewController.swift */,
+			);
+			path = MyAnswers;
+			sourceTree = "<group>";
+		};
+		CA6A19BC238B29E1005D2BAA /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				CA6A19BD238B2A09005D2BAA /* QuestionTableViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		CAA9B0482368C61000B6016C = {
 			isa = PBXGroup;
 			children = (
@@ -346,7 +364,8 @@
 			children = (
 				CAA9B06C2368CFDB00B6016C /* GeneralViewController.swift */,
 				CA526D772368E39E003E396D /* Filters */,
-				CA526D782368E3B6003E396D /* Responses */,
+				CA526D782368E3B6003E396D /* MyQuestions */,
+				CA6A19BB238B278E005D2BAA /* MyAnswers */,
 			);
 			path = Principal;
 			sourceTree = "<group>";
@@ -439,6 +458,7 @@
 				CA6A19AB238862C3005D2BAA /* CreateQuestionViewController.swift in Sources */,
 				CA526D812368EC5F003E396D /* UserViewController.swift in Sources */,
 				CAA9B0702368D2A700B6016C /* FiltersViewController.swift in Sources */,
+				CA6A19BE238B2A09005D2BAA /* QuestionTableViewCell.swift in Sources */,
 				CA3C393023844DC600F4CDE5 /* DesignableView.swift in Sources */,
 				CAA9B0572368C61000B6016C /* LoginViewController.swift in Sources */,
 				CA6A19B7238877CC005D2BAA /* CategoriesDelegate.swift in Sources */,
