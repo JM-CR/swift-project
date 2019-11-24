@@ -279,6 +279,7 @@
                                             <outlet property="labelLike" destination="vbp-Rd-QHv" id="mda-Nc-Ike"/>
                                             <outlet property="labelMessages" destination="iF3-e1-CMP" id="JTx-i5-tTu"/>
                                             <outlet property="labelReport" destination="ONM-K4-phB" id="STY-Fq-CPS"/>
+                                            <segue destination="D5n-Oh-Yj7" kind="presentation" id="f7j-ge-b0e"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -316,26 +317,30 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T02-5h-wFC">
-                                <rect key="frame" x="176" y="812" width="62" height="30"/>
-                                <state key="normal" title="Regresar"/>
-                                <connections>
-                                    <action selector="botonRegresarPresionado:" destination="D5n-Oh-Yj7" eventType="touchUpInside" id="Od3-nb-MbP"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pantalla con mis respuestas " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5GR-Yv-9M8">
-                                <rect key="frame" x="100.5" y="371" width="213" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q4v-sW-ono">
+                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                                <color key="backgroundColor" red="0.0" green="0.47450980390000003" blue="0.41960784309999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="tintColor" red="0.0" green="0.29803921570000003" blue="0.25098039220000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <textAttributes key="titleTextAttributes">
+                                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
+                                    <color key="textColor" red="0.0" green="0.29803921570000003" blue="0.25098039220000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </textAttributes>
+                                <items>
+                                    <navigationItem leftItemsSupplementBackButton="YES" id="36t-gS-WIg">
+                                        <barButtonItem key="leftBarButtonItem" title="Regresar" id="6PU-9g-n9W">
+                                            <connections>
+                                                <action selector="backButtonPressed:" destination="D5n-Oh-Yj7" id="8YB-uy-Fqc"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="5GR-Yv-9M8" firstAttribute="centerX" secondItem="T02-5h-wFC" secondAttribute="centerX" id="1aS-fP-vES"/>
-                            <constraint firstItem="3wb-7M-Mc3" firstAttribute="bottom" secondItem="T02-5h-wFC" secondAttribute="bottom" constant="20" id="EYz-j5-t2G"/>
-                            <constraint firstItem="5GR-Yv-9M8" firstAttribute="top" secondItem="3wb-7M-Mc3" secondAttribute="top" constant="327" id="XbK-tH-Q3i"/>
-                            <constraint firstItem="5GR-Yv-9M8" firstAttribute="centerX" secondItem="sQy-On-QSW" secondAttribute="centerX" id="alf-ka-YyJ"/>
+                            <constraint firstItem="q4v-sW-ono" firstAttribute="leading" secondItem="3wb-7M-Mc3" secondAttribute="leading" id="QbP-Fj-eiT"/>
+                            <constraint firstItem="q4v-sW-ono" firstAttribute="trailing" secondItem="3wb-7M-Mc3" secondAttribute="trailing" id="Z8U-8F-OjT"/>
+                            <constraint firstItem="q4v-sW-ono" firstAttribute="top" secondItem="3wb-7M-Mc3" secondAttribute="top" id="cND-tR-0O7"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="3wb-7M-Mc3"/>
                     </view>
@@ -350,4 +355,7 @@
         <image name="no-like" width="24" height="24"/>
         <image name="report" width="24" height="24"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="f7j-ge-b0e"/>
+    </inferredMetricsTieBreakers>
 </document>
