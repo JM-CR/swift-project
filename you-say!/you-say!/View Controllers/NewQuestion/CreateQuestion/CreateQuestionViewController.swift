@@ -15,6 +15,11 @@ class CreateQuestionViewController: UIViewController {
     
     @IBOutlet weak var categoryLabel: UILabel!
     
+    @IBOutlet weak var distanceLabel: UILabel!
+    @IBOutlet weak var distanceStackView: UIStackView!
+    @IBOutlet weak var distanceSlider: UISlider!
+    @IBOutlet weak var distanceSwitch: UISwitch!
+    
     // MARK: Properties
     
     var categories: [String]!
@@ -45,7 +50,7 @@ class CreateQuestionViewController: UIViewController {
      
      - Parameter sender: Button that triggered the action.
      */
-    @IBAction func saveButtonPressed(_ sender: UIBarButtonItem) {
+    @IBAction func publishButtonPressed(_ sender: UIBarButtonItem) {
         do {
             // Validate input
             try validateQuestion()
@@ -56,6 +61,37 @@ class CreateQuestionViewController: UIViewController {
             
         }
     }
+    
+    /**
+     Activates distance if the user turn on the option.
+     
+     - Parameter sender: Switch that triggered the action.
+     */
+    @IBAction func activateDistance(_ sender: UISwitch) {
+        if sender.isOn {
+            self.distanceStackView.isHidden = false
+        } else {
+            self.distanceStackView.isHidden = true
+        }
+    }
+    
+    /**
+     Updates the distance label to show current status.
+     
+     - Parameter sender: Slider that was triggered.
+     */
+    @IBAction func distanceChanged(_ sender: UISlider) {
+        // Maximum step size
+        let step: Float = 5
+        let roundedValue = round(sender.value / step) * step
+        sender.value = roundedValue
+        
+        // Update value in label
+        if sender.value.truncatingRemainder(dividingBy: 5) == 0 {
+            self.distanceLabel.text = String(format: "%.0f km", sender.value)
+        }
+    }
+    
     
     
     // MARK: - Validation

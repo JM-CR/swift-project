@@ -99,14 +99,14 @@
                                 </textAttributes>
                                 <items>
                                     <navigationItem leftItemsSupplementBackButton="YES" id="Zxg-ox-2b5">
-                                        <barButtonItem key="leftBarButtonItem" title="Regresar" id="D5M-Hv-slH">
+                                        <barButtonItem key="leftBarButtonItem" title="Cancelar" id="D5M-Hv-slH">
                                             <connections>
                                                 <action selector="backButtonPressed:" destination="ym3-Q9-cJE" id="J9k-NV-nGT"/>
                                             </connections>
                                         </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" title="Guardar" id="wiN-7n-YOn">
+                                        <barButtonItem key="rightBarButtonItem" title="Publicar" id="wiN-7n-YOn">
                                             <connections>
-                                                <action selector="saveButtonPressed:" destination="ym3-Q9-cJE" id="KHr-AB-S0v"/>
+                                                <action selector="publishButtonPressed:" destination="ym3-Q9-cJE" id="KHr-AB-S0v"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -116,21 +116,55 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="NCa-JE-Qyn">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="774"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="743"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Categoría" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ecD-1m-WSy">
-                                                <rect key="frame" x="0.0" y="0.0" width="207" height="774"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="207" height="743"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MCk-NV-WxX">
-                                                <rect key="frame" x="207" y="0.0" width="207" height="774"/>
+                                                <rect key="frame" x="207" y="0.0" width="207" height="743"/>
                                                 <state key="normal" title="Elige una categoría"/>
                                                 <connections>
                                                     <segue destination="JKv-ex-xrd" kind="show" identifier="categorySegue" id="Cu3-wg-2EQ"/>
                                                 </connections>
                                             </button>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="se9-Zj-RCb">
+                                        <rect key="frame" x="0.0" y="743" width="414" height="31"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="¿Distancia máxima de respuestas?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ARQ-f1-CDA">
+                                                <rect key="frame" x="0.0" y="0.0" width="365" height="31"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="xL5-Lp-EvT">
+                                                <rect key="frame" x="365" y="0.0" width="51" height="31"/>
+                                                <connections>
+                                                    <action selector="activateDistance:" destination="ym3-Q9-cJE" eventType="valueChanged" id="H6i-0T-MzH"/>
+                                                </connections>
+                                            </switch>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="RcE-OI-hAZ">
+                                        <rect key="frame" x="0.0" y="774" width="414" height="0.0"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10 km" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zKQ-Rf-dVV">
+                                                <rect key="frame" x="0.0" y="0.0" width="46" height="0.0"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="10" minValue="1" maxValue="50" translatesAutoresizingMaskIntoConstraints="NO" id="yxj-lx-fEX">
+                                                <rect key="frame" x="44" y="0.0" width="372" height="1"/>
+                                                <connections>
+                                                    <action selector="distanceChanged:" destination="ym3-Q9-cJE" eventType="valueChanged" id="vI5-tV-pES"/>
+                                                </connections>
+                                            </slider>
                                         </subviews>
                                     </stackView>
                                 </subviews>
@@ -150,6 +184,10 @@
                     </view>
                     <connections>
                         <outlet property="categoryLabel" destination="ecD-1m-WSy" id="rm0-tc-bfd"/>
+                        <outlet property="distanceLabel" destination="zKQ-Rf-dVV" id="mz4-pN-UfI"/>
+                        <outlet property="distanceSlider" destination="yxj-lx-fEX" id="h4Y-iV-sIV"/>
+                        <outlet property="distanceStackView" destination="RcE-OI-hAZ" id="I4W-8a-IXB"/>
+                        <outlet property="distanceSwitch" destination="xL5-Lp-EvT" id="nUc-mC-4ge"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cEK-Tx-pJF" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -174,7 +212,7 @@
                                 </textAttributes>
                                 <items>
                                     <navigationItem leftItemsSupplementBackButton="YES" id="c8a-zo-sZw">
-                                        <barButtonItem key="leftBarButtonItem" title="Cancelar" id="p2b-UL-pCP">
+                                        <barButtonItem key="leftBarButtonItem" title="Regresar" id="p2b-UL-pCP">
                                             <connections>
                                                 <action selector="backButtonPressed:" destination="JKv-ex-xrd" id="LKF-Cn-r7b"/>
                                             </connections>
