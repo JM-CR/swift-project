@@ -58,7 +58,7 @@ extension MyQuestionsViewController: UITableViewDataSource {
      - Returns: Total of rows for section.
      */
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        return 5
     }
     
     /**

@@ -10,15 +10,27 @@ import UIKit
 
 class QuestionTableViewCell: UITableViewCell {
 
+    // MARK: - Outlets
+    
+    @IBOutlet weak var imageViewLike: UIImageView!
+    
+    @IBOutlet weak var labelLike: UILabel!
+    @IBOutlet weak var labelReport: UILabel!
+    @IBOutlet weak var labelDate: UILabel!
+    @IBOutlet weak var labelMessages: UILabel!
+    @IBOutlet weak var labelCategory: UILabel!
+    @IBOutlet weak var labelContent: UILabel!
+    
+    
+    // MARK: Cell Life Cycle
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+        
     }
 
 }
