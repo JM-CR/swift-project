@@ -28,7 +28,7 @@ extension UIViewController {
     }
     
     /**
-     Presents a simple alert without handlers.
+     Presents a simple alert with an action handler.
      
      - Parameter title: Title to display in the alert.
      - Parameter message: Message to display in the alert.

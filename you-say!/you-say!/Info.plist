@@ -37,8 +37,8 @@
 		<string>UIInterfaceOrientationPortrait</string>
 	</array>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>This application requires location services to work</string>
+	<string>Esta app requiere de localización para funcionar</string>
 	<key>NSLocationAlwaysUsageDescription</key>
-	<string>This application requires location services to work</string>
+	<string>Esta app requiere de localización para funcionar</string>
 </dict>
 </plist>

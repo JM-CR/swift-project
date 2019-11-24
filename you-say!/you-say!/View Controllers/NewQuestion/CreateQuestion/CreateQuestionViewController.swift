@@ -95,8 +95,8 @@ class CreateQuestionViewController: UIViewController {
      */
     @IBAction func publishButtonPressed(_ sender: UIBarButtonItem) {
         do {
-            // Validate input
             try validateQuestion()
+            createQuestion()
             
         } catch NewQuestionError.InvalidCategory(let description) {
             showAlert(title: description, message: "")
@@ -153,6 +153,60 @@ class CreateQuestionViewController: UIViewController {
         
         guard let text = self.textFieldQuestion.text, text != "" else {
             throw NewQuestionError.EmptyQuestion(description: "No puedes publicar una pregunta vacía")
+        }
+    }
+    
+    
+    // MARK: - Processing
+    
+    /**
+     Creates a new user's question.
+     */
+    private func createQuestion() {
+        // Create
+        let question = Question(context: self.currentUser.managedObjectContext!)
+        
+        // Set up
+        question.category = self.selectedCategory
+        question.content = self.textFieldQuestion.text
+        question.createdAt = Date()
+        question.id = UUID()
+        question.latitude = self.selectedCoordinate.latitude
+        question.longitude = self.selectedCoordinate.longitude
+        
+        if self.switchDistance.isOn {
+            question.distanceAt = self.sliderDistance.value
+        } else {
+            question.distanceAt = 0.0
+        }
+        
+        // Link
+        question.user = self.currentUser
+        
+        // Add to the Persistent Store
+        saveQuestion()
+    }
+    
+    /**
+     Adds the created question to the Persistent Store.
+     */
+    private func saveQuestion() {
+        do {
+            // Save
+            try self.currentUser.managedObjectContext?.save()
+            
+            // Confirmation
+            showAlert(
+                title: "Pregunta creada con éxito",
+                message: "Podrás seguirla en \"Mis preguntas\"",
+                handler: {
+                    self.dismiss(animated: true, completion: nil)
+            })
+        } catch {
+            showAlert(
+                title: "No se pudo procesar tu pregunta",
+                message: "Inténtalo más tarde"
+            )
         }
     }
     
