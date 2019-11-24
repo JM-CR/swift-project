@@ -13,12 +13,14 @@ class CreateQuestionViewController: UIViewController {
     
     // MARK: - Outlet
     
-    @IBOutlet weak var categoryLabel: UILabel!
+    @IBOutlet weak var labelCategory: UILabel!
     
-    @IBOutlet weak var distanceLabel: UILabel!
-    @IBOutlet weak var distanceStackView: UIStackView!
-    @IBOutlet weak var distanceSlider: UISlider!
-    @IBOutlet weak var distanceSwitch: UISwitch!
+    @IBOutlet weak var labelDistance: UILabel!
+    @IBOutlet weak var stackViewDistance: UIStackView!
+    @IBOutlet weak var sliderDistance: UISlider!
+    @IBOutlet weak var switchDistance: UISwitch!
+    
+    @IBOutlet weak var textFieldQuestion: UITextField!
     
     // MARK: Properties
     
@@ -32,6 +34,47 @@ class CreateQuestionViewController: UIViewController {
     // MARK: Core Location
     
     var selectedCoordinate: CLLocationCoordinate2D!
+    
+    
+    // MARK: - View Life Cycle
+    
+    /**
+     Initial setup for the controller.
+     */
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        // Initial setup
+        setupDelegates()
+        setupGestures()
+    }
+    
+    // MARK: Setup
+    
+    /**
+     Sets the delegates for the view controller.
+     */
+    private func setupDelegates() {
+        self.textFieldQuestion.delegate = self
+    }
+    
+    /**
+     Sets the initial gestures for the view controller.
+     */
+    private func setupGestures() {
+        // Remove keyboard
+        let tap = UITapGestureRecognizer(target: self, action: #selector(didTapView))
+        self.view.addGestureRecognizer(tap)
+    }
+    
+    // MARK: Gestures
+    
+    /**
+     Hides the keyboard when the user taps on the screen.
+     */
+    @objc func didTapView(){
+        self.view.endEditing(true)
+    }
     
     
     // MARK: - Actions
@@ -57,6 +100,8 @@ class CreateQuestionViewController: UIViewController {
             
         } catch NewQuestionError.InvalidCategory(let description) {
             showAlert(title: description, message: "")
+        } catch NewQuestionError.EmptyQuestion(let description) {
+            showAlert(title: description, message: "")
         } catch {
             
         }
@@ -69,9 +114,9 @@ class CreateQuestionViewController: UIViewController {
      */
     @IBAction func activateDistance(_ sender: UISwitch) {
         if sender.isOn {
-            self.distanceStackView.isHidden = false
+            self.stackViewDistance.isHidden = false
         } else {
-            self.distanceStackView.isHidden = true
+            self.stackViewDistance.isHidden = true
         }
     }
     
@@ -88,7 +133,7 @@ class CreateQuestionViewController: UIViewController {
         
         // Update value in label
         if sender.value.truncatingRemainder(dividingBy: 5) == 0 {
-            self.distanceLabel.text = String(format: "%.0f km", sender.value)
+            self.labelDistance.text = String(format: "%.0f km", sender.value)
         }
     }
     
@@ -99,11 +144,15 @@ class CreateQuestionViewController: UIViewController {
     /**
      Validates if the question is ready to process.
      
-     - Throws: NewQuestionError.InvalidCategory
+     - Throws: NewQuestionError.InvalidCategory, NewQuestionError.EmptyQuestion
      */
     private func validateQuestion() throws {
         guard let _ = self.selectedCategory else {
             throw NewQuestionError.InvalidCategory(description: "No has elegido una categoría.")
+        }
+        
+        guard let text = self.textFieldQuestion.text, text != "" else {
+            throw NewQuestionError.EmptyQuestion(description: "No puedes publicar una pregunta vacía")
         }
     }
     
@@ -143,7 +192,23 @@ extension CreateQuestionViewController: CategoriesDelegate {
      */
     func optionSelected(value: String) {
         self.selectedCategory = value
-        self.categoryLabel.text = value
+        self.labelCategory.text = value
     }
     
+}
+
+// MARK: - TextField Delegate
+
+extension CreateQuestionViewController: UITextFieldDelegate {
+    
+    /**
+     Hides the keyboard when the user finishes editing.
+     
+     - Parameter textField: Object that triggered the event.
+     - Returns: True to hide or false to keep.
+     */
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return true
+    }
 }

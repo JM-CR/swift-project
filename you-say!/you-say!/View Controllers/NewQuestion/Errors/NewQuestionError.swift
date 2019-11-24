@@ -10,4 +10,5 @@ import Foundation
 
 enum NewQuestionError: Error {
     case InvalidCategory(description: String)
+    case EmptyQuestion(description: String)
 }
