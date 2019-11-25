@@ -18,16 +18,17 @@ class MyQuestionsViewController: UIViewController {
     
     lazy var questions = self.currentUser!.questionsByDate
     
-    var dateFormatter: DateFormatter = {
+    
+    var dateFormatter: DateComponentsFormatter = {
         // Create
-        let dateFormatter = DateFormatter()
+        let formatter = DateComponentsFormatter()
         
         // Set up
-        dateFormatter.locale = Locale(identifier: "es_MX")
-        dateFormatter.dateStyle = .short
-        dateFormatter.timeStyle = .short
+        formatter.allowedUnits = [.day, .hour, .minute, .second]
+        formatter.unitsStyle = .abbreviated
+        formatter.maximumUnitCount = 1
         
-        return dateFormatter
+        return formatter
     }()
     
     // MARK: Core Data
@@ -93,13 +94,17 @@ extension MyQuestionsViewController: UITableViewDataSource {
         
         // Get question
         if let question = self.questions?[indexPath.row] {
+            // Calculate time interval
+            let interval = self.dateFormatter.string(from: question.createdAt!, to: Date())
+            
             // Set up
-            questionCell.labelDate.text = self.dateFormatter.string(from: question.createdAt!)
+            questionCell.labelDate.text = "Hace \(interval!)"
             questionCell.labelReport.text = "\(question.reports)"
             questionCell.labelCategory.text = question.category
             questionCell.labelContent.text = question.content
             questionCell.labelLike.text = "\(question.likes)"
             
+            // Conditional components
             if let answers = question.answers {
                 questionCell.labelMessages.text = "\(answers.count)"
             } else {
