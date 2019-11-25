@@ -352,16 +352,22 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R6J-Q9-UMz">
-                                <rect key="frame" x="0.0" y="838" width="414" height="30"/>
+                                <rect key="frame" x="0.0" y="831.5" width="414" height="36.5"/>
                                 <subviews>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="u9b-4W-Sdo">
+                                        <rect key="frame" x="0.0" y="0.0" width="207" height="36.5"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bGs-HN-NFU">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="30"/>
-                                        <state key="normal" title="Button"/>
+                                        <rect key="frame" x="207" y="0.0" width="207" height="36.5"/>
+                                        <state key="normal" title="Publicar"/>
                                     </button>
                                 </subviews>
                             </stackView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="JSn-8l-qO6">
-                                <rect key="frame" x="0.0" y="116.5" width="414" height="713.5"/>
+                                <rect key="frame" x="0.0" y="116.5" width="414" height="707"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="answerCell" id="bAL-ty-6D0" customClass="AnswerTableViewCell" customModule="you_say_" customModuleProvider="target">
@@ -398,7 +404,9 @@
                         <viewLayoutGuide key="safeArea" id="3wb-7M-Mc3"/>
                     </view>
                     <connections>
+                        <outlet property="bottomConstraint" destination="1mA-AI-eOk" id="nAf-cU-xGZ"/>
                         <outlet property="tableView" destination="JSn-8l-qO6" id="i0C-IT-auH"/>
+                        <outlet property="textViewContent" destination="u9b-4W-Sdo" id="5t8-PC-pdb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hyl-DZ-yAf" userLabel="First Responder" sceneMemberID="firstResponder"/>

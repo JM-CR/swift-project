@@ -13,10 +13,121 @@ class MyAnswersViewController: UIViewController {
     // MARK: - Outlets
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var textViewContent: UITextView!
+    @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
     
     // MARK: Properties
     
     // MARK: Core Data
+    
+    
+    // MARK: - View Life Cycle
+    
+    /**
+     Initial setup for the controller.
+     */
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        // Initial setup
+        setupDelegates()
+        setupGestures()
+        setupNotifications()
+    }
+    
+    /**
+     Remove observers when it is disappearing.
+     */
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
+    // MARK: Setup
+    
+    /**
+     Sets the delegates for the view controller.
+     */
+    private func setupDelegates() {
+        self.textViewContent.delegate = self
+    }
+    
+    /**
+     Sets the initial gestures for the view controller.
+     */
+    private func setupGestures() {
+        // Remove keyboard
+        let tap = UITapGestureRecognizer(target: self, action: #selector(didTapView))
+        self.view.addGestureRecognizer(tap)
+    }
+    
+    /**
+     Sets the observers for the view controller.
+     */
+    private func setupNotifications() {
+        let notificationCenter = NotificationCenter.default
+        
+        // Keyboard appearing
+        notificationCenter.addObserver(
+            self,
+            selector: #selector(keyboardWillShow),
+            name: UIResponder.keyboardWillShowNotification,
+            object: nil
+        )
+        
+        // Keyboard hiding
+        notificationCenter.addObserver(
+            self,
+            selector: #selector(keyboardWillHide),
+            name: UIResponder.keyboardWillHideNotification,
+            object: nil
+        )
+
+    }
+    
+    // MARK: Gestures
+    
+    /**
+     Hides the keyboard when the user taps on the screen.
+     */
+    @objc func didTapView(){
+        self.view.endEditing(true)
+    }
+    
+    // MARK: Notifications
+    
+    /**
+     Adjusts the content when the keyboard is appearing.
+     
+     - Parameter notification: Sent notification.
+     */
+    @objc func keyboardWillShow(notification: NSNotification) {
+        // Get keyboard size
+        let info = notification.userInfo!
+        let keyboardFrame = (info[UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
+        
+        // Update
+        self.bottomConstraint.constant = 25 - keyboardFrame.size.height
+        
+        // Animate
+        UIView.animate(withDuration: 0.1) {
+            self.view.layoutIfNeeded()
+        }
+    }
+    
+    /**
+     Adjusts the content when the keyboard is hiding.
+     
+     - Parameter notification: Sent notification.
+     */
+    @objc func keyboardWillHide(notification: NSNotification) {
+        // Update
+        self.bottomConstraint.constant = 6
+        
+        // Animate
+        UIView.animate(withDuration: 0.1) {
+            self.view.layoutIfNeeded()
+        }
+    }
     
     
     // MARK: - Actions
@@ -79,4 +190,20 @@ extension MyAnswersViewController: UITableViewDelegate {
         self.tableView.deselectRow(at: indexPath, animated: true)
     }
     
+}
+
+// MARK: - TextField Delegate
+
+extension MyAnswersViewController: UITextViewDelegate {
+    
+    /**
+     Hides the keyboard when the user finishes editing.
+     
+     - Parameter textView: Object that triggered the event.
+     - Returns: True to hide or false to keep.
+     */
+    func textViewShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return true
+    }
 }
