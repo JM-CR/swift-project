@@ -329,6 +329,37 @@ class MyAnswersViewController: UIViewController {
         }
     }
 
+    /**
+     Allows the user to report the question.
+     */
+    @IBAction func reportButtonPressed(_ sender: UIButton) {
+        // Create alert
+        let alert = UIAlertController(title: "Reportar pregunta", message: "", preferredStyle: .alert)
+        
+        // Actions titles
+        let titlesForAction = ["Contenido ofensivo", "Fuera de categoría", "Regresar"]
+        
+        // Create actions
+        for title in titlesForAction {
+            var action: UIAlertAction
+            
+            // Add behaviour
+            if titlesForAction.last == title {
+                action = UIAlertAction(title: title, style: .cancel, handler: nil)
+            } else {
+                action = UIAlertAction(title: title, style: .default) { action in
+                    self.showAlert(title: "Reporte creado", message: "")
+                    self.question.reports += 1
+                    sender.isEnabled = false
+                }
+            }
+            alert.addAction(action)
+        }
+        
+        // Present
+        present(alert, animated: true, completion: nil)
+    }
+    
 }
 
 // MARK: - TableView Data Source

@@ -35,6 +35,14 @@ class MyQuestionsViewController: UIViewController {
     var currentUser: User!
     
     
+    // MARK: - View Life Cycle
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.tableView.reloadData()
+    }
+    
+    
     // MARK: - Actions
     
     /**

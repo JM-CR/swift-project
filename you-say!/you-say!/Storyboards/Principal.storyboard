@@ -419,12 +419,23 @@
                                                         </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eyO-TH-pur">
-                                                        <rect key="frame" x="29" y="0.0" width="353" height="24"/>
+                                                        <rect key="frame" x="29" y="0.0" width="324" height="24"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aym-2a-hVf">
+                                                        <rect key="frame" x="358" y="0.0" width="24" height="24"/>
+                                                        <state key="normal" image="report"/>
+                                                        <connections>
+                                                            <action selector="reportButtonPressed:" destination="D5n-Oh-Yj7" eventType="touchUpInside" id="2iF-DG-Umq"/>
+                                                        </connections>
+                                                    </button>
                                                 </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="aym-2a-hVf" firstAttribute="width" secondItem="jqc-oQ-q1v" secondAttribute="width" id="4fK-0T-uWP"/>
+                                                    <constraint firstItem="aym-2a-hVf" firstAttribute="height" secondItem="jqc-oQ-q1v" secondAttribute="height" id="7Um-uU-8pe"/>
+                                                </constraints>
                                             </stackView>
                                         </subviews>
                                     </stackView>
