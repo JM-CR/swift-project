@@ -44,6 +44,7 @@
 		CAA9B06D2368CFDB00B6016C /* GeneralViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAA9B06C2368CFDB00B6016C /* GeneralViewController.swift */; };
 		CAA9B0702368D2A700B6016C /* FiltersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAA9B06F2368D2A700B6016C /* FiltersViewController.swift */; };
 		CAA9B0722368D4CF00B6016C /* MyQuestionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAA9B0712368D4CF00B6016C /* MyQuestionsViewController.swift */; };
+		CAADFC20238C235D00C162AE /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAADFC1F238C235D00C162AE /* Question.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -86,6 +87,7 @@
 		CAA9B06C2368CFDB00B6016C /* GeneralViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralViewController.swift; sourceTree = "<group>"; };
 		CAA9B06F2368D2A700B6016C /* FiltersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiltersViewController.swift; sourceTree = "<group>"; };
 		CAA9B0712368D4CF00B6016C /* MyQuestionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyQuestionsViewController.swift; sourceTree = "<group>"; };
+		CAADFC1F238C235D00C162AE /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -206,6 +208,7 @@
 			isa = PBXGroup;
 			children = (
 				CA6A19C1238B559D005D2BAA /* User.swift */,
+				CAADFC1F238C235D00C162AE /* Question.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -472,6 +475,7 @@
 				CA526D832368EE1D003E396D /* NotificationsViewController.swift in Sources */,
 				CA6A19AB238862C3005D2BAA /* CreateQuestionViewController.swift in Sources */,
 				CA526D812368EC5F003E396D /* UserViewController.swift in Sources */,
+				CAADFC20238C235D00C162AE /* Question.swift in Sources */,
 				CA6A19C4238B6C84005D2BAA /* AnswerTableViewCell.swift in Sources */,
 				CAA9B0702368D2A700B6016C /* FiltersViewController.swift in Sources */,
 				CA6A19BE238B2A09005D2BAA /* QuestionTableViewCell.swift in Sources */,

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreLocation
 
 class MyAnswersViewController: UIViewController {
 
@@ -16,18 +17,23 @@ class MyAnswersViewController: UIViewController {
     @IBOutlet weak var textViewContent: UITextView!
     @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
     
-    @IBOutlet weak var creatorName: UILabel!
-    @IBOutlet weak var questionCategory: UITextField!
-    @IBOutlet weak var questionContent: UILabel!
-    @IBOutlet weak var questionCoordinate: UILabel!
-    @IBOutlet weak var questionDate: UILabel!
+    @IBOutlet weak var labelCreatorName: UILabel!
+    @IBOutlet weak var labelQuestionCategory: UITextField!
+    @IBOutlet weak var labelQuestionContent: UILabel!
+    @IBOutlet weak var labelQuestionCoordinate: UILabel!
+    @IBOutlet weak var labelQuestionDate: UILabel!
+    @IBOutlet weak var labelTotalLikes: UILabel!
     
-    @IBOutlet weak var imageViewLike: UIImageView!
-    @IBOutlet weak var totalLikes: UILabel!
+    @IBOutlet weak var activityIndicatorLocation: UIActivityIndicatorView!
     
     // MARK: Properties
     
+    var dateFormatter: DateComponentsFormatter!
+    lazy var answers = self.question?.answersByDate
+    
     // MARK: Core Data
+    
+    var question: Question!
     
     
     // MARK: - View Life Cycle
@@ -100,6 +106,22 @@ class MyAnswersViewController: UIViewController {
         // TextView
         self.textViewContent.text = "Comentar algo..."
         self.textViewContent.textColor = .lightGray
+        
+        // Stack View
+        if let user = self.question.user {
+            // Calculate location
+            getAddress()
+            
+            // Fill information
+            self.labelCreatorName.text = user.name!
+            self.labelQuestionCategory.text = self.question.category
+            self.labelQuestionContent.text = self.question.content
+            self.labelTotalLikes.text = "\(self.question.likes)"
+            
+            // Time from publish date
+            let timeInterval = self.dateFormatter.string(from: self.question.createdAt!, to: Date())
+            self.labelQuestionDate.text = "Hace \(timeInterval!)"
+        }
     }
     
     // MARK: Gestures
@@ -148,6 +170,29 @@ class MyAnswersViewController: UIViewController {
     }
     
     
+    // MARK: - Location
+    
+    /**
+     Calculates the location name from a coordinate.
+     */
+    private func getAddress() {
+        // Initial set
+        var address = ""
+        let location = CLLocation(latitude: self.question.latitude, longitude: self.question.longitude)
+        let geoCoder = CLGeocoder()
+        
+        // Translate coordinate
+        geoCoder.reverseGeocodeLocation(location) { (placeMarks, error) in
+            // Place detail
+            if let placeMark = placeMarks?[0] {
+                self.activityIndicatorLocation.stopAnimating()
+                address = "\(placeMark.subAdministrativeArea!), \(placeMark.administrativeArea!)"
+                self.labelQuestionCoordinate.text = address
+            }
+        }
+    }
+    
+    
     // MARK: - Actions
     
     /**
@@ -173,7 +218,11 @@ extension MyAnswersViewController: UITableViewDataSource {
      - Returns: Total of rows for section.
      */
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        if let answers = self.answers {
+            return answers.count
+        } else {
+            return 0
+        }
     }
     
     /**
@@ -188,6 +237,10 @@ extension MyAnswersViewController: UITableViewDataSource {
         let answerCell = tableView.dequeueReusableCell(withIdentifier: "answerCell", for: indexPath) as! AnswerTableViewCell
         
         // Get answer
+        if let answer = self.answers?[indexPath.row] {
+            // Set up cell
+            
+        }
         
         return answerCell
     }

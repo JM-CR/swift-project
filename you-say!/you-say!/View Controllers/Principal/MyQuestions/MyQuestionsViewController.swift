@@ -18,7 +18,6 @@ class MyQuestionsViewController: UIViewController {
     
     lazy var questions = self.currentUser!.questionsByDate
     
-    
     var dateFormatter: DateComponentsFormatter = {
         // Create
         let formatter = DateComponentsFormatter()
@@ -57,7 +56,22 @@ class MyQuestionsViewController: UIViewController {
      - Parameter sender: View controller that presents.
      */
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
+        switch segue.identifier {
+        case "answerSegue":
+            // Get indexPath
+            if let indexPath = self.tableView.indexPathForSelectedRow {
+                // Get active question
+                let question = self.questions![indexPath.row]
+                
+                // Pass data to destination
+                let myAnswersVC = segue.destination as! MyAnswersViewController
+                myAnswersVC.question = question
+                myAnswersVC.dateFormatter = self.dateFormatter
+            }
+            
+        default:
+            return
+        }
     }
 
 }
