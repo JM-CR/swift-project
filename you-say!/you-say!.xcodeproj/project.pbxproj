@@ -32,6 +32,7 @@
 		CA6A19B7238877CC005D2BAA /* CategoriesDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6A19B6238877CC005D2BAA /* CategoriesDelegate.swift */; };
 		CA6A19BA23889CD0005D2BAA /* NewQuestionError.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6A19B923889CD0005D2BAA /* NewQuestionError.swift */; };
 		CA6A19BE238B2A09005D2BAA /* QuestionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6A19BD238B2A09005D2BAA /* QuestionTableViewCell.swift */; };
+		CA6A19C2238B559D005D2BAA /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6A19C1238B559D005D2BAA /* User.swift */; };
 		CAA9B0552368C61000B6016C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAA9B0542368C61000B6016C /* AppDelegate.swift */; };
 		CAA9B0572368C61000B6016C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAA9B0562368C61000B6016C /* LoginViewController.swift */; };
 		CAA9B05A2368C61000B6016C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CAA9B0582368C61000B6016C /* Main.storyboard */; };
@@ -70,6 +71,7 @@
 		CA6A19B6238877CC005D2BAA /* CategoriesDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesDelegate.swift; sourceTree = "<group>"; };
 		CA6A19B923889CD0005D2BAA /* NewQuestionError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewQuestionError.swift; sourceTree = "<group>"; };
 		CA6A19BD238B2A09005D2BAA /* QuestionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionTableViewCell.swift; sourceTree = "<group>"; };
+		CA6A19C1238B559D005D2BAA /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		CAA9B0512368C61000B6016C /* you-say!.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "you-say!.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CAA9B0542368C61000B6016C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CAA9B0562368C61000B6016C /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -201,6 +203,7 @@
 		CA3C39312384515400F4CDE5 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				CA6A19C1238B559D005D2BAA /* User.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -453,6 +456,7 @@
 				CA526D7E2368E935003E396D /* MyAccountViewController.swift in Sources */,
 				CA3C391F23837F5000F4CDE5 /* CoreDataManager.swift in Sources */,
 				CA526D852368EFB6003E396D /* HelpViewController.swift in Sources */,
+				CA6A19C2238B559D005D2BAA /* User.swift in Sources */,
 				CA3C39362384AF6200F4CDE5 /* GenderViewController.swift in Sources */,
 				CA526D832368EE1D003E396D /* NotificationsViewController.swift in Sources */,
 				CA6A19AB238862C3005D2BAA /* CreateQuestionViewController.swift in Sources */,

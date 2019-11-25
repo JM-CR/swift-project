@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import CoreData
 
 class MyQuestionsViewController: UIViewController {
 
@@ -17,7 +16,23 @@ class MyQuestionsViewController: UIViewController {
     
     // MARK: Properties
     
+    lazy var questions = self.currentUser!.questionsByDate
+    
+    var dateFormatter: DateFormatter = {
+        // Create
+        let dateFormatter = DateFormatter()
+        
+        // Set up
+        dateFormatter.locale = Locale(identifier: "es_MX")
+        dateFormatter.dateStyle = .short
+        dateFormatter.timeStyle = .short
+        
+        return dateFormatter
+    }()
+    
     // MARK: Core Data
+    
+    var currentUser: User!
     
     
     // MARK: - Actions
@@ -58,7 +73,11 @@ extension MyQuestionsViewController: UITableViewDataSource {
      - Returns: Total of rows for section.
      */
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        if let questions = self.questions {
+            return questions.count
+        } else {
+            return 0
+        }
     }
     
     /**
@@ -72,7 +91,27 @@ extension MyQuestionsViewController: UITableViewDataSource {
         // Get reusable cell
         let questionCell = tableView.dequeueReusableCell(withIdentifier: "questionCell", for: indexPath) as! QuestionTableViewCell
         
-        // Set up cell
+        // Get question
+        if let question = self.questions?[indexPath.row] {
+            // Set up
+            questionCell.labelDate.text = self.dateFormatter.string(from: question.createdAt!)
+            questionCell.labelReport.text = "\(question.reports)"
+            questionCell.labelCategory.text = question.category
+            questionCell.labelContent.text = question.content
+            questionCell.labelLike.text = "\(question.likes)"
+            
+            if let answers = question.answers {
+                questionCell.labelMessages.text = "\(answers.count)"
+            } else {
+                questionCell.labelMessages.text = "0"
+            }
+            
+            if question.likes == 0 {
+                questionCell.imageViewLike.image = UIImage(named: "no-like")
+            } else {
+                questionCell.imageViewLike.image = UIImage(named: "like")
+            }
+        }
         
         return questionCell
     }
@@ -82,5 +121,15 @@ extension MyQuestionsViewController: UITableViewDataSource {
 // MARK: - TableView Delegate
 
 extension MyQuestionsViewController: UITableViewDelegate {
+    
+    /**
+     Deselects a row when the user taps on it.
+     
+     - Parameter tableView: TableView object.
+     - Parameter indexPath: Position of the tapped cell.
+     */
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.tableView.deselectRow(at: indexPath, animated: true)
+    }
     
 }

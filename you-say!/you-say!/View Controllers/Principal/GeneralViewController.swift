@@ -29,6 +29,14 @@ class GeneralViewController: UIViewController {
             filtersVC.currentUser = navigationVC.currentUser
             filtersVC.categories = navigationVC.categories
             
+        case "myQuestionsSegue":
+            // Get parent controller
+            guard let navigationVC = self.tabBarController as? NavigationViewController else { return }
+            
+            // Pass data to destination
+            let myQuestionsVC = segue.destination as! MyQuestionsViewController
+            myQuestionsVC.currentUser = navigationVC.currentUser
+            
         default:
             return
         }
