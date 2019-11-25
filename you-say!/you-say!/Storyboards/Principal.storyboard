@@ -410,9 +410,13 @@
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jqc-oQ-q1v">
                                                         <rect key="frame" x="0.0" y="0.0" width="24" height="24"/>
                                                         <constraints>
+                                                            <constraint firstAttribute="height" constant="24" id="IbJ-TS-PaX"/>
                                                             <constraint firstAttribute="width" constant="24" id="x4E-YM-737"/>
                                                         </constraints>
-                                                        <state key="normal" title="Button" image="no-like"/>
+                                                        <state key="normal" title="Button"/>
+                                                        <connections>
+                                                            <action selector="likeButtonPressed:" destination="D5n-Oh-Yj7" eventType="touchUpInside" id="s7Z-b8-x78"/>
+                                                        </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eyO-TH-pur">
                                                         <rect key="frame" x="29" y="0.0" width="353" height="24"/>
@@ -530,6 +534,7 @@
                     <connections>
                         <outlet property="activityIndicatorLocation" destination="FL0-TJ-DxY" id="Ntw-nR-xkr"/>
                         <outlet property="bottomConstraint" destination="1mA-AI-eOk" id="nAf-cU-xGZ"/>
+                        <outlet property="buttonLike" destination="jqc-oQ-q1v" id="zza-sG-C1w"/>
                         <outlet property="labelCreatorName" destination="NEZ-e0-RVv" id="WZj-8S-hbG"/>
                         <outlet property="labelQuestionCategory" destination="RGs-OZ-DiR" id="Ccm-IT-ZYk"/>
                         <outlet property="labelQuestionContent" destination="4eK-4c-rFl" id="MqM-VS-OK3"/>

@@ -25,6 +25,7 @@ class MyAnswersViewController: UIViewController {
     @IBOutlet weak var labelQuestionDate: UILabel!
     @IBOutlet weak var labelTotalLikes: UILabel!
     
+    @IBOutlet weak var buttonLike: UIButton!
     @IBOutlet weak var activityIndicatorLocation: UIActivityIndicatorView!
     
     // MARK: Properties
@@ -34,6 +35,7 @@ class MyAnswersViewController: UIViewController {
     }
     
     var idFromAutor: UUID!
+    var likeFromUser = false
     var dateFormatter: DateComponentsFormatter!
     
     // MARK: Core Data
@@ -101,6 +103,13 @@ class MyAnswersViewController: UIViewController {
             self.labelQuestionCategory.text = self.question.category
             self.labelQuestionContent.text = self.question.content
             self.labelTotalLikes.text = "\(self.question.likes)"
+            
+            // Like button image
+            if self.question.likes > 0 {
+                self.buttonLike.setImage(UIImage(named: "like"), for: .normal)
+            } else {
+                self.buttonLike.setImage(UIImage(named: "no-like"), for: .normal)
+            }
             
             // Time from publish date
             let timeInterval = self.dateFormatter.string(from: self.question.createdAt!, to: Date())
@@ -293,6 +302,30 @@ class MyAnswersViewController: UIViewController {
             showAlert(title: "Respuesta inválida", message: description)
         } catch {
             showAlert(title: "No se pudo procesar", message: "Inténtalo más tarde")
+        }
+    }
+    
+    /**
+     Add a new like to the question.
+     */
+    @IBAction func likeButtonPressed(_ sender: UIButton) {
+        // Update model
+        if !self.likeFromUser {
+            self.question.likes += 1
+            self.likeFromUser = true
+        } else {
+            self.question.likes -= 1
+            self.likeFromUser = false
+        }
+        
+        self.labelTotalLikes.text = "\(self.question.likes)"
+        
+        // Update button
+        self.buttonLike.isSelected = false
+        if self.question.likes == 0 {
+            self.buttonLike.setImage(UIImage(named: "no-like"), for: .normal)
+        } else {
+            self.buttonLike.setImage(UIImage(named: "like"), for: .normal)
         }
     }
 
