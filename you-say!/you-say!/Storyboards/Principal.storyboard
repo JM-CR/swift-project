@@ -439,6 +439,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bGs-HN-NFU">
                                         <rect key="frame" x="207" y="0.0" width="207" height="36.5"/>
                                         <state key="normal" title="Publicar"/>
+                                        <connections>
+                                            <action selector="publishButtonPressed:" destination="D5n-Oh-Yj7" eventType="touchUpInside" id="8wg-bI-sY1"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -470,53 +473,33 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contenido" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XwD-jK-uDG">
-                                                    <rect key="frame" x="20" y="46" width="374" height="31"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VHT-YX-QYu">
-                                                    <rect key="frame" x="52" y="97" width="38" height="21"/>
+                                                    <rect key="frame" x="20" y="46" width="374" height="43"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fecha" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ylX-hg-xXO">
-                                                    <rect key="frame" x="347" y="97" width="47" height="21"/>
+                                                    <rect key="frame" x="347" y="99" width="47" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m3K-gt-tPf">
-                                                    <rect key="frame" x="20" y="96" width="24" height="24"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="24" id="h1E-Gj-Ezm"/>
-                                                    </constraints>
-                                                    <state key="normal" title="Button" image="no-like"/>
-                                                </button>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="bottom" secondItem="VHT-YX-QYu" secondAttribute="bottom" constant="12.5" id="Eeu-kM-v0S"/>
+                                                <constraint firstAttribute="bottom" secondItem="ylX-hg-xXO" secondAttribute="bottom" constant="10.5" id="C2k-uF-GO7"/>
                                                 <constraint firstAttribute="trailing" secondItem="ylX-hg-xXO" secondAttribute="trailing" constant="20" id="GMo-31-vnP"/>
                                                 <constraint firstItem="XwD-jK-uDG" firstAttribute="leading" secondItem="4aV-b7-uZ5" secondAttribute="leading" constant="20" id="Rl4-M3-IxP"/>
-                                                <constraint firstAttribute="bottom" secondItem="m3K-gt-tPf" secondAttribute="bottom" constant="10.5" id="UCX-sL-R3I"/>
+                                                <constraint firstAttribute="bottom" secondItem="XwD-jK-uDG" secondAttribute="bottom" constant="41.5" id="TQV-T8-5qA"/>
                                                 <constraint firstItem="b7h-fq-8CV" firstAttribute="leading" secondItem="4aV-b7-uZ5" secondAttribute="leading" constant="20" id="XiP-UF-Ebe"/>
                                                 <constraint firstItem="b7h-fq-8CV" firstAttribute="top" secondItem="4aV-b7-uZ5" secondAttribute="top" constant="11" id="XpH-pa-czF"/>
                                                 <constraint firstItem="XwD-jK-uDG" firstAttribute="top" secondItem="4aV-b7-uZ5" secondAttribute="top" constant="46" id="YcP-YT-oqw"/>
                                                 <constraint firstAttribute="trailing" secondItem="XwD-jK-uDG" secondAttribute="trailing" constant="20" id="frj-xc-JTu"/>
-                                                <constraint firstItem="VHT-YX-QYu" firstAttribute="leading" secondItem="m3K-gt-tPf" secondAttribute="trailing" constant="8" id="i4n-Sl-h48"/>
-                                                <constraint firstAttribute="bottom" secondItem="ylX-hg-xXO" secondAttribute="bottom" constant="12.5" id="o7j-AB-utd"/>
-                                                <constraint firstAttribute="bottom" secondItem="XwD-jK-uDG" secondAttribute="bottom" constant="53.5" id="tNG-0l-xBC"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <constraints>
-                                            <constraint firstItem="m3K-gt-tPf" firstAttribute="leading" secondItem="bAL-ty-6D0" secondAttribute="leading" constant="20" id="jVQ-EB-nqF"/>
-                                        </constraints>
                                         <connections>
-                                            <outlet property="answerAutor" destination="b7h-fq-8CV" id="6eF-Oe-rzn"/>
-                                            <outlet property="answerContent" destination="XwD-jK-uDG" id="3di-x6-pGY"/>
-                                            <outlet property="answerDate" destination="ylX-hg-xXO" id="arM-ZU-XeT"/>
-                                            <outlet property="totalLikes" destination="VHT-YX-QYu" id="Tu7-bN-bcx"/>
+                                            <outlet property="labelAnswerContent" destination="XwD-jK-uDG" id="3di-x6-pGY"/>
+                                            <outlet property="labelAutor" destination="b7h-fq-8CV" id="6eF-Oe-rzn"/>
+                                            <outlet property="labelDate" destination="ylX-hg-xXO" id="arM-ZU-XeT"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

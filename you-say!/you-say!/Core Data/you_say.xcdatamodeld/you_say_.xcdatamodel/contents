@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14492.1" systemVersion="18G1012" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Answer" representedClassName="Answer" syncable="YES" codeGenerationType="class">
-        <attribute name="content" attributeType="String" syncable="YES"/>
+        <attribute name="content" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="createdAt" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
-        <attribute name="likes" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="from" attributeType="UUID" usesScalarValueType="NO" syncable="YES"/>
         <relationship name="question" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Question" inverseName="answers" inverseEntity="Question" syncable="YES"/>
     </entity>
     <entity name="Filter" representedClassName="Filter" syncable="YES" codeGenerationType="class">
@@ -48,7 +48,7 @@
         <relationship name="questions" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Question" inverseName="user" inverseEntity="Question" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Answer" positionX="-661.83984375" positionY="-2.1640625" width="128" height="103"/>
+        <element name="Answer" positionX="-661.83984375" positionY="-1.1640625" width="128" height="103"/>
         <element name="Filter" positionX="-127.44921875" positionY="-71.34375" width="128" height="73"/>
         <element name="Login" positionX="-127.17578125" positionY="79.09765625" width="128" height="103"/>
         <element name="Notification" positionX="-489.5546875" positionY="-136.06640625" width="128" height="88"/>

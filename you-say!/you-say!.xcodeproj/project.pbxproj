@@ -45,6 +45,7 @@
 		CAA9B0702368D2A700B6016C /* FiltersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAA9B06F2368D2A700B6016C /* FiltersViewController.swift */; };
 		CAA9B0722368D4CF00B6016C /* MyQuestionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAA9B0712368D4CF00B6016C /* MyQuestionsViewController.swift */; };
 		CAADFC20238C235D00C162AE /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAADFC1F238C235D00C162AE /* Question.swift */; };
+		CAADFC22238C2DD100C162AE /* NewAnswerError.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAADFC21238C2DD100C162AE /* NewAnswerError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -88,6 +89,7 @@
 		CAA9B06F2368D2A700B6016C /* FiltersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiltersViewController.swift; sourceTree = "<group>"; };
 		CAA9B0712368D4CF00B6016C /* MyQuestionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyQuestionsViewController.swift; sourceTree = "<group>"; };
 		CAADFC1F238C235D00C162AE /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
+		CAADFC21238C2DD100C162AE /* NewAnswerError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewAnswerError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -383,8 +385,17 @@
 				CA526D772368E39E003E396D /* Filters */,
 				CA526D782368E3B6003E396D /* MyQuestions */,
 				CA6A19BB238B278E005D2BAA /* MyAnswers */,
+				CAADFC23238C2DD600C162AE /* Errors */,
 			);
 			path = Principal;
+			sourceTree = "<group>";
+		};
+		CAADFC23238C2DD600C162AE /* Errors */ = {
+			isa = PBXGroup;
+			children = (
+				CAADFC21238C2DD100C162AE /* NewAnswerError.swift */,
+			);
+			path = Errors;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -481,6 +492,7 @@
 				CA6A19BE238B2A09005D2BAA /* QuestionTableViewCell.swift in Sources */,
 				CA3C393023844DC600F4CDE5 /* DesignableView.swift in Sources */,
 				CAA9B0572368C61000B6016C /* LoginViewController.swift in Sources */,
+				CAADFC22238C2DD100C162AE /* NewAnswerError.swift in Sources */,
 				CA6A19B7238877CC005D2BAA /* CategoriesDelegate.swift in Sources */,
 				CA6A19B123886F71005D2BAA /* CategoriesViewController.swift in Sources */,
 				CAA9B0722368D4CF00B6016C /* MyQuestionsViewController.swift in Sources */,

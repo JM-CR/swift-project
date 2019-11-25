@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreLocation
+import CoreData
 
 class MyAnswersViewController: UIViewController {
 
@@ -28,12 +29,27 @@ class MyAnswersViewController: UIViewController {
     
     // MARK: Properties
     
-    var dateFormatter: DateComponentsFormatter!
     lazy var answers = self.question?.answersByDate
+    var idFromAutor: UUID!
+    
+    var dateFormatter: DateComponentsFormatter!
     
     // MARK: Core Data
     
     var question: Question!
+    var currentUser: User!
+    
+    private var fetchedUser: User? {
+        // Create request
+        let fetchRequest: NSFetchRequest<User> = User.fetchRequest()
+        
+        // Configure request
+        fetchRequest.predicate = NSPredicate(format: "id == %@", self.idFromAutor.uuidString)
+        
+        // Get results
+        let fetchedResults = try? self.currentUser.managedObjectContext!.fetch(fetchRequest)
+        return fetchedResults?.count == 0 ? nil : fetchedResults?.first
+    }
     
     
     // MARK: - View Life Cycle
@@ -45,10 +61,10 @@ class MyAnswersViewController: UIViewController {
         super.viewDidLoad()
         
         // Initial setup
+        setupViews()
         setupDelegates()
         setupGestures()
         setupNotifications()
-        setupViews()
     }
     
     /**
@@ -59,6 +75,36 @@ class MyAnswersViewController: UIViewController {
     }
     
     // MARK: Setup
+    
+    /**
+     Initial set up for views.
+     */
+    private func setupViews() {
+        // TextView
+        self.textViewContent.text = "Comentar algo..."
+        self.textViewContent.textColor = .lightGray
+        
+        // Stack View
+        if let user = self.question.user {
+            // Calculate location
+            getAddress()
+            
+            // Fill information
+            if let alias = user.alias {
+                self.labelCreatorName.text = "\(user.name!) <\(alias)>"
+            } else {
+                self.labelCreatorName.text = user.name!
+            }
+            
+            self.labelQuestionCategory.text = self.question.category
+            self.labelQuestionContent.text = self.question.content
+            self.labelTotalLikes.text = "\(self.question.likes)"
+            
+            // Time from publish date
+            let timeInterval = self.dateFormatter.string(from: self.question.createdAt!, to: Date())
+            self.labelQuestionDate.text = "Hace \(timeInterval!)"
+        }
+    }
     
     /**
      Sets the delegates for the view controller.
@@ -97,31 +143,6 @@ class MyAnswersViewController: UIViewController {
             name: UIResponder.keyboardWillHideNotification,
             object: nil
         )
-    }
-    
-    /**
-     Initial set up for views.
-     */
-    private func setupViews() {
-        // TextView
-        self.textViewContent.text = "Comentar algo..."
-        self.textViewContent.textColor = .lightGray
-        
-        // Stack View
-        if let user = self.question.user {
-            // Calculate location
-            getAddress()
-            
-            // Fill information
-            self.labelCreatorName.text = user.name!
-            self.labelQuestionCategory.text = self.question.category
-            self.labelQuestionContent.text = self.question.content
-            self.labelTotalLikes.text = "\(self.question.likes)"
-            
-            // Time from publish date
-            let timeInterval = self.dateFormatter.string(from: self.question.createdAt!, to: Date())
-            self.labelQuestionDate.text = "Hace \(timeInterval!)"
-        }
     }
     
     // MARK: Gestures
@@ -170,7 +191,7 @@ class MyAnswersViewController: UIViewController {
     }
     
     
-    // MARK: - Location
+    // MARK: - Processing
     
     /**
      Calculates the location name from a coordinate.
@@ -192,6 +213,37 @@ class MyAnswersViewController: UIViewController {
         }
     }
     
+    /**
+     Creates a new answer.
+     */
+    private func createAnswer() throws {
+        // Create
+        let answer = Answer(context: self.currentUser.managedObjectContext!)
+        
+        // Set up
+        answer.createdAt = Date()
+        answer.content = self.textViewContent.text
+        answer.from = self.currentUser.id
+        
+        // Link
+        self.question.addToAnswers(answer)
+        
+        // Save
+        try self.currentUser.managedObjectContext?.save()
+    }
+    
+    
+    // MARK: - Validation
+    
+    /**
+     Validates the introduced answer by the user.
+     */
+    private func validateAnswer() throws {
+        guard !self.textViewContent.text.isEmpty else {
+            throw NewAnswerError.EmptyField(description: "No puedes dejar el campo vacío")
+        }
+    }
+    
     
     // MARK: - Actions
     
@@ -202,6 +254,21 @@ class MyAnswersViewController: UIViewController {
      */
     @IBAction func backButtonPressed(_ sender: UIBarButtonItem) {
         dismiss(animated: true, completion: nil)
+    }
+    
+    /**
+     Tries to create a new answer for the active question.
+     */
+    @IBAction func publishButtonPressed(_ sender: Any) {
+        do {
+            try validateAnswer()
+            try createAnswer()
+            
+        } catch NewAnswerError.EmptyField(let description) {
+            showAlert(title: "Respuesta inválida", message: description)
+        } catch {
+            showAlert(title: "No se pudo procesar", message: "Inténtalo más tarde")
+        }
     }
 
 }
@@ -238,8 +305,14 @@ extension MyAnswersViewController: UITableViewDataSource {
         
         // Get answer
         if let answer = self.answers?[indexPath.row] {
-            // Set up cell
+            // Time from publish date
+            let timeInterval = self.dateFormatter.string(from: answer.createdAt!, to: Date())
+            answerCell.labelDate.text = "Hace \(timeInterval!)"
             
+            // Fill info
+            self.idFromAutor = answer.from
+            answerCell.labelAutor.text = self.fetchedUser?.name
+            answerCell.labelAnswerContent.text = answer.content
         }
         
         return answerCell

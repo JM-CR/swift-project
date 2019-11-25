@@ -12,12 +12,9 @@ class AnswerTableViewCell: UITableViewCell {
 
     // MARK: - Outlets
     
-    @IBOutlet weak var answerAutor: UILabel!
-    @IBOutlet weak var answerContent: UILabel!
-    @IBOutlet weak var answerDate: UILabel!
-    
-    @IBOutlet weak var imageViewLike: UIImageView!
-    @IBOutlet weak var totalLikes: UILabel!
+    @IBOutlet weak var labelAutor: UILabel!
+    @IBOutlet weak var labelAnswerContent: UILabel!
+    @IBOutlet weak var labelDate: UILabel!
     
     
     // MARK: - Cell Liefe Cycle

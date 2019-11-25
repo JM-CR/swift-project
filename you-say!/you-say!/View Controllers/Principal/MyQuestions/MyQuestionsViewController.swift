@@ -67,6 +67,7 @@ class MyQuestionsViewController: UIViewController {
                 let myAnswersVC = segue.destination as! MyAnswersViewController
                 myAnswersVC.question = question
                 myAnswersVC.dateFormatter = self.dateFormatter
+                myAnswersVC.currentUser = self.currentUser
             }
             
         default:
