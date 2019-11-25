@@ -33,6 +33,7 @@ class MyAnswersViewController: UIViewController {
         setupDelegates()
         setupGestures()
         setupNotifications()
+        setupViews()
     }
     
     /**
@@ -81,7 +82,15 @@ class MyAnswersViewController: UIViewController {
             name: UIResponder.keyboardWillHideNotification,
             object: nil
         )
-
+    }
+    
+    /**
+     Initial set up for views.
+     */
+    private func setupViews() {
+        // TextView
+        self.textViewContent.text = "Comentar algo..."
+        self.textViewContent.textColor = .lightGray
     }
     
     // MARK: Gestures
@@ -192,7 +201,7 @@ extension MyAnswersViewController: UITableViewDelegate {
     
 }
 
-// MARK: - TextField Delegate
+// MARK: - TextView Delegate
 
 extension MyAnswersViewController: UITextViewDelegate {
     
@@ -206,4 +215,29 @@ extension MyAnswersViewController: UITextViewDelegate {
         self.view.endEditing(true)
         return true
     }
+    
+    /**
+     Clears the placeholder when the user is writing.
+     
+     - Parameter textView: Object that triggered the event.
+     */
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if textView.textColor == .lightGray {
+            textView.text = ""
+            textView.textColor = .black
+        }
+    }
+    
+    /**
+     Adds the placeholder if the textView is empty.
+     
+     - Parameter textView: Object that triggered the event.
+     */
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if textView.text.isEmpty {
+            textView.text = "Comentar algo..."
+            textView.textColor = .lightGray
+        }
+    }
+    
 }
