@@ -16,6 +16,15 @@ class MyAnswersViewController: UIViewController {
     @IBOutlet weak var textViewContent: UITextView!
     @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
     
+    @IBOutlet weak var creatorName: UILabel!
+    @IBOutlet weak var questionCategory: UITextField!
+    @IBOutlet weak var questionContent: UILabel!
+    @IBOutlet weak var questionCoordinate: UILabel!
+    @IBOutlet weak var questionDate: UILabel!
+    
+    @IBOutlet weak var imageViewLike: UIImageView!
+    @IBOutlet weak var totalLikes: UILabel!
+    
     // MARK: Properties
     
     // MARK: Core Data
