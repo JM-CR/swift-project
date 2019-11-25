@@ -29,9 +29,11 @@ class MyAnswersViewController: UIViewController {
     
     // MARK: Properties
     
-    lazy var answers = self.question?.answersByDate
-    var idFromAutor: UUID!
+    var answers: [Answer]? {
+        return self.question?.answersByDate
+    }
     
+    var idFromAutor: UUID!
     var dateFormatter: DateComponentsFormatter!
     
     // MARK: Core Data
@@ -143,6 +145,14 @@ class MyAnswersViewController: UIViewController {
             name: UIResponder.keyboardWillHideNotification,
             object: nil
         )
+        
+        // Core Data
+        notificationCenter.addObserver(
+            self,
+            selector: #selector(newAnswer),
+            name: .NSManagedObjectContextObjectsDidChange,
+            object: nil
+        )
     }
     
     // MARK: Gestures
@@ -190,6 +200,15 @@ class MyAnswersViewController: UIViewController {
         }
     }
     
+    /**
+     Updates the tableView with new information.
+     
+     - Parameter notification: Sent notification.
+     */
+    @objc func newAnswer(notification: NSNotification) {
+        self.tableView.reloadData()
+    }
+    
     
     // MARK: - Processing
     
@@ -230,6 +249,12 @@ class MyAnswersViewController: UIViewController {
         
         // Save
         try self.currentUser.managedObjectContext?.save()
+        
+        // Confirmation
+        showAlert(title: "Publicada con éxito", message: "")
+        
+        // Clean up
+        self.textViewContent.text = ""
     }
     
     
@@ -311,8 +336,13 @@ extension MyAnswersViewController: UITableViewDataSource {
             
             // Fill info
             self.idFromAutor = answer.from
-            answerCell.labelAutor.text = self.fetchedUser?.name
             answerCell.labelAnswerContent.text = answer.content
+            
+            if let user = self.fetchedUser, let alias = user.alias {
+                answerCell.labelAutor.text = "\(user.name!) <\(alias)>"
+            } else {
+                answerCell.labelAutor.text = self.fetchedUser?.name
+            }
         }
         
         return answerCell
