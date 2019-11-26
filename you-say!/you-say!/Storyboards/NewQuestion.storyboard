@@ -167,12 +167,12 @@
                                             </slider>
                                         </subviews>
                                     </stackView>
-                                    <textField opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="250" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Comparte tu pregunta..." textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="2wq-1t-1QV">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" directionalLockEnabled="YES" alwaysBounceVertical="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="5gV-aV-clI">
                                         <rect key="frame" x="0.0" y="61" width="414" height="713"/>
-                                        <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="19"/>
-                                        <textInputTraits key="textInputTraits" spellCheckingType="yes" smartDashesType="yes" smartInsertDeleteType="yes" smartQuotesType="yes"/>
-                                    </textField>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
                                 </subviews>
                             </stackView>
                         </subviews>
@@ -189,12 +189,13 @@
                         <viewLayoutGuide key="safeArea" id="2qd-ec-0ES"/>
                     </view>
                     <connections>
+                        <outlet property="bottomConstraint" destination="n7r-hp-asd" id="HgX-yh-0QB"/>
                         <outlet property="labelCategory" destination="ecD-1m-WSy" id="rm0-tc-bfd"/>
                         <outlet property="labelDistance" destination="zKQ-Rf-dVV" id="mz4-pN-UfI"/>
                         <outlet property="sliderDistance" destination="yxj-lx-fEX" id="h4Y-iV-sIV"/>
                         <outlet property="stackViewDistance" destination="RcE-OI-hAZ" id="I4W-8a-IXB"/>
                         <outlet property="switchDistance" destination="xL5-Lp-EvT" id="nUc-mC-4ge"/>
-                        <outlet property="textFieldQuestion" destination="2wq-1t-1QV" id="hp2-mt-896"/>
+                        <outlet property="textViewQuestion" destination="5gV-aV-clI" id="OA4-ui-SBt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cEK-Tx-pJF" userLabel="First Responder" sceneMemberID="firstResponder"/>

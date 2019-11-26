@@ -64,22 +64,22 @@ class GeneralViewController: UIViewController {
      Initial set up for the view controller.
      */
     override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        // Initial set up
         updateView()
         fetchNotes()
     }
     
     
-    // MARK: - View Methods
+    // MARK: - Helper Methods
     
     /**
-     Syncs the view with and model.
+     Synchronizes the view with the model.
      */
     private func updateView() {
         
     }
-    
-    
-    // MARK: - Helper Methods
     
     /**
      Retrieves questions from Core Data.

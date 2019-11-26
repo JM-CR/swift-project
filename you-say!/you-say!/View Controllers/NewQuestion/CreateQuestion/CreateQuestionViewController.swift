@@ -20,7 +20,8 @@ class CreateQuestionViewController: UIViewController {
     @IBOutlet weak var sliderDistance: UISlider!
     @IBOutlet weak var switchDistance: UISwitch!
     
-    @IBOutlet weak var textFieldQuestion: UITextField!
+    @IBOutlet weak var textViewQuestion: UITextView!
+    @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
     
     // MARK: Properties
     
@@ -45,17 +46,35 @@ class CreateQuestionViewController: UIViewController {
         super.viewDidLoad()
         
         // Initial setup
+        setupViews()
         setupDelegates()
         setupGestures()
+        setupNotifications()
+    }
+    
+    /**
+     Remove observers when it is disappearing.
+     */
+    deinit {
+        NotificationCenter.default.removeObserver(self)
     }
     
     // MARK: Setup
     
     /**
+     Initial set up for views.
+     */
+    private func setupViews() {
+        // TextView
+        self.textViewQuestion.text = "Comparte tu pregunta..."
+        self.textViewQuestion.textColor = .lightGray
+    }
+    
+    /**
      Sets the delegates for the view controller.
      */
     private func setupDelegates() {
-        self.textFieldQuestion.delegate = self
+        self.textViewQuestion.delegate = self
     }
     
     /**
@@ -67,6 +86,29 @@ class CreateQuestionViewController: UIViewController {
         self.view.addGestureRecognizer(tap)
     }
     
+    /**
+     Sets the observers for the view controller.
+     */
+    private func setupNotifications() {
+        let notificationCenter = NotificationCenter.default
+        
+        // Keyboard appearing
+        notificationCenter.addObserver(
+            self,
+            selector: #selector(keyboardWillShow),
+            name: UIResponder.keyboardWillShowNotification,
+            object: nil
+        )
+        
+        // Keyboard hiding
+        notificationCenter.addObserver(
+            self,
+            selector: #selector(keyboardWillHide),
+            name: UIResponder.keyboardWillHideNotification,
+            object: nil
+        )
+    }
+    
     // MARK: Gestures
     
     /**
@@ -74,6 +116,42 @@ class CreateQuestionViewController: UIViewController {
      */
     @objc func didTapView(){
         self.view.endEditing(true)
+    }
+    
+    // MARK: Notifications
+    
+    /**
+     Adjusts the content when the keyboard is appearing.
+     
+     - Parameter notification: Sent notification.
+     */
+    @objc func keyboardWillShow(notification: NSNotification) {
+        // Get keyboard size
+        let info = notification.userInfo!
+        let keyboardFrame = (info[UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
+        
+        // Update
+        self.bottomConstraint.constant = keyboardFrame.size.height * -1
+        
+        // Animate
+        UIView.animate(withDuration: 0.1) {
+            self.view.layoutIfNeeded()
+        }
+    }
+    
+    /**
+     Adjusts the content when the keyboard is hiding.
+     
+     - Parameter notification: Sent notification.
+     */
+    @objc func keyboardWillHide(notification: NSNotification) {
+        // Update
+        self.bottomConstraint.constant = 6
+        
+        // Animate
+        UIView.animate(withDuration: 0.1) {
+            self.view.layoutIfNeeded()
+        }
     }
     
     
@@ -151,7 +229,7 @@ class CreateQuestionViewController: UIViewController {
             throw NewQuestionError.InvalidCategory(description: "No has elegido una categoría.")
         }
         
-        guard let text = self.textFieldQuestion.text, text != "" else {
+        guard let text = self.textViewQuestion.text, text != "" else {
             throw NewQuestionError.EmptyQuestion(description: "No puedes publicar una pregunta vacía")
         }
     }
@@ -168,7 +246,7 @@ class CreateQuestionViewController: UIViewController {
         
         // Set up
         question.category = self.selectedCategory
-        question.content = self.textFieldQuestion.text
+        question.content = self.textViewQuestion.text
         question.createdAt = Date()
         question.id = UUID()
         question.latitude = self.selectedCoordinate.latitude
@@ -251,9 +329,9 @@ extension CreateQuestionViewController: CategoriesDelegate {
     
 }
 
-// MARK: - TextField Delegate
+// MARK: - TextView Delegate
 
-extension CreateQuestionViewController: UITextFieldDelegate {
+extension CreateQuestionViewController: UITextViewDelegate {
     
     /**
      Hides the keyboard when the user finishes editing.
@@ -261,8 +339,32 @@ extension CreateQuestionViewController: UITextFieldDelegate {
      - Parameter textField: Object that triggered the event.
      - Returns: True to hide or false to keep.
      */
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+    func textViewShouldReturn(_ textField: UITextField) -> Bool {
         self.view.endEditing(true)
         return true
+    }
+    
+    /**
+     Clears the placeholder when the user is writing.
+     
+     - Parameter textView: Object that triggered the event.
+     */
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if textView.textColor == .lightGray {
+            textView.text = ""
+            textView.textColor = .black
+        }
+    }
+    
+    /**
+     Adds the placeholder if the textView is empty.
+     
+     - Parameter textView: Object that triggered the event.
+     */
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if textView.text.isEmpty {
+            textView.text = "Comparte tu pregunta..."
+            textView.textColor = .lightGray
+        }
     }
 }

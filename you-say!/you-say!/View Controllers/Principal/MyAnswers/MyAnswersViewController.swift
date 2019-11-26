@@ -186,7 +186,7 @@ class MyAnswersViewController: UIViewController {
         let keyboardFrame = (info[UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
         
         // Update
-        self.bottomConstraint.constant = 25 - keyboardFrame.size.height
+        self.bottomConstraint.constant = keyboardFrame.size.height * -1
         
         // Animate
         UIView.animate(withDuration: 0.1) {
