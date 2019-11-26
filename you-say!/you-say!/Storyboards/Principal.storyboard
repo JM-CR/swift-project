@@ -251,6 +251,9 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="STN-WI-MbE"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="tableView" destination="FFe-3I-enx" id="r13-9E-B1t"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5lr-Zo-plL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

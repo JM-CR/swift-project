@@ -17,18 +17,7 @@ class MyQuestionsViewController: UIViewController {
     // MARK: Properties
     
     lazy var questions = self.currentUser!.questionsByDate
-    
-    var dateFormatter: DateComponentsFormatter = {
-        // Create
-        let formatter = DateComponentsFormatter()
-        
-        // Set up
-        formatter.allowedUnits = [.day, .hour, .minute, .second]
-        formatter.unitsStyle = .abbreviated
-        formatter.maximumUnitCount = 1
-        
-        return formatter
-    }()
+    var dateFormatter: DateComponentsFormatter!
     
     // MARK: Core Data
     
