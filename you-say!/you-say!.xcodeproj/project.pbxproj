@@ -20,6 +20,7 @@
 		CA3C393A2384B4D300F4CDE5 /* NewUserError.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3C39392384B4D300F4CDE5 /* NewUserError.swift */; };
 		CA3C393E2384C97200F4CDE5 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3C393D2384C97200F4CDE5 /* UIViewController.swift */; };
 		CA3C39402384D31E00F4CDE5 /* GenderDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3C393F2384D31E00F4CDE5 /* GenderDelegate.swift */; };
+		CA3FED3A238D85C200AE6643 /* GeneralTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3FED39238D85C200AE6643 /* GeneralTableViewCell.swift */; };
 		CA526D7A2368E43D003E396D /* MyAnswersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA526D792368E43D003E396D /* MyAnswersViewController.swift */; };
 		CA526D7C2368E619003E396D /* LocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA526D7B2368E619003E396D /* LocationViewController.swift */; };
 		CA526D7E2368E935003E396D /* MyAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA526D7D2368E935003E396D /* MyAccountViewController.swift */; };
@@ -62,6 +63,7 @@
 		CA3C39392384B4D300F4CDE5 /* NewUserError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewUserError.swift; sourceTree = "<group>"; };
 		CA3C393D2384C97200F4CDE5 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		CA3C393F2384D31E00F4CDE5 /* GenderDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderDelegate.swift; sourceTree = "<group>"; };
+		CA3FED39238D85C200AE6643 /* GeneralTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralTableViewCell.swift; sourceTree = "<group>"; };
 		CA526D792368E43D003E396D /* MyAnswersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAnswersViewController.swift; sourceTree = "<group>"; };
 		CA526D7B2368E619003E396D /* LocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewController.swift; sourceTree = "<group>"; };
 		CA526D7D2368E935003E396D /* MyAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAccountViewController.swift; sourceTree = "<group>"; };
@@ -241,6 +243,23 @@
 			path = Errors;
 			sourceTree = "<group>";
 		};
+		CA3FED3B238D85D200AE6643 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				CA3FED39238D85C200AE6643 /* GeneralTableViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		CA3FED3C238D85E600AE6643 /* General */ = {
+			isa = PBXGroup;
+			children = (
+				CAA9B06C2368CFDB00B6016C /* GeneralViewController.swift */,
+				CA3FED3B238D85D200AE6643 /* Cell */,
+			);
+			path = General;
+			sourceTree = "<group>";
+		};
 		CA526D772368E39E003E396D /* Filters */ = {
 			isa = PBXGroup;
 			children = (
@@ -381,7 +400,7 @@
 		CAA9B06E2368CFE800B6016C /* Principal */ = {
 			isa = PBXGroup;
 			children = (
-				CAA9B06C2368CFDB00B6016C /* GeneralViewController.swift */,
+				CA3FED3C238D85E600AE6643 /* General */,
 				CA526D772368E39E003E396D /* Filters */,
 				CA526D782368E3B6003E396D /* MyQuestions */,
 				CA6A19BB238B278E005D2BAA /* MyAnswers */,
@@ -487,6 +506,7 @@
 				CA6A19AB238862C3005D2BAA /* CreateQuestionViewController.swift in Sources */,
 				CA526D812368EC5F003E396D /* UserViewController.swift in Sources */,
 				CAADFC20238C235D00C162AE /* Question.swift in Sources */,
+				CA3FED3A238D85C200AE6643 /* GeneralTableViewCell.swift in Sources */,
 				CA6A19C4238B6C84005D2BAA /* AnswerTableViewCell.swift in Sources */,
 				CAA9B0702368D2A700B6016C /* FiltersViewController.swift in Sources */,
 				CA6A19BE238B2A09005D2BAA /* QuestionTableViewCell.swift in Sources */,
