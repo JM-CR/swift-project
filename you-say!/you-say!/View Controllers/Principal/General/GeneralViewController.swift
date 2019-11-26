@@ -113,17 +113,21 @@ class GeneralViewController: UIViewController {
             
             // Pass data to destination
             let filtersVC = segue.destination as! FiltersViewController
-            filtersVC.currentUser = navigationVC.currentUser
+            filtersVC.currentUser = self.currentUser
             filtersVC.categories = navigationVC.categories
             
         case "myQuestionsSegue":
-            // Get parent controller
-            guard let navigationVC = self.tabBarController as? NavigationViewController else { return }
-            
             // Pass data to destination
             let myQuestionsVC = segue.destination as! MyQuestionsViewController
-            myQuestionsVC.currentUser = navigationVC.currentUser
+            myQuestionsVC.currentUser = self.currentUser
             myQuestionsVC.dateFormatter = self.dateFormatter
+            
+        case "myAnswersSegue":
+            // Pass data to destination
+            let myAnswersVC = segue.destination as! MyAnswersViewController
+            myAnswersVC.question = self.fetchedResultsController.object(at: self.tableView.indexPathForSelectedRow!)
+            myAnswersVC.dateFormatter = self.dateFormatter
+            myAnswersVC.currentUser = self.currentUser
             
         default:
             return
@@ -206,6 +210,15 @@ extension GeneralViewController: UITableViewDataSource {
 
 extension GeneralViewController: UITableViewDelegate {
     
+    /**
+     Deselects a row when the user taps on it.
+     
+     - Parameter tableView: TableView object.
+     - Parameter indexPath: Position of the tapped cell.
+     */
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.tableView.deselectRow(at: indexPath, animated: true)
+    }
     
 }
 

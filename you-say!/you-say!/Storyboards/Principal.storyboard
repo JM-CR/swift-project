@@ -227,7 +227,7 @@
                                             <outlet property="labelTotalMesssages" destination="xNL-U1-qcE" id="201-pK-dnD"/>
                                             <outlet property="labelUser" destination="Gsy-zG-Lvr" id="e5Y-jG-dku"/>
                                             <outlet property="textFieldCategory" destination="BJL-21-KEk" id="aPW-BB-EOM"/>
-                                            <segue destination="D5n-Oh-Yj7" kind="presentation" id="CGk-s2-06D"/>
+                                            <segue destination="D5n-Oh-Yj7" kind="presentation" identifier="myAnswersSegue" id="CGk-s2-06D"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
