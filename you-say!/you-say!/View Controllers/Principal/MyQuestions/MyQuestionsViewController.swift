@@ -112,7 +112,7 @@ extension MyQuestionsViewController: UITableViewDataSource {
             // Set up
             questionCell.labelDate.text = "Hace \(interval!)"
             questionCell.labelReport.text = "\(question.reports)"
-            questionCell.labelCategory.text = question.category
+            questionCell.textFieldCategory.text = question.category
             questionCell.labelContent.text = question.content
             questionCell.labelLike.text = "\(question.likes)"
             

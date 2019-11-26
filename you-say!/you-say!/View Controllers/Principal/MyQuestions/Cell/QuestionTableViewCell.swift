@@ -13,15 +13,15 @@ class QuestionTableViewCell: UITableViewCell {
     // MARK: - Outlets
     
     @IBOutlet weak var imageViewLike: UIImageView!
+    @IBOutlet weak var textFieldCategory: UITextField!
     
     @IBOutlet weak var labelLike: UILabel!
     @IBOutlet weak var labelReport: UILabel!
     @IBOutlet weak var labelDate: UILabel!
     @IBOutlet weak var labelMessages: UILabel!
-    @IBOutlet weak var labelCategory: UILabel!
     @IBOutlet weak var labelContent: UILabel!
     
-    
+
     // MARK: Cell Life Cycle
     
     override func awakeFromNib() {

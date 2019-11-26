@@ -55,7 +55,6 @@ class GeneralViewController: UIViewController {
         return fetchedResultsController
     }()
     
-    
     // MARK: Core Location
     
     
@@ -271,7 +270,17 @@ extension GeneralViewController: NSFetchedResultsControllerDelegate {
                 configure(cell, at: indexPath)
             }
             
-        default: break
+        case .move:
+            if let indexPath = indexPath {
+                self.tableView.deleteRows(at: [indexPath], with: .fade)
+            }
+            
+            if let newIndexPath = newIndexPath {
+                self.tableView.insertRows(at: [newIndexPath], with: .fade)
+            }
+            
+        @unknown default:
+            break
         }
     }
     
