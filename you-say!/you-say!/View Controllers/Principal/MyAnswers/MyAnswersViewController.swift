@@ -94,7 +94,7 @@ class MyAnswersViewController: UIViewController {
             getAddress()
             
             // Fill information
-            if let alias = user.alias {
+            if let alias = user.alias, !alias.isEmpty {
                 self.labelCreatorName.text = "\(user.name!) <\(alias)>"
             } else {
                 self.labelCreatorName.text = user.name!
@@ -402,7 +402,7 @@ extension MyAnswersViewController: UITableViewDataSource {
             self.idFromAutor = answer.from
             answerCell.labelAnswerContent.text = answer.content
             
-            if let user = self.fetchedUser, let alias = user.alias {
+            if let user = self.fetchedUser, let alias = user.alias, !alias.isEmpty {
                 answerCell.labelAutor.text = "\(user.name!) <\(alias)>"
             } else {
                 answerCell.labelAutor.text = self.fetchedUser?.name

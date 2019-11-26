@@ -189,7 +189,7 @@ extension GeneralViewController: UITableViewDataSource {
         generalCell.labelDate.text = "Hace \(interval!)"
         
         // Get username
-        if let alias = question.user?.alias {
+        if let alias = question.user?.alias, !alias.isEmpty {
             generalCell.labelUser.text = "\(question.user!.name!) <\(alias)>"
         } else {
             generalCell.labelUser.text = question.user!.name

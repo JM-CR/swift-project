@@ -23,4 +23,17 @@ extension User {
             return question0 > question1
         })
     }
+    
+    var filtersAsArray: [Filter]? {
+        guard let filters = self.filters as? Set<Filter> else {
+            return nil
+        }
+        
+        return filters.sorted {
+            guard let filter0 = $0.category else { return true }
+            guard let filter1 = $1.category else { return true }
+            return filter0 < filter1
+        }
+    }
+    
 }

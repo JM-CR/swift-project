@@ -173,6 +173,7 @@ class CreateQuestionViewController: UIViewController {
      */
     @IBAction func publishButtonPressed(_ sender: UIBarButtonItem) {
         do {
+            self.view.endEditing(true)
             try validateQuestion()
             createQuestion()
             
