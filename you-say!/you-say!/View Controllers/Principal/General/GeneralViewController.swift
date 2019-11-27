@@ -15,10 +15,18 @@ class GeneralViewController: UIViewController {
     // MARK: - Outlets
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var labelNullDescription: UILabel!
     
     // MARK: Properties
     
     lazy var currentUser = (self.tabBarController as! NavigationViewController).currentUser!
+    
+    var haveQuestions: Bool {
+        guard let questions = self.fetchedResultsController.fetchedObjects else {
+            return false
+        }
+        return questions.count > 0 ? true : false
+    }
     
     var dateFormatter: DateComponentsFormatter = {
         // Create
@@ -40,6 +48,11 @@ class GeneralViewController: UIViewController {
         
         // Configure Fetch Request
         fetchRequest.sortDescriptors = [NSSortDescriptor(key: #keyPath(Question.createdAt), ascending: false)]
+        
+        if let filters = self.currentUser.filtersAsArray {
+            let categories: [String] = filters.compactMap { $0.category }
+            fetchRequest.predicate = NSPredicate(format: "category IN %@", categories)
+        }
         
         // Create Fetched Results Controller
         let fetchedResultsController = NSFetchedResultsController(
@@ -67,8 +80,8 @@ class GeneralViewController: UIViewController {
         super.viewDidLoad()
         
         // Initial set up
+        fetchQuestions()
         updateView()
-        fetchNotes()
     }
     
     
@@ -78,13 +91,19 @@ class GeneralViewController: UIViewController {
      Synchronizes the view with the model.
      */
     private func updateView() {
-        
+        if self.haveQuestions {
+            self.tableView.isHidden = false
+            self.labelNullDescription.isHidden = true
+        } else {
+            self.tableView.isHidden = true
+            self.labelNullDescription.isHidden = false
+        }
     }
     
     /**
      Retrieves questions from Core Data.
      */
-    private func fetchNotes() {
+    private func fetchQuestions() {
         do {
             try self.fetchedResultsController.performFetch()
         } catch {
@@ -114,6 +133,7 @@ class GeneralViewController: UIViewController {
             let filtersVC = segue.destination as! FiltersViewController
             filtersVC.currentUser = self.currentUser
             filtersVC.categories = navigationVC.categories
+            filtersVC.delegate = self
             
         case "myQuestionsSegue":
             // Pass data to destination
@@ -281,6 +301,42 @@ extension GeneralViewController: NSFetchedResultsControllerDelegate {
             
         @unknown default:
             break
+        }
+    }
+    
+}
+
+// MARK: - Filter Delegate
+
+extension GeneralViewController: FilterDelegate {
+    
+    /**
+     Updates the displayed questions according to the selected filters.
+     */
+    func newFilters() {
+        do {
+            // Update fetched questions
+            updatePredicate()
+            try self.fetchedResultsController.performFetch()
+            
+            // Update tableView
+            updateView()
+            self.tableView.reloadData()
+        } catch {
+            showAlert(
+                title: "No fue posible sincronizar tus categorías favoritas",
+                message: "Inténtalo más tarde"
+            )
+        }
+    }
+    
+    /**
+     Updates the core data's predicates before perfoming a new fetch.
+     */
+    private func updatePredicate() {
+        if let filters = self.currentUser.filtersAsArray {
+            let categories: [String] = filters.compactMap { $0.category }
+            self.fetchedResultsController.fetchRequest.predicate = NSPredicate(format: "category IN %@", categories)
         }
     }
     

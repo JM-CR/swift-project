@@ -141,7 +141,17 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="FFe-3I-enx">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Elige tus categorías favoritas en &quot;Filtros&quot;" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Oz-eo-SD1">
+                                <rect key="frame" x="42.5" y="404" width="329" height="49"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="49" id="5tD-xI-I1o"/>
+                                    <constraint firstAttribute="width" constant="329" id="vUy-yg-8yE"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="FFe-3I-enx">
                                 <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <view key="tableFooterView" contentMode="scaleToFill" id="ors-xt-fbn">
@@ -247,16 +257,19 @@
                             <constraint firstItem="ldB-il-mgL" firstAttribute="trailing" secondItem="Hx9-c4-S7G" secondAttribute="trailing" id="4pB-f8-gPK"/>
                             <constraint firstItem="ldB-il-mgL" firstAttribute="leading" secondItem="Hx9-c4-S7G" secondAttribute="leading" id="60r-Hp-PHJ"/>
                             <constraint firstItem="FFe-3I-enx" firstAttribute="bottom" secondItem="Hx9-c4-S7G" secondAttribute="bottom" id="Ger-hU-GRH"/>
+                            <constraint firstItem="9Oz-eo-SD1" firstAttribute="centerY" secondItem="Hx9-c4-S7G" secondAttribute="centerY" id="H4d-k0-1U2"/>
                             <constraint firstItem="FFe-3I-enx" firstAttribute="leading" secondItem="Hx9-c4-S7G" secondAttribute="leading" id="Ptn-0y-AKv"/>
                             <constraint firstItem="ldB-il-mgL" firstAttribute="top" secondItem="Hx9-c4-S7G" secondAttribute="top" id="YcN-Od-Bxk"/>
                             <constraint firstItem="FFe-3I-enx" firstAttribute="top" secondItem="ldB-il-mgL" secondAttribute="bottom" id="bfQ-as-w4K"/>
                             <constraint firstItem="FFe-3I-enx" firstAttribute="trailing" secondItem="Hx9-c4-S7G" secondAttribute="trailing" id="cFL-nJ-oAo"/>
+                            <constraint firstItem="9Oz-eo-SD1" firstAttribute="centerX" secondItem="Hx9-c4-S7G" secondAttribute="centerX" id="k3o-EL-M6u"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Hx9-c4-S7G"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="STN-WI-MbE"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="labelNullDescription" destination="9Oz-eo-SD1" id="RQu-yT-kgw"/>
                         <outlet property="tableView" destination="FFe-3I-enx" id="r13-9E-B1t"/>
                     </connections>
                 </viewController>
@@ -669,6 +682,6 @@
         <image name="report" width="24" height="24"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="f7j-ge-b0e"/>
+        <segue reference="CGk-s2-06D"/>
     </inferredMetricsTieBreakers>
 </document>

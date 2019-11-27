@@ -17,11 +17,23 @@ class FiltersViewController: UIViewController {
     // MARK: Properties
     
     var categories: [String]!
+    var delegate: FilterDelegate?
     
     // MARK: Core Data
     
     var currentUser: User!
     
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        guard let viewContext = self.currentUser.managedObjectContext else {
+            return
+        }
+        
+        if viewContext.hasChanges {
+            try? viewContext.save()
+            self.delegate?.newFilters()
+        }
+    }
     
     // MARK: - Actions
     
