@@ -19,6 +19,15 @@ class MyQuestionsViewController: UIViewController {
     lazy var questions = self.currentUser!.questionsByDate
     var dateFormatter: DateComponentsFormatter!
     
+    lazy var refreshControl: UIRefreshControl = {
+        // Create
+        let refreshControl = UIRefreshControl()
+        
+        // Set up
+        refreshControl.addTarget(self, action: #selector(handleRefresh), for: .valueChanged)
+        return refreshControl
+    }()
+    
     // MARK: Core Data
     
     var currentUser: User!
@@ -26,9 +35,45 @@ class MyQuestionsViewController: UIViewController {
     
     // MARK: - View Life Cycle
     
+    /**
+     Reloads the tableView to display new data.
+     */
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.tableView.reloadData()
+    }
+    
+    /**
+     Initial set up for the view controller.
+     */
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        // Initial set up
+        setupViews()
+    }
+    
+    // MARK: Set up
+    
+    /**
+     Adds initial features for views.
+     */
+    private func setupViews() {
+        // Pull to refresh
+        self.tableView.addSubview(self.refreshControl)
+    }
+    
+    
+    // MARK: - Helper Methods
+    
+    /**
+     Refreshes the tableView when the user pulls.
+     
+     - Parameter sender: Refresh object that is sent.
+     */
+    @objc func handleRefresh(_ sender: UIRefreshControl) {
+        self.tableView.reloadData()
+        sender.endRefreshing()
     }
     
     

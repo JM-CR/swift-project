@@ -36,6 +36,7 @@ class MyAnswersViewController: UIViewController {
     
     var idFromAutor: UUID!
     var likeFromUser = false
+    
     var dateFormatter: DateComponentsFormatter!
     
     // MARK: Core Data

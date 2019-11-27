@@ -40,6 +40,15 @@ class GeneralViewController: UIViewController {
         return formatter
     }()
     
+    lazy var refreshControl: UIRefreshControl = {
+        // Create
+        let refreshControl = UIRefreshControl()
+        
+        // Set up
+        refreshControl.addTarget(self, action: #selector(handleRefresh), for: .valueChanged)
+        return refreshControl
+    }()
+    
     // MARK: Core Data
     
     private lazy var fetchedResultsController: NSFetchedResultsController<Question> = {
@@ -80,9 +89,21 @@ class GeneralViewController: UIViewController {
         super.viewDidLoad()
         
         // Initial set up
+        setupViews()
         fetchQuestions()
         updateView()
     }
+    
+    // MARK: Set up
+    
+    /**
+     Adds initial features for views.
+     */
+    private func setupViews() {
+        // Pull to refresh
+        self.tableView.addSubview(self.refreshControl)
+    }
+    
     
     
     // MARK: - Helper Methods
@@ -112,6 +133,16 @@ class GeneralViewController: UIViewController {
                 message: "Intenta conectarte más tarde"
             )
         }
+    }
+    
+    /**
+     Refreshes the tableView when the user pulls.
+     
+     - Parameter sender: Refresh object that is sent.
+     */
+    @objc func handleRefresh(_ sender: UIRefreshControl) {
+        self.tableView.reloadData()
+        sender.endRefreshing()
     }
     
     
