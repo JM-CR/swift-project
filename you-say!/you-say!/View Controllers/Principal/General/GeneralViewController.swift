@@ -77,8 +77,6 @@ class GeneralViewController: UIViewController {
         return fetchedResultsController
     }()
     
-    // MARK: Core Location
-    
     
     // MARK: - View Life Cycle
     

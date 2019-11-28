@@ -21,6 +21,18 @@ class MyAccountViewController: UIViewController {
     
     lazy var currentUser = (self.tabBarController as! NavigationViewController).currentUser
     
+    lazy var dateFormatter: DateFormatter = {
+        // Create
+        var dateFormatter = DateFormatter()
+        
+        // Set up
+        dateFormatter.locale = Locale(identifier: "es_MX")
+        dateFormatter.dateStyle = .long
+        dateFormatter.timeStyle = .none
+        
+        return dateFormatter
+    }()
+    
     
     // MARK: - View Life Cycle
     
@@ -64,6 +76,7 @@ class MyAccountViewController: UIViewController {
         // Present
         let userVC = self.storyboard!.instantiateViewController(withIdentifier: "UserVC") as! UserViewController
         userVC.currentUser = self.currentUser
+        userVC.dateFormatter = self.dateFormatter
         present(userVC, animated: true, completion: nil)
     }
     
