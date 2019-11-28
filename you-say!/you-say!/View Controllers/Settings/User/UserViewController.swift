@@ -13,11 +13,13 @@ class UserViewController: UIViewController {
     // MARK: - Outlets
     
     @IBOutlet weak var textFieldName: UITextField!
+    @IBOutlet weak var textFieldLastName: UITextField!
     @IBOutlet weak var textFieldAlias: UITextField!
     @IBOutlet weak var textFieldCreatedAt: UITextField!
     @IBOutlet weak var textFieldBirthDate: UITextField!
     
     @IBOutlet weak var viewName: UIView!
+    @IBOutlet weak var viewLastName: UIView!
     @IBOutlet weak var viewAlias: UIView!
     @IBOutlet weak var viewCreatedAt: UIView!
     @IBOutlet weak var viewBirthDate: UIView!
@@ -26,6 +28,10 @@ class UserViewController: UIViewController {
     
     var currentUser: User!
     var dateFormatter: DateFormatter!
+    
+    lazy var initialName = self.currentUser.name
+    lazy var initialLastName = self.currentUser.lastName
+    lazy var initialAlias = self.currentUser.alias
     
     
     // MARK: - View Life Cycle
@@ -52,6 +58,7 @@ class UserViewController: UIViewController {
         // Views
         self.viewName.layer.cornerRadius = 15
         self.viewAlias.layer.cornerRadius = 15
+        self.viewLastName.layer.cornerRadius = 15
         self.viewCreatedAt.layer.cornerRadius = 15
         self.viewBirthDate.layer.cornerRadius = 15
         
@@ -61,6 +68,9 @@ class UserViewController: UIViewController {
         
         self.textFieldAlias.backgroundColor = .clear
         self.textFieldAlias.borderStyle = .none
+        
+        self.textFieldLastName.backgroundColor = .clear
+        self.textFieldLastName.borderStyle = .none
         
         self.textFieldCreatedAt.backgroundColor = .clear
         self.textFieldCreatedAt.borderStyle = .none
@@ -93,10 +103,8 @@ class UserViewController: UIViewController {
      */
     private func setupData() {
         // User data
-        let name = self.currentUser.name
-        let lastName = self.currentUser.lastName
-        self.textFieldName.text = "\(name!) \(lastName!)"
-        
+        self.textFieldName.text = self.currentUser.name
+        self.textFieldLastName.text = self.currentUser.lastName
         self.textFieldAlias.text = self.currentUser.alias
         
         // Dates
@@ -125,9 +133,75 @@ class UserViewController: UIViewController {
      - Parameter sender: Button object.
      */
     @IBAction func saveButtonPressed(_ sender: UIButton) {
-        dismiss(animated: true, completion: nil)
+        do {
+            // Validate correct input
+            try validateData()
+            
+            // Check changes
+            if detectChanges() {
+                try? self.currentUser.managedObjectContext?.save()
+            }
+            
+            dismiss(animated: true, completion: nil)
+            
+        } catch UserError.EmptyName(let description) {
+            showAlert(title: "Campo inválido", message: description) {
+                self.textFieldName.becomeFirstResponder()
+            }
+        } catch UserError.EmptyLastName(let description) {
+            showAlert(title: "Campo inválido", message: description) {
+                self.textFieldLastName.becomeFirstResponder()
+            }
+        } catch {
+            showAlert(title: "Error desconocido", message: "Inténtalo más tarde")
+        }
     }
-
+    
+    
+    // MARK: - Validation
+    
+    /**
+     Checks if the user has left an empty field.
+     
+     - Throws: UserError.EmptyField
+     */
+    private func validateData() throws {
+        guard let name = self.textFieldName.text, !name.isEmpty else {
+            throw UserError.EmptyName(description: "Introduce un nombre válido")
+        }
+        
+        guard let lastName = self.textFieldLastName.text, !lastName.isEmpty else {
+            throw UserError.EmptyLastName(description: "Introduce un apellido válido")
+        }
+    }
+    
+    /**
+     Detects if the user has changed a field.
+     
+     - Returns: True if there is a change.
+     */
+    private func detectChanges() -> Bool {
+        var flag = false
+        
+        // Evaluate entries
+        if self.textFieldName.text! != self.initialName {
+            self.currentUser.name = self.textFieldName.text
+            flag = true
+        }
+        
+        if self.textFieldLastName.text! != self.initialLastName {
+            self.currentUser.lastName = self.textFieldLastName.text
+            flag = true
+        }
+        
+        if self.textFieldAlias.text! != self.initialAlias {
+            self.currentUser.alias = self.textFieldAlias.text
+            flag = true
+        }
+        
+        return flag
+    }
+    
 }
 
 // MARK: - TextField Delegate
