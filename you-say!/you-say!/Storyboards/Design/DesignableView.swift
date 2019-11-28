@@ -35,4 +35,10 @@ class DesignableView: UIView {
         }
     }
     
+    @IBInspectable var shadowOffsetX: CGFloat = 0.0 {
+        didSet {
+            layer.shadowOffset.width = self.shadowOffsetX
+        }
+    }
+    
 }

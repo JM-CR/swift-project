@@ -270,6 +270,30 @@
 			path = Delegates;
 			sourceTree = "<group>";
 		};
+		CA3FED40238F12A200AE6643 /* Notifications */ = {
+			isa = PBXGroup;
+			children = (
+				CA526D822368EE1D003E396D /* NotificationsViewController.swift */,
+			);
+			path = Notifications;
+			sourceTree = "<group>";
+		};
+		CA3FED41238F12AE00AE6643 /* Help */ = {
+			isa = PBXGroup;
+			children = (
+				CA526D842368EFB6003E396D /* HelpViewController.swift */,
+			);
+			path = Help;
+			sourceTree = "<group>";
+		};
+		CA3FED42238F12B400AE6643 /* User */ = {
+			isa = PBXGroup;
+			children = (
+				CA526D802368EC5F003E396D /* UserViewController.swift */,
+			);
+			path = User;
+			sourceTree = "<group>";
+		};
 		CA526D772368E39E003E396D /* Filters */ = {
 			isa = PBXGroup;
 			children = (
@@ -292,9 +316,9 @@
 			isa = PBXGroup;
 			children = (
 				CA526D7D2368E935003E396D /* MyAccountViewController.swift */,
-				CA526D822368EE1D003E396D /* NotificationsViewController.swift */,
-				CA526D842368EFB6003E396D /* HelpViewController.swift */,
-				CA526D802368EC5F003E396D /* UserViewController.swift */,
+				CA3FED42238F12B400AE6643 /* User */,
+				CA3FED40238F12A200AE6643 /* Notifications */,
+				CA3FED41238F12AE00AE6643 /* Help */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
