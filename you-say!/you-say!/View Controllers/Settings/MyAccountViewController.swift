@@ -20,6 +20,7 @@ class MyAccountViewController: UIViewController {
     // MARK: Properties
     
     lazy var currentUser = (self.tabBarController as! NavigationViewController).currentUser
+    lazy var notifications = (self.tabBarController as! NavigationViewController).notifications
     
     lazy var dateFormatter: DateFormatter = {
         // Create
@@ -97,6 +98,8 @@ class MyAccountViewController: UIViewController {
         
         // Present
         let notificationsVC = self.storyboard!.instantiateViewController(withIdentifier: "NotificationsVC") as! NotificationsViewController
+        notificationsVC.notifications = self.notifications
+        notificationsVC.currentUser = self.currentUser
         present(notificationsVC, animated: true, completion: nil)
     }
     

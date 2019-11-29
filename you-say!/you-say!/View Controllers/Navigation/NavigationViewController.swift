@@ -32,6 +32,12 @@ class NavigationViewController: UITabBarController {
         "Viajes"
     ]
     
+    let notifications = [
+        "Nueva respuesta",
+        "Nuevo me gusta",
+        "Pregunta reportada"
+    ]
+    
     // MARK: Core Data Model
     
     var currentUser: User!

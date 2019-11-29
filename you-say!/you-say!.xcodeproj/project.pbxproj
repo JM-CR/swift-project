@@ -23,6 +23,7 @@
 		CA3FED3F238EC8B400AE6643 /* FilterDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3FED3E238EC8B400AE6643 /* FilterDelegate.swift */; };
 		CA3FED442390705800AE6643 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA3FED432390705800AE6643 /* Settings.storyboard */; };
 		CA3FED472390800200AE6643 /* UserError.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3FED462390800200AE6643 /* UserError.swift */; };
+		CA3FED4A23908A7C00AE6643 /* NotificationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3FED4923908A7C00AE6643 /* NotificationTableViewCell.swift */; };
 		CA526D7A2368E43D003E396D /* MyAnswersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA526D792368E43D003E396D /* MyAnswersViewController.swift */; };
 		CA526D7C2368E619003E396D /* LocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA526D7B2368E619003E396D /* LocationViewController.swift */; };
 		CA526D7E2368E935003E396D /* MyAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA526D7D2368E935003E396D /* MyAccountViewController.swift */; };
@@ -68,6 +69,7 @@
 		CA3FED3E238EC8B400AE6643 /* FilterDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterDelegate.swift; sourceTree = "<group>"; };
 		CA3FED432390705800AE6643 /* Settings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
 		CA3FED462390800200AE6643 /* UserError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserError.swift; sourceTree = "<group>"; };
+		CA3FED4923908A7C00AE6643 /* NotificationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationTableViewCell.swift; sourceTree = "<group>"; };
 		CA526D792368E43D003E396D /* MyAnswersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAnswersViewController.swift; sourceTree = "<group>"; };
 		CA526D7B2368E619003E396D /* LocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewController.swift; sourceTree = "<group>"; };
 		CA526D7D2368E935003E396D /* MyAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAccountViewController.swift; sourceTree = "<group>"; };
@@ -276,6 +278,7 @@
 			isa = PBXGroup;
 			children = (
 				CA526D822368EE1D003E396D /* NotificationsViewController.swift */,
+				CA3FED4823908A6900AE6643 /* Cell */,
 			);
 			path = Notifications;
 			sourceTree = "<group>";
@@ -302,6 +305,14 @@
 				CA3FED462390800200AE6643 /* UserError.swift */,
 			);
 			path = Errors;
+			sourceTree = "<group>";
+		};
+		CA3FED4823908A6900AE6643 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				CA3FED4923908A7C00AE6643 /* NotificationTableViewCell.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		CA526D772368E39E003E396D /* Filters */ = {
@@ -538,6 +549,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CA3FED4A23908A7C00AE6643 /* NotificationTableViewCell.swift in Sources */,
 				CA526D7A2368E43D003E396D /* MyAnswersViewController.swift in Sources */,
 				CA3C393A2384B4D300F4CDE5 /* NewUserError.swift in Sources */,
 				CA526D7C2368E619003E396D /* LocationViewController.swift in Sources */,
