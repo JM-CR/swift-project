@@ -13,6 +13,7 @@ class MyQuestionsViewController: UIViewController {
     // MARK: - Outlets
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var labelNoQuestions: UILabel!
     
     // MARK: Properties
     
@@ -27,6 +28,13 @@ class MyQuestionsViewController: UIViewController {
         refreshControl.addTarget(self, action: #selector(handleRefresh), for: .valueChanged)
         return refreshControl
     }()
+    
+    var haveQuestions: Bool {
+        guard let questions = self.currentUser.questionsByDate else {
+            return false
+        }
+        return questions.count > 0 ? true : false
+    }
     
     // MARK: Core Data
     
@@ -61,6 +69,15 @@ class MyQuestionsViewController: UIViewController {
     private func setupViews() {
         // Pull to refresh
         self.tableView.addSubview(self.refreshControl)
+        
+        // Active view
+        if self.haveQuestions {
+            self.tableView.isHidden = false
+            self.labelNoQuestions.isHidden = true
+        } else {
+            self.tableView.isHidden = true
+            self.labelNoQuestions.isHidden = false
+        }
     }
     
     

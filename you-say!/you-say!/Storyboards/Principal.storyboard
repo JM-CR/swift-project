@@ -303,7 +303,13 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="B5w-Id-Gkd">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No has realizado preguntas" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E85-0D-j6q">
+                                <rect key="frame" x="89" y="441" width="236" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="B5w-Id-Gkd">
                                 <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <view key="tableFooterView" contentMode="scaleToFill" id="9cs-JI-j1x">
@@ -414,14 +420,17 @@
                             <constraint firstItem="FGW-ol-sai" firstAttribute="leading" secondItem="4Or-MM-caF" secondAttribute="leading" id="2GA-Xh-6Ue"/>
                             <constraint firstItem="B5w-Id-Gkd" firstAttribute="leading" secondItem="4Or-MM-caF" secondAttribute="leading" id="AE0-t0-pUJ"/>
                             <constraint firstItem="B5w-Id-Gkd" firstAttribute="bottom" secondItem="4Or-MM-caF" secondAttribute="bottom" id="Gxg-tR-JoM"/>
+                            <constraint firstItem="E85-0D-j6q" firstAttribute="centerY" secondItem="4Or-MM-caF" secondAttribute="centerY" id="Toh-Zm-Lql"/>
                             <constraint firstItem="B5w-Id-Gkd" firstAttribute="trailing" secondItem="4Or-MM-caF" secondAttribute="trailing" id="noL-CU-ZYV"/>
                             <constraint firstItem="FGW-ol-sai" firstAttribute="top" secondItem="4Or-MM-caF" secondAttribute="top" id="pTT-mw-uVG"/>
                             <constraint firstItem="FGW-ol-sai" firstAttribute="trailing" secondItem="4Or-MM-caF" secondAttribute="trailing" id="stl-C3-wP3"/>
+                            <constraint firstItem="E85-0D-j6q" firstAttribute="centerX" secondItem="4Or-MM-caF" secondAttribute="centerX" id="tqy-tI-cpS"/>
                             <constraint firstItem="B5w-Id-Gkd" firstAttribute="top" secondItem="FGW-ol-sai" secondAttribute="bottom" id="vAG-uS-pj9"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="4Or-MM-caF"/>
                     </view>
                     <connections>
+                        <outlet property="labelNoQuestions" destination="E85-0D-j6q" id="Zsg-O9-f1p"/>
                         <outlet property="tableView" destination="B5w-Id-Gkd" id="88g-Of-zrF"/>
                     </connections>
                 </viewController>
@@ -682,6 +691,6 @@
         <image name="report" width="24" height="24"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="CGk-s2-06D"/>
+        <segue reference="f7j-ge-b0e"/>
     </inferredMetricsTieBreakers>
 </document>
