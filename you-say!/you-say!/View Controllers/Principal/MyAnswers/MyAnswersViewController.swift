@@ -293,7 +293,12 @@ class MyAnswersViewController: UIViewController {
      - Parameter body: Content.
      */
     private func tryToNotify(element: String, title: String, body: String) {
-        // Check notfication
+        // Check active user
+        let userWhoAsked = self.question.user!.login!.email
+        let current = self.currentUser.login!.email
+        guard userWhoAsked == current else { return }
+        
+        // Check notification
         guard let notifications = self.notifications else { return }
         
         // Search for a coincidence
