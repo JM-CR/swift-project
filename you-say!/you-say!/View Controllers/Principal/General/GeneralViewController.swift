@@ -77,6 +77,10 @@ class GeneralViewController: UIViewController {
         return fetchedResultsController
     }()
     
+    // MARK: User Notifications Center
+    
+    lazy var notificationsManager = (self.tabBarController as! NavigationViewController).notificationsManager
+    
     
     // MARK: - View Life Cycle
     
@@ -176,6 +180,7 @@ class GeneralViewController: UIViewController {
             myAnswersVC.question = self.fetchedResultsController.object(at: self.tableView.indexPathForSelectedRow!)
             myAnswersVC.dateFormatter = self.dateFormatter
             myAnswersVC.currentUser = self.currentUser
+            myAnswersVC.notificationsManager = self.notificationsManager
             
         default:
             return

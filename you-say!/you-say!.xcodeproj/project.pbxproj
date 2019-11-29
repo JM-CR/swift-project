@@ -50,6 +50,7 @@
 		CAA9B0722368D4CF00B6016C /* MyQuestionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAA9B0712368D4CF00B6016C /* MyQuestionsViewController.swift */; };
 		CAADFC20238C235D00C162AE /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAADFC1F238C235D00C162AE /* Question.swift */; };
 		CAADFC22238C2DD100C162AE /* NewAnswerError.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAADFC21238C2DD100C162AE /* NewAnswerError.swift */; };
+		CAB52AB7239183080065B3B4 /* NotificationsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB52AB6239183080065B3B4 /* NotificationsManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -98,6 +99,7 @@
 		CAA9B0712368D4CF00B6016C /* MyQuestionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyQuestionsViewController.swift; sourceTree = "<group>"; };
 		CAADFC1F238C235D00C162AE /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
 		CAADFC21238C2DD100C162AE /* NewAnswerError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewAnswerError.swift; sourceTree = "<group>"; };
+		CAB52AB6239183080065B3B4 /* NotificationsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -436,6 +438,7 @@
 				CA3C391523837CF500F4CDE5 /* Storyboards */,
 				CA3C391423837CAF00F4CDE5 /* View Controllers */,
 				CA3C39202384323800F4CDE5 /* Extensions */,
+				CAB52AB323917FAA0065B3B4 /* Notification Manager */,
 				CA3C391D23837F0700F4CDE5 /* Core Data Manager */,
 				CA3C391723837D9700F4CDE5 /* Core Data */,
 			);
@@ -472,6 +475,14 @@
 				CAADFC21238C2DD100C162AE /* NewAnswerError.swift */,
 			);
 			path = Errors;
+			sourceTree = "<group>";
+		};
+		CAB52AB323917FAA0065B3B4 /* Notification Manager */ = {
+			isa = PBXGroup;
+			children = (
+				CAB52AB6239183080065B3B4 /* NotificationsManager.swift */,
+			);
+			path = "Notification Manager";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -556,6 +567,7 @@
 				CA6A19BA23889CD0005D2BAA /* NewQuestionError.swift in Sources */,
 				CA3C393E2384C97200F4CDE5 /* UIViewController.swift in Sources */,
 				CA526D7E2368E935003E396D /* MyAccountViewController.swift in Sources */,
+				CAB52AB7239183080065B3B4 /* NotificationsManager.swift in Sources */,
 				CA3FED3F238EC8B400AE6643 /* FilterDelegate.swift in Sources */,
 				CA3C391F23837F5000F4CDE5 /* CoreDataManager.swift in Sources */,
 				CA526D852368EFB6003E396D /* HelpViewController.swift in Sources */,

@@ -56,6 +56,12 @@ class MyAnswersViewController: UIViewController {
         return fetchedResults?.count == 0 ? nil : fetchedResults?.first
     }
     
+    lazy private var notifications = self.currentUser.notificationsAsArray
+    
+    // MARK: User Notifications Center
+    
+    var notificationsManager: NotificationsManager?
+    
     
     // MARK: - View Life Cycle
     
@@ -279,6 +285,27 @@ class MyAnswersViewController: UIViewController {
         }
     }
     
+    /**
+     Tries to send a new notification.
+     
+     - Parameter element: Notification type.
+     - Parameter title: Title to display.
+     - Parameter body: Content.
+     */
+    private func tryToNotify(element: String, title: String, body: String) {
+        // Check notfication
+        guard let notifications = self.notifications else { return }
+        
+        // Search for a coincidence
+        if (notifications.contains { $0.category == element }) {
+            self.notificationsManager?.sendAlert(
+                title: title,
+                subtitle: "",
+                body: body
+            )
+        }
+    }
+    
     
     // MARK: - Actions
     
@@ -298,6 +325,11 @@ class MyAnswersViewController: UIViewController {
         do {
             try validateAnswer()
             try createAnswer()
+            tryToNotify(
+                element: "Nueva respuesta",
+                title: "Has recibido una nueva respuesta",
+                body: "\(self.question.content ?? "Verifica 'Mis Preguntas'")"
+            )
             
         } catch NewAnswerError.EmptyField(let description) {
             showAlert(title: "Respuesta inválida", message: description)
@@ -314,6 +346,11 @@ class MyAnswersViewController: UIViewController {
         if !self.likeFromUser {
             self.question.likes += 1
             self.likeFromUser = true
+            tryToNotify(
+                element: "Nuevo me gusta",
+                title: "Has recibido un nuevo like",
+                body: "Tienes \(self.question.likes) likes"
+            )
         } else {
             self.question.likes -= 1
             self.likeFromUser = false
@@ -352,6 +389,11 @@ class MyAnswersViewController: UIViewController {
                     self.showAlert(title: "Reporte creado", message: "")
                     self.question.reports += 1
                     sender.isEnabled = false
+                    self.tryToNotify(
+                        element: "Pregunta reportada",
+                        title: "Tu pregunta ha sido reportada",
+                        body: "Total de reportes: \(self.question.reports)"
+                    )
                 }
             }
             alert.addAction(action)

@@ -42,4 +42,8 @@ class NavigationViewController: UITabBarController {
     
     var currentUser: User!
 
+    // MARK: User Notifications Center
+    
+    var notificationsManager = NotificationsManager()
+    
 }

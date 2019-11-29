@@ -36,4 +36,16 @@ extension User {
         }
     }
     
+    var notificationsAsArray: [Notification]? {
+        guard let notifications = self.notifications as? Set<Notification> else {
+            return nil
+        }
+        
+        return notifications.sorted {
+            guard let notification0 = $0.category else { return true }
+            guard let notification1 = $1.category else { return true }
+            return notification0 < notification1
+        }
+    }
+    
 }
