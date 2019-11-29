@@ -18,6 +18,7 @@ class MyAnswersViewController: UIViewController {
     @IBOutlet weak var textViewContent: UITextView!
     @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
     
+    @IBOutlet weak var labelNoAnswers: UILabel!
     @IBOutlet weak var labelCreatorName: UILabel!
     @IBOutlet weak var labelQuestionCategory: UITextField!
     @IBOutlet weak var labelQuestionContent: UILabel!
@@ -38,6 +39,13 @@ class MyAnswersViewController: UIViewController {
     var likeFromUser = false
     
     var dateFormatter: DateComponentsFormatter!
+    
+    var haveAnswers: Bool {
+        guard let answers = self.answers else {
+            return false
+        }
+        return answers.count > 0 ? true : false
+    }
     
     // MARK: Core Data
     
@@ -122,6 +130,9 @@ class MyAnswersViewController: UIViewController {
             let timeInterval = self.dateFormatter.string(from: self.question.createdAt!, to: Date())
             self.labelQuestionDate.text = "Hace \(timeInterval!)"
         }
+        
+        // Active view
+        updateView()
     }
     
     /**
@@ -223,6 +234,22 @@ class MyAnswersViewController: UIViewController {
      */
     @objc func newAnswer(notification: NSNotification) {
         self.tableView.reloadData()
+    }
+    
+    
+    // MARK: - Helper Methods
+    
+    /**
+     Synchronizes the view with the model.
+     */
+    private func updateView() {
+        if self.haveAnswers {
+            self.tableView.isHidden = false
+            self.labelNoAnswers.isHidden = true
+        } else {
+            self.tableView.isHidden = true
+            self.labelNoAnswers.isHidden = false
+        }
     }
     
     
@@ -330,6 +357,7 @@ class MyAnswersViewController: UIViewController {
         do {
             try validateAnswer()
             try createAnswer()
+            updateView()
             tryToNotify(
                 element: "Nueva respuesta",
                 title: "Has recibido una nueva respuesta",

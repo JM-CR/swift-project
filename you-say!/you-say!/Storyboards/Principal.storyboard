@@ -566,25 +566,13 @@
                                 </subviews>
                                 <edgeInsets key="layoutMargins" top="8" left="16" bottom="8" right="16"/>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R6J-Q9-UMz">
-                                <rect key="frame" x="0.0" y="831.5" width="414" height="36.5"/>
-                                <subviews>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="u9b-4W-Sdo">
-                                        <rect key="frame" x="0.0" y="0.0" width="207" height="36.5"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences" secureTextEntry="YES"/>
-                                    </textView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bGs-HN-NFU">
-                                        <rect key="frame" x="207" y="0.0" width="207" height="36.5"/>
-                                        <state key="normal" title="Publicar"/>
-                                        <connections>
-                                            <action selector="publishButtonPressed:" destination="D5n-Oh-Yj7" eventType="touchUpInside" id="8wg-bI-sY1"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                            </stackView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="JSn-8l-qO6">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Se el primero en responder" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z6X-PP-Zc1">
+                                <rect key="frame" x="91" y="441" width="232" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="JSn-8l-qO6">
                                 <rect key="frame" x="0.0" y="269.5" width="414" height="554"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <view key="tableHeaderView" contentMode="scaleToFill" id="8Xh-VE-k7H">
@@ -647,6 +635,24 @@
                                     <outlet property="delegate" destination="D5n-Oh-Yj7" id="hqZ-gz-FRt"/>
                                 </connections>
                             </tableView>
+                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R6J-Q9-UMz">
+                                <rect key="frame" x="0.0" y="831.5" width="414" height="36.5"/>
+                                <subviews>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="u9b-4W-Sdo">
+                                        <rect key="frame" x="0.0" y="0.0" width="207" height="36.5"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences" secureTextEntry="YES"/>
+                                    </textView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bGs-HN-NFU">
+                                        <rect key="frame" x="207" y="0.0" width="207" height="36.5"/>
+                                        <state key="normal" title="Publicar"/>
+                                        <connections>
+                                            <action selector="publishButtonPressed:" destination="D5n-Oh-Yj7" eventType="touchUpInside" id="8wg-bI-sY1"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -657,11 +663,13 @@
                             <constraint firstItem="R6J-Q9-UMz" firstAttribute="leading" secondItem="3wb-7M-Mc3" secondAttribute="leading" id="ESL-l6-pcx"/>
                             <constraint firstItem="JSn-8l-qO6" firstAttribute="trailing" secondItem="3wb-7M-Mc3" secondAttribute="trailing" id="MVI-Y3-eWU"/>
                             <constraint firstItem="q4v-sW-ono" firstAttribute="leading" secondItem="3wb-7M-Mc3" secondAttribute="leading" id="QbP-Fj-eiT"/>
+                            <constraint firstItem="Z6X-PP-Zc1" firstAttribute="centerX" secondItem="3wb-7M-Mc3" secondAttribute="centerX" id="SDU-Ef-7Cg"/>
                             <constraint firstItem="WX7-q3-liT" firstAttribute="trailing" secondItem="3wb-7M-Mc3" secondAttribute="trailing" id="T7y-0w-kQi"/>
                             <constraint firstItem="R6J-Q9-UMz" firstAttribute="top" secondItem="JSn-8l-qO6" secondAttribute="bottom" constant="8" id="VsF-w0-uAl"/>
                             <constraint firstItem="q4v-sW-ono" firstAttribute="trailing" secondItem="3wb-7M-Mc3" secondAttribute="trailing" id="Z8U-8F-OjT"/>
                             <constraint firstItem="q4v-sW-ono" firstAttribute="top" secondItem="3wb-7M-Mc3" secondAttribute="top" id="cND-tR-0O7"/>
                             <constraint firstItem="WX7-q3-liT" firstAttribute="top" secondItem="q4v-sW-ono" secondAttribute="bottom" id="hGA-YL-sqa"/>
+                            <constraint firstItem="Z6X-PP-Zc1" firstAttribute="centerY" secondItem="3wb-7M-Mc3" secondAttribute="centerY" id="jhF-Lz-yAq"/>
                             <constraint firstItem="R6J-Q9-UMz" firstAttribute="trailing" secondItem="3wb-7M-Mc3" secondAttribute="trailing" id="s3K-7N-eJr"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="3wb-7M-Mc3"/>
@@ -671,6 +679,7 @@
                         <outlet property="bottomConstraint" destination="1mA-AI-eOk" id="nAf-cU-xGZ"/>
                         <outlet property="buttonLike" destination="jqc-oQ-q1v" id="zza-sG-C1w"/>
                         <outlet property="labelCreatorName" destination="NEZ-e0-RVv" id="WZj-8S-hbG"/>
+                        <outlet property="labelNoAnswers" destination="Z6X-PP-Zc1" id="VxP-8r-wkD"/>
                         <outlet property="labelQuestionCategory" destination="RGs-OZ-DiR" id="Ccm-IT-ZYk"/>
                         <outlet property="labelQuestionContent" destination="4eK-4c-rFl" id="MqM-VS-OK3"/>
                         <outlet property="labelQuestionCoordinate" destination="V1U-HR-S52" id="WqR-Dg-qic"/>
