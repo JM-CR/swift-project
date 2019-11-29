@@ -254,7 +254,7 @@
                                 <color key="backgroundColor" red="0.0" green="0.47450980390000003" blue="0.41960784309999999" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="78X-ke-NKO"/>
-                                    <constraint firstAttribute="width" constant="382" id="jYv-Pl-vxg"/>
+                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="382" id="jYv-Pl-vxg"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                 <state key="normal" title="Guardar">
@@ -507,7 +507,7 @@
                                 <rect key="frame" x="16" y="782" width="382" height="50"/>
                                 <color key="backgroundColor" red="0.0" green="0.47450980390000003" blue="0.41960784309999999" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="382" id="5bJ-R5-vRZ"/>
+                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="382" id="5bJ-R5-vRZ"/>
                                     <constraint firstAttribute="height" constant="50" id="bwL-id-P05"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
@@ -574,15 +574,15 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="2YX-oJ-oi4" firstAttribute="top" secondItem="0Lj-5y-8CF" secondAttribute="bottom" constant="8" id="36n-eV-NVs"/>
-                            <constraint firstItem="kcZ-3Q-PK0" firstAttribute="bottom" secondItem="1M2-xG-1lu" secondAttribute="bottom" constant="30" id="7Ku-2U-A1R"/>
                             <constraint firstItem="0Lj-5y-8CF" firstAttribute="trailing" secondItem="kcZ-3Q-PK0" secondAttribute="trailing" id="8aR-v9-BJX"/>
                             <constraint firstItem="2YX-oJ-oi4" firstAttribute="height" secondItem="wb3-tU-xbX" secondAttribute="height" multiplier="0.6" id="KR8-rD-lBV"/>
-                            <constraint firstItem="kcZ-3Q-PK0" firstAttribute="trailing" secondItem="1M2-xG-1lu" secondAttribute="trailing" constant="16" id="ajx-MY-wrr"/>
+                            <constraint firstItem="1M2-xG-1lu" firstAttribute="leading" secondItem="kcZ-3Q-PK0" secondAttribute="leading" constant="16" id="auN-w4-Og4"/>
+                            <constraint firstItem="kcZ-3Q-PK0" firstAttribute="bottom" secondItem="1M2-xG-1lu" secondAttribute="bottom" constant="30" id="jWj-aY-YxV"/>
                             <constraint firstItem="2YX-oJ-oi4" firstAttribute="leading" secondItem="kcZ-3Q-PK0" secondAttribute="leading" id="lS9-nW-xMB"/>
-                            <constraint firstItem="1M2-xG-1lu" firstAttribute="leading" secondItem="kcZ-3Q-PK0" secondAttribute="leading" constant="16" id="rPd-zp-2AK"/>
                             <constraint firstItem="2YX-oJ-oi4" firstAttribute="trailing" secondItem="kcZ-3Q-PK0" secondAttribute="trailing" id="u1T-IY-jFu"/>
                             <constraint firstItem="0Lj-5y-8CF" firstAttribute="leading" secondItem="kcZ-3Q-PK0" secondAttribute="leading" id="w0X-RL-189"/>
                             <constraint firstItem="0Lj-5y-8CF" firstAttribute="top" secondItem="kcZ-3Q-PK0" secondAttribute="top" id="xkY-Eb-z8R"/>
+                            <constraint firstItem="kcZ-3Q-PK0" firstAttribute="trailing" secondItem="1M2-xG-1lu" secondAttribute="trailing" constant="16" id="yrR-kc-hiz"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="kcZ-3Q-PK0"/>
                     </view>

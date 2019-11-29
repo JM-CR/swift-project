@@ -85,8 +85,7 @@ class UserViewController: UIViewController {
     private func setupDelegates() {
         self.textFieldName.delegate = self
         self.textFieldAlias.delegate = self
-        self.textFieldCreatedAt.delegate = self
-        self.textFieldBirthDate.delegate = self
+        self.textFieldLastName.delegate = self
     }
     
     /**
