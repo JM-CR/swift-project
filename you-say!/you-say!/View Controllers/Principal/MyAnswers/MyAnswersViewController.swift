@@ -15,17 +15,19 @@ class MyAnswersViewController: UIViewController {
     // MARK: - Outlets
     
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var textViewContent: UITextView!
+    
+    @IBOutlet weak var textViewReply: UITextView!
     @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
     
     @IBOutlet weak var labelNoAnswers: UILabel!
     @IBOutlet weak var labelCreatorName: UILabel!
-    @IBOutlet weak var labelQuestionCategory: UITextField!
-    @IBOutlet weak var labelQuestionContent: UILabel!
     @IBOutlet weak var labelQuestionCoordinate: UILabel!
     @IBOutlet weak var labelQuestionDate: UILabel!
     @IBOutlet weak var labelTotalLikes: UILabel!
     
+    @IBOutlet weak var textFieldQuestionCategory: UITextField!
+    @IBOutlet weak var textViewQuestionContent: UITextView!
+
     @IBOutlet weak var buttonLike: UIButton!
     @IBOutlet weak var activityIndicatorLocation: UIActivityIndicatorView!
     
@@ -87,6 +89,16 @@ class MyAnswersViewController: UIViewController {
     }
     
     /**
+     Adds scroll indicators.
+     */
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        // Inform scroll content
+        self.textViewQuestionContent.flashScrollIndicators()
+    }
+    
+    /**
      Remove observers when it is disappearing.
      */
     deinit {
@@ -100,8 +112,8 @@ class MyAnswersViewController: UIViewController {
      */
     private func setupViews() {
         // TextView
-        self.textViewContent.text = "Comentar algo..."
-        self.textViewContent.textColor = .lightGray
+        self.textViewReply.text = "Comentar algo..."
+        self.textViewReply.textColor = .lightGray
         
         // Stack View
         if let user = self.question.user {
@@ -115,8 +127,8 @@ class MyAnswersViewController: UIViewController {
                 self.labelCreatorName.text = user.name!
             }
             
-            self.labelQuestionCategory.text = self.question.category
-            self.labelQuestionContent.text = self.question.content
+            self.textFieldQuestionCategory.text = self.question.category
+            self.textViewQuestionContent.text = self.question.content
             self.labelTotalLikes.text = "\(self.question.likes)"
             
             // Like button image
@@ -139,7 +151,7 @@ class MyAnswersViewController: UIViewController {
      Sets the delegates for the view controller.
      */
     private func setupDelegates() {
-        self.textViewContent.delegate = self
+        self.textViewReply.delegate = self
     }
     
     /**
@@ -284,7 +296,7 @@ class MyAnswersViewController: UIViewController {
         
         // Set up
         answer.createdAt = Date()
-        answer.content = self.textViewContent.text
+        answer.content = self.textViewReply.text
         answer.from = self.currentUser.id
         
         // Link
@@ -297,7 +309,7 @@ class MyAnswersViewController: UIViewController {
         showAlert(title: "Publicada con éxito", message: "")
         
         // Clean up
-        self.textViewContent.text = ""
+        self.textViewReply.text = ""
     }
     
     
@@ -307,7 +319,7 @@ class MyAnswersViewController: UIViewController {
      Validates the introduced answer by the user.
      */
     private func validateAnswer() throws {
-        guard !self.textViewContent.text.isEmpty else {
+        guard !self.textViewReply.text.isEmpty else {
             throw NewAnswerError.EmptyField(description: "No puedes dejar el campo vacío")
         }
     }
