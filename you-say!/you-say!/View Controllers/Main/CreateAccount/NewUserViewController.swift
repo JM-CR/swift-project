@@ -18,6 +18,7 @@ class NewUserViewController: UIViewController, NSFetchedResultsControllerDelegat
     @IBOutlet weak var textFieldAlias: UITextField!
     @IBOutlet weak var textFieldEmail: UITextField!
     @IBOutlet weak var textFieldPassword: UITextField!
+    @IBOutlet weak var labelGender: UILabel!
     @IBOutlet weak var datePicker: UIDatePicker!
     
     // MARK:  Properties
@@ -105,7 +106,7 @@ class NewUserViewController: UIViewController, NSFetchedResultsControllerDelegat
      
      - Parameter sender: Object that triggered the action.
      */
-    @IBAction func cancelButtonPressed(_ sender: UIButton) {
+    @IBAction func cancelButtonPressed(_ sender: UIBarButtonItem) {
         self.view.endEditing(true)
         dismiss(animated: true, completion: nil)
     }
@@ -115,7 +116,7 @@ class NewUserViewController: UIViewController, NSFetchedResultsControllerDelegat
      
      - Parameter sender: Object that triggered the action.
      */
-    @IBAction func createButtonPressed(_ sender: UIButton) {
+    @IBAction func createButtonPressed(_ sender: UIBarButtonItem) {
         do {
             // Validate input data
             try validateTextFields()
@@ -134,6 +135,41 @@ class NewUserViewController: UIViewController, NSFetchedResultsControllerDelegat
             showAlert(title: "Eres menor de edad", message: description)
         } catch { }
     }
+    
+    /**
+     Displays an action sheet to select the gender.
+     
+     - Parameter sender: Object that sent the action.
+     */
+    @IBAction func selectGenderPressed(_ sender: UIButton) {
+        // Create Controller
+        let actionSheet = UIAlertController(
+            title: "Elige una opción",
+            message: "",
+            preferredStyle: .actionSheet
+        )
+        
+        // Add actions
+        actionSheet.addAction(UIAlertAction(title: "Hombre", style: .default) { (alertAction) in
+            self.gender = "H"
+            self.labelGender.text = "Hombre"
+        })
+        
+        actionSheet.addAction(UIAlertAction(title: "Mujer", style: .default) { (alertAction) in
+            self.gender = "M"
+            self.labelGender.text = "Mujer"
+        })
+        
+        actionSheet.addAction(UIAlertAction(title: "Prefiero no especificar", style: .default) { (alertAction) in
+            self.gender = "-"
+            self.labelGender.text = "No especificado"
+        })
+        
+        actionSheet.addAction(UIAlertAction(title: "Salir", style: .cancel, handler: nil))
+        
+        // Show
+        present(actionSheet, animated: true, completion: nil)
+    }    
     
     
     // MARK: - Validation
@@ -237,25 +273,10 @@ class NewUserViewController: UIViewController, NSFetchedResultsControllerDelegat
             showAlert(title: "Intenta más tarde", message: "Hubo un error al crear tu cuenta")
         }
     }
-    
-    
-    // MARK: - Navigation
-
-    /**
-     Prepares the controller to perform the segue.
-     
-     - Parameter segue: Segue's type.
-     - Parameter sender: View controller that presents.
-     */
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "genderSegue" {
-            // Pass data to destination
-            let genderVC = segue.destination as! GenderViewController
-            genderVC.delegate = self
-        }
-    }
 
 }
+
+// MARK: - TextField Delegate
 
 extension NewUserViewController: UITextFieldDelegate {
     
@@ -269,17 +290,4 @@ extension NewUserViewController: UITextFieldDelegate {
         self.view.endEditing(true)
         return true
     }
-}
-
-extension NewUserViewController: GenderDelegate {
-    
-    /**
-     Update the content for the gender's variable.
-     
-     - Parameter value: Chosen gender.
-     */
-    func readyToProcess(value: String) {
-        self.gender = value
-    }
-    
 }

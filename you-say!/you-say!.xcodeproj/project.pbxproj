@@ -15,10 +15,8 @@
 		CA3C39272384411C00F4CDE5 /* NewQuestion.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA3C39262384411C00F4CDE5 /* NewQuestion.storyboard */; };
 		CA3C392B2384425100F4CDE5 /* Principal.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA3C392A2384425100F4CDE5 /* Principal.storyboard */; };
 		CA3C393023844DC600F4CDE5 /* DesignableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3C392F23844DC600F4CDE5 /* DesignableView.swift */; };
-		CA3C39362384AF6200F4CDE5 /* GenderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3C39352384AF6200F4CDE5 /* GenderViewController.swift */; };
 		CA3C393A2384B4D300F4CDE5 /* NewUserError.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3C39392384B4D300F4CDE5 /* NewUserError.swift */; };
 		CA3C393E2384C97200F4CDE5 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3C393D2384C97200F4CDE5 /* UIViewController.swift */; };
-		CA3C39402384D31E00F4CDE5 /* GenderDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3C393F2384D31E00F4CDE5 /* GenderDelegate.swift */; };
 		CA3FED3A238D85C200AE6643 /* GeneralTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3FED39238D85C200AE6643 /* GeneralTableViewCell.swift */; };
 		CA3FED3F238EC8B400AE6643 /* FilterDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3FED3E238EC8B400AE6643 /* FilterDelegate.swift */; };
 		CA3FED442390705800AE6643 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA3FED432390705800AE6643 /* Settings.storyboard */; };
@@ -62,10 +60,8 @@
 		CA3C39262384411C00F4CDE5 /* NewQuestion.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NewQuestion.storyboard; sourceTree = "<group>"; };
 		CA3C392A2384425100F4CDE5 /* Principal.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Principal.storyboard; sourceTree = "<group>"; };
 		CA3C392F23844DC600F4CDE5 /* DesignableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignableView.swift; sourceTree = "<group>"; };
-		CA3C39352384AF6200F4CDE5 /* GenderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderViewController.swift; sourceTree = "<group>"; };
 		CA3C39392384B4D300F4CDE5 /* NewUserError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewUserError.swift; sourceTree = "<group>"; };
 		CA3C393D2384C97200F4CDE5 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
-		CA3C393F2384D31E00F4CDE5 /* GenderDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderDelegate.swift; sourceTree = "<group>"; };
 		CA3FED39238D85C200AE6643 /* GeneralTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralTableViewCell.swift; sourceTree = "<group>"; };
 		CA3FED3E238EC8B400AE6643 /* FilterDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterDelegate.swift; sourceTree = "<group>"; };
 		CA3FED432390705800AE6643 /* Settings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
@@ -229,17 +225,8 @@
 			isa = PBXGroup;
 			children = (
 				CAA9B06A2368C86500B6016C /* NewUserViewController.swift */,
-				CA3C39352384AF6200F4CDE5 /* GenderViewController.swift */,
 			);
 			path = CreateAccount;
-			sourceTree = "<group>";
-		};
-		CA3C39372384B31F00F4CDE5 /* Delegates */ = {
-			isa = PBXGroup;
-			children = (
-				CA3C393F2384D31E00F4CDE5 /* GenderDelegate.swift */,
-			);
-			path = Delegates;
 			sourceTree = "<group>";
 		};
 		CA3C39382384B4A000F4CDE5 /* Errors */ = {
@@ -450,7 +437,6 @@
 			children = (
 				CAA9B0562368C61000B6016C /* LoginViewController.swift */,
 				CA3C39322384AD4800F4CDE5 /* CreateAccount */,
-				CA3C39372384B31F00F4CDE5 /* Delegates */,
 				CA3C39382384B4A000F4CDE5 /* Errors */,
 			);
 			path = Main;
@@ -572,7 +558,6 @@
 				CA3C391F23837F5000F4CDE5 /* CoreDataManager.swift in Sources */,
 				CA526D852368EFB6003E396D /* HelpViewController.swift in Sources */,
 				CA6A19C2238B559D005D2BAA /* User.swift in Sources */,
-				CA3C39362384AF6200F4CDE5 /* GenderViewController.swift in Sources */,
 				CA526D832368EE1D003E396D /* NotificationsViewController.swift in Sources */,
 				CA6A19AB238862C3005D2BAA /* CreateQuestionViewController.swift in Sources */,
 				CA526D812368EC5F003E396D /* UserViewController.swift in Sources */,
@@ -593,7 +578,6 @@
 				CA2F54482387263D009C1841 /* FilterTableViewCell.swift in Sources */,
 				CA3C391C23837ECA00F4CDE5 /* NavigationViewController.swift in Sources */,
 				CAA9B06D2368CFDB00B6016C /* GeneralViewController.swift in Sources */,
-				CA3C39402384D31E00F4CDE5 /* GenderDelegate.swift in Sources */,
 				CA6A19B4238870F5005D2BAA /* OptionTableViewCell.swift in Sources */,
 				CA3FED472390800200AE6643 /* UserError.swift in Sources */,
 				CA2F544623861F04009C1841 /* LoginError.swift in Sources */,
