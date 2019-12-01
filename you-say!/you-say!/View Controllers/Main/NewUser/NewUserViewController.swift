@@ -143,32 +143,32 @@ class NewUserViewController: UIViewController, NSFetchedResultsControllerDelegat
      */
     @IBAction func selectGenderPressed(_ sender: UIButton) {
         // Create Controller
-        let actionSheet = UIAlertController(
+        let alert = UIAlertController(
             title: "Elige una opción",
-            message: "",
-            preferredStyle: .actionSheet
+            message: nil,
+            preferredStyle: .alert
         )
         
         // Add actions
-        actionSheet.addAction(UIAlertAction(title: "Hombre", style: .default) { (alertAction) in
+        alert.addAction(UIAlertAction(title: "Hombre", style: .default) { (alertAction) in
             self.gender = "H"
             self.labelGender.text = "Hombre"
         })
         
-        actionSheet.addAction(UIAlertAction(title: "Mujer", style: .default) { (alertAction) in
+        alert.addAction(UIAlertAction(title: "Mujer", style: .default) { (alertAction) in
             self.gender = "M"
             self.labelGender.text = "Mujer"
         })
         
-        actionSheet.addAction(UIAlertAction(title: "Prefiero no especificar", style: .default) { (alertAction) in
+        alert.addAction(UIAlertAction(title: "Prefiero no especificar", style: .default) { (alertAction) in
             self.gender = "-"
             self.labelGender.text = "No especificado"
         })
         
-        actionSheet.addAction(UIAlertAction(title: "Salir", style: .cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: "Salir", style: .cancel, handler: nil))
         
         // Show
-        present(actionSheet, animated: true, completion: nil)
+        present(alert, animated: true, completion: nil)
     }    
     
     

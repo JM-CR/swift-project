@@ -221,12 +221,12 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		CA3C39322384AD4800F4CDE5 /* CreateAccount */ = {
+		CA3C39322384AD4800F4CDE5 /* NewUser */ = {
 			isa = PBXGroup;
 			children = (
 				CAA9B06A2368C86500B6016C /* NewUserViewController.swift */,
 			);
-			path = CreateAccount;
+			path = NewUser;
 			sourceTree = "<group>";
 		};
 		CA3C39382384B4A000F4CDE5 /* Errors */ = {
@@ -436,7 +436,7 @@
 			isa = PBXGroup;
 			children = (
 				CAA9B0562368C61000B6016C /* LoginViewController.swift */,
-				CA3C39322384AD4800F4CDE5 /* CreateAccount */,
+				CA3C39322384AD4800F4CDE5 /* NewUser */,
 				CA3C39382384B4A000F4CDE5 /* Errors */,
 			);
 			path = Main;
