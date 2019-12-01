@@ -95,6 +95,15 @@ class LocationViewController: UIViewController {
      - Parameter sender: View controller that presents.
      */
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Verificate permissions
+        guard CLLocationManager.authorizationStatus().rawValue == 4 else {
+            showAlert(
+                title: "Debes habilitar la localización",
+                message: "Son necesarios para crear una pregunta"
+            )
+            return
+        }
+        
         switch segue.identifier {
         case "createSegue":
             // Get parent controller
@@ -158,12 +167,12 @@ extension LocationViewController: CLLocationManagerDelegate {
             
             // Zoom to position
             let center = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
-            let span = MKCoordinateSpan(latitudeDelta: 0.02, longitudeDelta: 0.02)
+            let span = MKCoordinateSpan(latitudeDelta: 0.03, longitudeDelta: 0.03)
             let region = MKCoordinateRegion(center: center, span: span)
             self.mapView.setRegion(region, animated: true)
             
             // Add annotation
-            addAnnotation(coordinate: location.coordinate, title: "")
+            addAnnotation(coordinate: location.coordinate, title: "Ubicación inicial")
         }
     }
     
