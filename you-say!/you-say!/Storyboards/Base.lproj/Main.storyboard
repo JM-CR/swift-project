@@ -37,7 +37,7 @@
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bienvenido" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1YZ-VY-5xj">
                                                 <rect key="frame" x="16" y="8" width="382" height="31.5"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
-                                                <color key="textColor" red="0.0" green="0.29803921568627451" blue="0.25098039215686274" alpha="0.79255611800000003" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <color key="textColor" red="0.0" green="0.16078431369999999" blue="0.51764705879999995" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="Ba4-qe-PkF">
@@ -51,7 +51,6 @@
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="50" id="A2v-5i-1Qk"/>
                                                                 </constraints>
-                                                                <color key="textColor" red="0.0" green="0.47450980392156861" blue="0.41960784313725491" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
                                                             </textField>
@@ -65,7 +64,7 @@
                                                         </constraints>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
-                                                                <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <color key="value" red="0.74509803921568629" green="0.61176470588235299" blue="0.56862745098039214" alpha="1" colorSpace="calibratedRGB"/>
                                                             </userDefinedRuntimeAttribute>
                                                             <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
                                                                 <real key="value" value="10"/>
@@ -83,7 +82,6 @@
                                                         <subviews>
                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="ibero1234" borderStyle="roundedRect" placeholder="Contraseña" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iJs-j8-ybQ">
                                                                 <rect key="frame" x="0.0" y="0.0" width="382" height="50"/>
-                                                                <color key="textColor" red="0.0" green="0.47450980392156861" blue="0.41960784313725491" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                                             </textField>
@@ -97,7 +95,7 @@
                                                         </constraints>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
-                                                                <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <color key="value" red="0.74509803921568629" green="0.61176470588235299" blue="0.56862745098039214" alpha="1" colorSpace="calibratedRGB"/>
                                                             </userDefinedRuntimeAttribute>
                                                             <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
                                                                 <real key="value" value="10"/>
@@ -114,7 +112,7 @@
                                             </stackView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HU2-Cg-Ykr">
                                                 <rect key="frame" x="16" y="247.5" width="382" height="50"/>
-                                                <color key="backgroundColor" red="0.0" green="0.47450980392156861" blue="0.41960784313725491" alpha="0.84705882352941175" colorSpace="calibratedRGB"/>
+                                                <color key="backgroundColor" red="0.24705882352941178" green="0.31764705882352939" blue="0.70980392156862748" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="3IJ-fV-D67"/>
                                                 </constraints>
@@ -134,7 +132,7 @@
                                     </stackView>
                                     <view contentMode="scaleToFill" verticalHuggingPriority="200" translatesAutoresizingMaskIntoConstraints="NO" id="DWU-Ku-JOY">
                                         <rect key="frame" x="0.0" y="457.5" width="414" height="334"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="backgroundColor" red="0.88235294117647056" green="0.88627450980392153" blue="0.88235294117647056" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     </view>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="CWD-bv-bn7">
                                         <rect key="frame" x="0.0" y="803.5" width="414" height="16"/>
@@ -145,13 +143,12 @@
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="¿No tienes una cuenta?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fwk-05-nt6">
                                                         <rect key="frame" x="0.0" y="0.0" width="178.5" height="16"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                        <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rta-zG-LIS">
                                                         <rect key="frame" x="184.5" y="0.0" width="70" height="16"/>
                                                         <state key="normal" title="Regístrate">
-                                                            <color key="titleColor" red="0.28235294117647058" green="0.66274509803921566" blue="0.59999999999999998" alpha="0.84705882352941175" colorSpace="calibratedRGB"/>
+                                                            <color key="titleColor" red="0.0" green="0.16078431372549018" blue="0.51764705882352935" alpha="0.84705882352941175" colorSpace="calibratedRGB"/>
                                                         </state>
                                                         <connections>
                                                             <segue destination="gkC-wR-BBd" kind="show" identifier="createAccountSegue" id="XRY-sJ-mjc"/>
@@ -162,12 +159,13 @@
                                         </subviews>
                                     </stackView>
                                 </subviews>
+                                <color key="backgroundColor" red="0.9137254901960784" green="0.92156862745098034" blue="0.61960784313725492" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="DWU-Ku-JOY" secondAttribute="bottom" constant="28" id="a2P-hC-2rE"/>
                                 </constraints>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.88235294117647056" green="0.88627450980392153" blue="0.88235294117647056" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ZG5-dR-rKF" secondAttribute="trailing" id="PiK-LN-FUg"/>
                             <constraint firstItem="ZG5-dR-rKF" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="jyV-6h-Aav"/>
@@ -201,22 +199,27 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qtR-Cd-hFJ">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                <color key="backgroundColor" red="0.88294178247451782" green="0.85104399919509888" blue="0.84313982725143433" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            </view>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L7T-Gw-tuJ">
                                 <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                                <color key="backgroundColor" red="0.0" green="0.47450980390000003" blue="0.41960784309999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <color key="tintColor" red="0.0" green="0.29803921570000003" blue="0.25098039220000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="backgroundColor" red="0.55294117649999996" green="0.43137254899999999" blue="0.38823529410000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="barTintColor" red="0.57433128359999996" green="0.46694517140000003" blue="0.43530285359999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <textAttributes key="titleTextAttributes">
-                                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
-                                    <color key="textColor" red="0.0" green="0.29803921570000003" blue="0.25098039220000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="18"/>
                                 </textAttributes>
                                 <items>
                                     <navigationItem leftItemsSupplementBackButton="YES" id="FMp-Uq-Y8w">
                                         <barButtonItem key="leftBarButtonItem" title="Regresar" id="F4E-yF-Zdh">
+                                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <connections>
                                                 <action selector="cancelButtonPressed:" destination="gkC-wR-BBd" id="5jp-01-zf5"/>
                                             </connections>
                                         </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" title="Crear" id="aAJ-6q-UPb">
+                                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <connections>
                                                 <action selector="createButtonPressed:" destination="gkC-wR-BBd" id="v3O-89-xhx"/>
                                             </connections>
@@ -236,7 +239,7 @@
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Crea tu usuario" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="upT-4e-O4C">
                                                         <rect key="frame" x="24" y="30" width="366" height="31.5"/>
                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
-                                                        <color key="textColor" red="0.0" green="0.29803921568627451" blue="0.25098039215686274" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                                                        <color key="textColor" red="0.0" green="0.16078431369999999" blue="0.51764705879999995" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="0ge-dM-lEf">
@@ -264,7 +267,7 @@
                                                                 </constraints>
                                                                 <userDefinedRuntimeAttributes>
                                                                     <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
-                                                                        <real key="value" value="10"/>
+                                                                        <real key="value" value="7"/>
                                                                     </userDefinedRuntimeAttribute>
                                                                     <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
                                                                         <real key="value" value="0.10000000000000001"/>
@@ -299,7 +302,7 @@
                                                                 </constraints>
                                                                 <userDefinedRuntimeAttributes>
                                                                     <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
-                                                                        <real key="value" value="10"/>
+                                                                        <real key="value" value="7"/>
                                                                     </userDefinedRuntimeAttribute>
                                                                     <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
                                                                         <real key="value" value="0.10000000000000001"/>
@@ -334,7 +337,7 @@
                                                                 </constraints>
                                                                 <userDefinedRuntimeAttributes>
                                                                     <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
-                                                                        <real key="value" value="10"/>
+                                                                        <real key="value" value="7"/>
                                                                     </userDefinedRuntimeAttribute>
                                                                     <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
                                                                         <real key="value" value="0.10000000000000001"/>
@@ -369,7 +372,7 @@
                                                                 </constraints>
                                                                 <userDefinedRuntimeAttributes>
                                                                     <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
-                                                                        <real key="value" value="10"/>
+                                                                        <real key="value" value="7"/>
                                                                     </userDefinedRuntimeAttribute>
                                                                     <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
                                                                         <real key="value" value="0.10000000000000001"/>
@@ -404,7 +407,7 @@
                                                                 </constraints>
                                                                 <userDefinedRuntimeAttributes>
                                                                     <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
-                                                                        <real key="value" value="10"/>
+                                                                        <real key="value" value="7"/>
                                                                     </userDefinedRuntimeAttribute>
                                                                     <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
                                                                         <real key="value" value="0.10000000000000001"/>
@@ -430,13 +433,13 @@
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="---" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HPg-eg-a8O">
                                                         <rect key="frame" x="30" y="0.0" width="166" height="50"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4B1-Kk-TbS">
                                                         <rect key="frame" x="216" y="0.0" width="166" height="50"/>
-                                                        <color key="backgroundColor" red="0.0" green="0.47450980392156861" blue="0.41960784313725491" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                        <color key="backgroundColor" red="0.24705882352941178" green="0.31764705882352939" blue="0.70980392156862748" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="50" id="gUY-J5-gI0"/>
                                                         </constraints>
@@ -460,7 +463,7 @@
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fecha de nacimiento" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P0l-cz-hQr">
                                                         <rect key="frame" x="113.5" y="0.0" width="187" height="23.5"/>
                                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
-                                                        <color key="textColor" red="0.0" green="0.47450980392156861" blue="0.41960784313725491" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                                                        <color key="textColor" red="0.0" green="0.16078431369999999" blue="0.51764705879999995" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="JE5-YU-hlJ">
@@ -481,6 +484,7 @@
                                         </constraints>
                                     </stackView>
                                 </subviews>
+                                <color key="backgroundColor" red="0.8822752833366394" green="0.88629978895187378" blue="0.88235598802566528" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstItem="bqK-GO-trU" firstAttribute="leading" secondItem="EnD-pK-NWC" secondAttribute="leading" id="7Vg-lH-aWp"/>
                                     <constraint firstAttribute="bottom" secondItem="bqK-GO-trU" secondAttribute="bottom" id="KMr-zZ-tQf"/>
@@ -489,15 +493,27 @@
                                     <constraint firstItem="bqK-GO-trU" firstAttribute="top" secondItem="EnD-pK-NWC" secondAttribute="top" id="ftj-HA-RxR"/>
                                 </constraints>
                             </scrollView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9ex-bS-JrL">
+                                <rect key="frame" x="0.0" y="860" width="414" height="36"/>
+                                <color key="backgroundColor" red="0.8822752833366394" green="0.88629978895187378" blue="0.88235598802566528" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="tintColor" red="0.45882352941176469" green="0.49019607843137253" blue="0.90980392156862744" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="qtR-Cd-hFJ" firstAttribute="top" secondItem="TxE-5g-5E8" secondAttribute="top" id="Bak-0v-mSC"/>
                             <constraint firstItem="72x-0Z-rM6" firstAttribute="bottom" secondItem="EnD-pK-NWC" secondAttribute="bottom" id="GWe-oR-vKs"/>
+                            <constraint firstItem="9ex-bS-JrL" firstAttribute="leading" secondItem="TxE-5g-5E8" secondAttribute="leading" id="Ga1-FY-YSA"/>
+                            <constraint firstAttribute="trailing" secondItem="qtR-Cd-hFJ" secondAttribute="trailing" id="HKj-hY-FWc"/>
+                            <constraint firstAttribute="trailing" secondItem="9ex-bS-JrL" secondAttribute="trailing" id="KF5-8i-3MT"/>
                             <constraint firstItem="EnD-pK-NWC" firstAttribute="trailing" secondItem="72x-0Z-rM6" secondAttribute="trailing" id="Nif-VJ-bk6"/>
                             <constraint firstItem="L7T-Gw-tuJ" firstAttribute="trailing" secondItem="72x-0Z-rM6" secondAttribute="trailing" id="X7Z-xe-yff"/>
+                            <constraint firstItem="qtR-Cd-hFJ" firstAttribute="leading" secondItem="TxE-5g-5E8" secondAttribute="leading" id="cQd-aQ-TQY"/>
+                            <constraint firstItem="9ex-bS-JrL" firstAttribute="top" secondItem="72x-0Z-rM6" secondAttribute="top" constant="816" id="gk1-X9-4LL"/>
                             <constraint firstItem="L7T-Gw-tuJ" firstAttribute="top" secondItem="72x-0Z-rM6" secondAttribute="top" id="jGA-D0-fZf"/>
+                            <constraint firstAttribute="bottom" secondItem="9ex-bS-JrL" secondAttribute="bottom" id="nG0-Wd-bZ1"/>
                             <constraint firstItem="EnD-pK-NWC" firstAttribute="leading" secondItem="72x-0Z-rM6" secondAttribute="leading" id="veN-N4-Okh"/>
+                            <constraint firstItem="L7T-Gw-tuJ" firstAttribute="top" secondItem="qtR-Cd-hFJ" secondAttribute="bottom" id="wcP-O0-7Z7"/>
                             <constraint firstItem="EnD-pK-NWC" firstAttribute="top" secondItem="L7T-Gw-tuJ" secondAttribute="bottom" id="xyW-Fx-nNu"/>
                             <constraint firstItem="L7T-Gw-tuJ" firstAttribute="leading" secondItem="72x-0Z-rM6" secondAttribute="leading" id="z0e-eP-gBv"/>
                         </constraints>
