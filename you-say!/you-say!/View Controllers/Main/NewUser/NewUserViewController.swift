@@ -21,6 +21,8 @@ class NewUserViewController: UIViewController, NSFetchedResultsControllerDelegat
     @IBOutlet weak var labelGender: UILabel!
     @IBOutlet weak var datePicker: UIDatePicker!
     
+    @IBOutlet weak var scrollView: UIScrollView!
+    
     // MARK:  Properties
 
     var gender: String?
@@ -57,6 +59,16 @@ class NewUserViewController: UIViewController, NSFetchedResultsControllerDelegat
         setupDelegates()
         setupGestures()
         setupViews()
+    }
+    
+    /**
+     Indicates that the form is scrollable.
+     */
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        // Show
+        self.scrollView.flashScrollIndicators()
     }
     
     // MARK: Setup
