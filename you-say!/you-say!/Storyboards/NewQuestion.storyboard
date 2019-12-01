@@ -38,6 +38,21 @@
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" rotateEnabled="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hdx-4G-mhq">
                                 <rect key="frame" x="0.0" y="81" width="414" height="666"/>
                             </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gwp-9g-8BL">
+                                <rect key="frame" x="344" y="685" width="50" height="50"/>
+                                <color key="backgroundColor" red="0.28235294119999998" green="0.66274509800000003" blue="0.59999999999999998" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="JrH-dV-xk6"/>
+                                    <constraint firstAttribute="height" constant="50" id="ZLk-Af-Pj4"/>
+                                </constraints>
+                                <state key="normal" image="locate"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="cornerRadius" value="20"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="findCurrentLocation:" destination="qx8-sc-938" eventType="touchUpInside" id="YRN-uj-J2P"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pts-4d-2Ez">
                                 <rect key="frame" x="16" y="755" width="382" height="50"/>
                                 <color key="backgroundColor" red="0.0" green="0.47450980390000003" blue="0.41960784309999999" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
@@ -60,6 +75,8 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="hdx-4G-mhq" firstAttribute="top" secondItem="HWW-Iv-Geb" secondAttribute="bottom" constant="-2" id="0CL-BH-CX1"/>
+                            <constraint firstItem="pts-4d-2Ez" firstAttribute="top" secondItem="gwp-9g-8BL" secondAttribute="bottom" constant="20" id="2ya-qh-8AE"/>
+                            <constraint firstItem="i36-Gn-2cd" firstAttribute="trailing" secondItem="gwp-9g-8BL" secondAttribute="trailing" constant="20" id="9bl-ss-D1Q"/>
                             <constraint firstItem="HWW-Iv-Geb" firstAttribute="trailing" secondItem="i36-Gn-2cd" secondAttribute="trailing" id="HDC-g2-EuN"/>
                             <constraint firstItem="hdx-4G-mhq" firstAttribute="leading" secondItem="i36-Gn-2cd" secondAttribute="leading" id="QhX-4o-QSQ"/>
                             <constraint firstItem="pts-4d-2Ez" firstAttribute="leading" secondItem="i36-Gn-2cd" secondAttribute="leading" constant="16" id="TCE-aa-e1z"/>
@@ -291,4 +308,7 @@
             <point key="canvasLocation" x="-855.07246376811599" y="525.66964285714289"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="locate" width="32" height="32"/>
+    </resources>
 </document>

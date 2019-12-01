@@ -20,6 +20,7 @@ class LocationViewController: UIViewController {
     
     var locationManager = CLLocationManager()
     var selectedCoordinate: CLLocationCoordinate2D!
+    var findLocation = false
     
     
     // MARK: - View Life Cycle
@@ -55,7 +56,7 @@ class LocationViewController: UIViewController {
         self.locationManager.requestWhenInUseAuthorization()
         
         // Zoom to user location
-        if CLLocationManager.authorizationStatus().rawValue == 4 {
+        if CLLocationManager.authorizationStatus() == .authorizedWhenInUse {
             self.locationManager.startUpdatingLocation()
         }
     }
@@ -85,6 +86,27 @@ class LocationViewController: UIViewController {
         self.selectedCoordinate = coordinate
     }
     
+    
+    // MARK: - Actions
+    
+    /**
+     Locates the user on the map.
+     */
+    @IBAction func findCurrentLocation(_ sender: UIButton) {
+        // Verificate permissions
+        guard CLLocationManager.authorizationStatus() == .authorizedWhenInUse else {
+            showAlert(
+                title: "Debes habilitar la localización",
+                message: "No se pudo localizarte"
+            )
+            return
+        }
+        
+        // Locate
+        self.findLocation = true
+        self.locationManager.requestLocation()
+    }
+    
 
     // MARK: - Navigation
 
@@ -96,7 +118,7 @@ class LocationViewController: UIViewController {
      */
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Verificate permissions
-        guard CLLocationManager.authorizationStatus().rawValue == 4 else {
+        guard CLLocationManager.authorizationStatus() == .authorizedWhenInUse else {
             showAlert(
                 title: "Debes habilitar la localización",
                 message: "Son necesarios para crear una pregunta"
@@ -165,15 +187,31 @@ extension LocationViewController: CLLocationManagerDelegate {
             // Update position
             self.selectedCoordinate = location.coordinate
             
-            // Zoom to position
-            let center = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
-            let span = MKCoordinateSpan(latitudeDelta: 0.03, longitudeDelta: 0.03)
-            let region = MKCoordinateRegion(center: center, span: span)
-            self.mapView.setRegion(region, animated: true)
-            
-            // Add annotation
+            // Show
+            zoomToLocation(coordinate: self.selectedCoordinate)
             addAnnotation(coordinate: location.coordinate, title: "Ubicación inicial")
+            
+        } else if self.findLocation, let location = locations.last {
+            // Update position
+            self.selectedCoordinate = location.coordinate
+            self.findLocation = false
+            
+            // Show
+            zoomToLocation(coordinate: self.selectedCoordinate)
+            addAnnotation(coordinate: location.coordinate, title: "Ubicación actual")
         }
+    }
+    
+    /**
+     Shows the selected coordinate in the map.
+     
+     - Parameter coordinate: Coordinate to zoom in.
+     */
+    private func zoomToLocation(coordinate: CLLocationCoordinate2D) {
+        let center = CLLocationCoordinate2D(latitude: coordinate.latitude, longitude: coordinate.longitude)
+        let span = MKCoordinateSpan(latitudeDelta: 0.03, longitudeDelta: 0.03)
+        let region = MKCoordinateRegion(center: center, span: span)
+        self.mapView.setRegion(region, animated: true)
     }
     
 }
