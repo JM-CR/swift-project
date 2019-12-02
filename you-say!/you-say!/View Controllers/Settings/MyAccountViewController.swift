@@ -71,7 +71,7 @@ class MyAccountViewController: UIViewController {
         }
         
         UIView.animate(withDuration: 0.7) {
-            self.viewAccount.backgroundColor = .white
+            self.viewAccount.backgroundColor = #colorLiteral(red: 0.3134968281, green: 0.4092876315, blue: 0.7617300153, alpha: 1)
         }
         
         // Present
@@ -93,7 +93,7 @@ class MyAccountViewController: UIViewController {
         }
         
         UIView.animate(withDuration: 0.7) {
-            self.viewNotification.backgroundColor = .white
+            self.viewNotification.backgroundColor = #colorLiteral(red: 0.3134968281, green: 0.4092876315, blue: 0.7617300153, alpha: 1)
         }
         
         // Present
@@ -115,7 +115,7 @@ class MyAccountViewController: UIViewController {
         }
         
         UIView.animate(withDuration: 0.7) {
-            self.viewHelp.backgroundColor = .white
+            self.viewHelp.backgroundColor = #colorLiteral(red: 0.3134968281, green: 0.4092876315, blue: 0.7617300153, alpha: 1)
         }
         
         // Present
