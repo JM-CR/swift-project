@@ -75,6 +75,7 @@ extension FiltersViewController: UITableViewDataSource {
         let filterCell = tableView.dequeueReusableCell(withIdentifier: "filterCell", for: indexPath) as! FilterTableViewCell
         
         // Set up cell
+        filterCell.accessoryType = .none
         filterCell.categoryDescription.text = self.categories[indexPath.row]
         filterCell.categoryDescription.sizeToFit()
         

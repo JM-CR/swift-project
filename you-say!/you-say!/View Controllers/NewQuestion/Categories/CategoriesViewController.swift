@@ -62,6 +62,7 @@ extension CategoriesViewController: UITableViewDataSource {
         let optionCell = tableView.dequeueReusableCell(withIdentifier: "optionCell", for: indexPath) as! OptionTableViewCell
         
         // Set up cell
+        optionCell.accessoryType = .none
         optionCell.categoryDescription.text = self.categories[indexPath.row]
         optionCell.categoryDescription.sizeToFit()
         

@@ -164,11 +164,19 @@
                                     <constraint firstAttribute="bottom" secondItem="DWU-Ku-JOY" secondAttribute="bottom" constant="28" id="a2P-hC-2rE"/>
                                 </constraints>
                             </stackView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qvl-s3-lIT">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                <color key="backgroundColor" red="0.88294178249999999" green="0.85104399919999996" blue="0.84313982730000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.88235294117647056" green="0.88627450980392153" blue="0.88235294117647056" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
+                            <constraint firstItem="qvl-s3-lIT" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Lz4-JP-p5h"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ZG5-dR-rKF" secondAttribute="trailing" id="PiK-LN-FUg"/>
+                            <constraint firstItem="qvl-s3-lIT" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="RpZ-jE-Epw"/>
+                            <constraint firstItem="ZG5-dR-rKF" firstAttribute="top" secondItem="qvl-s3-lIT" secondAttribute="bottom" id="aSo-rN-YOP"/>
                             <constraint firstItem="ZG5-dR-rKF" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="jyV-6h-Aav"/>
+                            <constraint firstAttribute="trailing" secondItem="qvl-s3-lIT" secondAttribute="trailing" id="ojM-vg-w64"/>
                             <constraint firstAttribute="bottom" secondItem="ZG5-dR-rKF" secondAttribute="bottom" constant="32.5" id="tfi-9W-FbS"/>
                             <constraint firstItem="ZG5-dR-rKF" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="vMz-5b-6h5"/>
                         </constraints>
