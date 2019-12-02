@@ -79,7 +79,7 @@
                                                 <constraint firstItem="CqQ-ry-jbG" firstAttribute="top" secondItem="6WX-df-kxd" secondAttribute="top" constant="13" id="dAh-hu-neS"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" red="0.24698823689999999" green="0.31893250350000002" blue="0.71358287330000003" alpha="0.049295774647887321" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <color key="backgroundColor" red="0.24705882352941178" green="0.31764705882352939" blue="0.71372549019607845" alpha="0.049295774647887321" colorSpace="custom" customColorSpace="displayP3"/>
                                         <connections>
                                             <outlet property="categoryDescription" destination="CqQ-ry-jbG" id="PO4-Ag-k6t"/>
                                         </connections>

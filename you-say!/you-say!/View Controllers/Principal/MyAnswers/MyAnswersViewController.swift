@@ -320,6 +320,10 @@ class MyAnswersViewController: UIViewController {
         guard !self.textViewReply.text.isEmpty else {
             throw NewAnswerError.EmptyField(description: "No puedes dejar el campo vacío")
         }
+        
+        guard self.textViewReply.text != "Comentar algo..." else {
+            throw NewAnswerError.EmptyField(description: "No puedes dejar el campo vacío")
+        }
     }
     
     /**

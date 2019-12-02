@@ -178,9 +178,9 @@ class CreateQuestionViewController: UIViewController {
             createQuestion()
             
         } catch NewQuestionError.InvalidCategory(let description) {
-            showAlert(title: description, message: "")
+            showAlert(title: "Pregunta inválida", message: description)
         } catch NewQuestionError.EmptyQuestion(let description) {
-            showAlert(title: description, message: "")
+            showAlert(title: "Pregunta inválida", message: description)
         } catch {
             
         }
@@ -231,7 +231,11 @@ class CreateQuestionViewController: UIViewController {
         }
         
         guard let text = self.textViewQuestion.text, text != "" else {
-            throw NewQuestionError.EmptyQuestion(description: "No puedes publicar una pregunta vacía")
+            throw NewQuestionError.EmptyQuestion(description: "No has introducido texto.")
+        }
+        
+        guard self.textViewQuestion.text != "Comparte tu pregunta..." else {
+            throw NewQuestionError.EmptyQuestion(description: "No has introducido texto.")
         }
     }
     
