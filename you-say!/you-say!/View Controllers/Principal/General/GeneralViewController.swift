@@ -236,6 +236,7 @@ extension GeneralViewController: UITableViewDataSource {
         generalCell.labelContent.text = question.content
         generalCell.labelTotalLikes.text = "\(question.likes)"
         generalCell.textFieldCategory.text = question.category
+        generalCell.textFieldCategory.sizeToFit()        
         generalCell.labelTotalMesssages.text = "\(question.answers?.count ?? 0)"
         
         // Time from publish date
