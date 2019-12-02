@@ -305,11 +305,9 @@ class MyAnswersViewController: UIViewController {
         // Save
         try self.currentUser.managedObjectContext?.save()
         
-        // Confirmation
-        showAlert(title: "Publicada con éxito", message: "")
-        
         // Clean up
         self.textViewReply.text = ""
+        self.view.endEditing(true)
     }
     
     
