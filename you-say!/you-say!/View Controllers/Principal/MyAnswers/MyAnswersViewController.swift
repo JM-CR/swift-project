@@ -231,7 +231,7 @@ class MyAnswersViewController: UIViewController {
      */
     @objc func keyboardWillHide(notification: NSNotification) {
         // Update
-        self.bottomConstraint.constant = 6
+        self.bottomConstraint.constant = 0
         
         // Animate
         UIView.animate(withDuration: 0.1) {
