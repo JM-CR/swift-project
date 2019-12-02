@@ -174,7 +174,7 @@ class NewUserViewController: UIViewController, NSFetchedResultsControllerDelegat
         
         alert.addAction(UIAlertAction(title: "Prefiero no especificar", style: .default) { (alertAction) in
             self.gender = "-"
-            self.labelGender.text = "No especificado"
+            self.labelGender.text = "Sin especificar"
         })
         
         alert.addAction(UIAlertAction(title: "Salir", style: .cancel, handler: nil))

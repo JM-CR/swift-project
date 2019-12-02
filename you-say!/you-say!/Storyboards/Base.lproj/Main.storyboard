@@ -36,7 +36,7 @@
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bienvenido" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1YZ-VY-5xj">
                                                 <rect key="frame" x="16" y="8" width="382" height="31.5"/>
-                                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="26"/>
                                                 <color key="textColor" red="0.0" green="0.16078431369999999" blue="0.51764705879999995" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -238,7 +238,7 @@
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Crea tu usuario" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="upT-4e-O4C">
                                                         <rect key="frame" x="24" y="30" width="366" height="31.5"/>
-                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="26"/>
                                                         <color key="textColor" red="0.0" green="0.16078431369999999" blue="0.51764705879999995" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
@@ -253,7 +253,6 @@
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" constant="45" id="Bri-s6-qEu"/>
                                                                         </constraints>
-                                                                        <nil key="textColor"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                         <textInputTraits key="textInputTraits" autocapitalizationType="words" textContentType="honorifix-prefix"/>
                                                                     </textField>
@@ -288,7 +287,6 @@
                                                                 <subviews>
                                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Apellido(s)*" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ufj-W3-oBB">
                                                                         <rect key="frame" x="0.0" y="0.0" width="366" height="45"/>
-                                                                        <nil key="textColor"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                         <textInputTraits key="textInputTraits" autocapitalizationType="words" textContentType="family-name"/>
                                                                     </textField>
@@ -323,7 +321,6 @@
                                                                 <subviews>
                                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Alias" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mvC-i5-OvH">
                                                                         <rect key="frame" x="0.0" y="0.0" width="366" height="45"/>
-                                                                        <nil key="textColor"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences" textContentType="username"/>
                                                                     </textField>
@@ -358,7 +355,6 @@
                                                                 <subviews>
                                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Correo electrónico*" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YTu-ab-UYX">
                                                                         <rect key="frame" x="0.0" y="0.0" width="366" height="45"/>
-                                                                        <nil key="textColor"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                         <textInputTraits key="textInputTraits" keyboardType="emailAddress" textContentType="email"/>
                                                                     </textField>
@@ -393,7 +389,6 @@
                                                                 <subviews>
                                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Contraseña*" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jAN-kg-rgp">
                                                                         <rect key="frame" x="0.0" y="0.0" width="366" height="45"/>
-                                                                        <nil key="textColor"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                         <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="new-password"/>
                                                                     </textField>
@@ -433,8 +428,7 @@
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="---" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HPg-eg-a8O">
                                                         <rect key="frame" x="30" y="0.0" width="166" height="50"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                        <nil key="textColor"/>
+                                                        <fontDescription key="fontDescription" type="italicSystem" pointSize="19"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4B1-Kk-TbS">
