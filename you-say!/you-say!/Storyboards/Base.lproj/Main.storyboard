@@ -532,6 +532,7 @@
                         <color key="tintColor" red="0.45882352941176469" green="0.49019607843137253" blue="0.90980392156862744" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="qtR-Cd-hFJ" firstAttribute="top" secondItem="TxE-5g-5E8" secondAttribute="top" id="Bak-0v-mSC"/>
+                            <constraint firstItem="9ex-bS-JrL" firstAttribute="top" secondItem="EnD-pK-NWC" secondAttribute="bottom" constant="-2" id="FFR-Fb-jL3"/>
                             <constraint firstItem="72x-0Z-rM6" firstAttribute="bottom" secondItem="EnD-pK-NWC" secondAttribute="bottom" id="GWe-oR-vKs"/>
                             <constraint firstItem="9ex-bS-JrL" firstAttribute="leading" secondItem="TxE-5g-5E8" secondAttribute="leading" id="Ga1-FY-YSA"/>
                             <constraint firstAttribute="trailing" secondItem="qtR-Cd-hFJ" secondAttribute="trailing" id="HKj-hY-FWc"/>
@@ -539,7 +540,6 @@
                             <constraint firstItem="EnD-pK-NWC" firstAttribute="trailing" secondItem="72x-0Z-rM6" secondAttribute="trailing" id="Nif-VJ-bk6"/>
                             <constraint firstItem="L7T-Gw-tuJ" firstAttribute="trailing" secondItem="72x-0Z-rM6" secondAttribute="trailing" id="X7Z-xe-yff"/>
                             <constraint firstItem="qtR-Cd-hFJ" firstAttribute="leading" secondItem="TxE-5g-5E8" secondAttribute="leading" id="cQd-aQ-TQY"/>
-                            <constraint firstItem="9ex-bS-JrL" firstAttribute="top" secondItem="72x-0Z-rM6" secondAttribute="top" constant="816" id="gk1-X9-4LL"/>
                             <constraint firstItem="L7T-Gw-tuJ" firstAttribute="top" secondItem="72x-0Z-rM6" secondAttribute="top" id="jGA-D0-fZf"/>
                             <constraint firstAttribute="bottom" secondItem="9ex-bS-JrL" secondAttribute="bottom" id="nG0-Wd-bZ1"/>
                             <constraint firstItem="EnD-pK-NWC" firstAttribute="leading" secondItem="72x-0Z-rM6" secondAttribute="leading" id="veN-N4-Okh"/>
