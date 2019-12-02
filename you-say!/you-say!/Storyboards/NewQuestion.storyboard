@@ -79,7 +79,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="i36-Gn-2cd"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="Evw-QX-mF8"/>
+                    <tabBarItem key="tabBarItem" title="Nueva" image="T2" id="Evw-QX-mF8"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="mapView" destination="hdx-4G-mhq" id="uyr-bs-Rrd"/>
@@ -373,6 +373,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="T2" width="32" height="32"/>
         <image name="locate" width="32" height="32"/>
     </resources>
 </document>

@@ -302,7 +302,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Hx9-c4-S7G"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="STN-WI-MbE"/>
+                    <tabBarItem key="tabBarItem" title="Mensajes" image="T1" id="STN-WI-MbE"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="labelNullDescription" destination="9Oz-eo-SD1" id="RQu-yT-kgw"/>
@@ -790,11 +790,12 @@
         </scene>
     </scenes>
     <resources>
+        <image name="T1" width="32" height="32"/>
         <image name="new-answer" width="24" height="24"/>
         <image name="no-like" width="24" height="24"/>
         <image name="report" width="24" height="24"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="f7j-ge-b0e"/>
+        <segue reference="CGk-s2-06D"/>
     </inferredMetricsTieBreakers>
 </document>

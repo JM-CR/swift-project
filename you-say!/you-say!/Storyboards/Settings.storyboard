@@ -442,7 +442,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="WUd-Bf-zwC"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="oYb-au-o1j"/>
+                    <tabBarItem key="tabBarItem" title="Config." image="T3" id="oYb-au-o1j"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="labelID" destination="JwG-95-42H" id="O8P-4z-Abi"/>
@@ -718,6 +718,7 @@ Siempre que quieras obtener opiniones de manera rápida de usuarios dispuestos a
         </scene>
     </scenes>
     <resources>
+        <image name="T3" width="32" height="32"/>
         <image name="bell" width="64" height="64"/>
         <image name="help" width="64" height="64"/>
         <image name="user" width="64" height="64"/>
