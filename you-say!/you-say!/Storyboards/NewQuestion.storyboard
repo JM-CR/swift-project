@@ -25,21 +25,6 @@
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" rotateEnabled="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hdx-4G-mhq">
                                 <rect key="frame" x="0.0" y="52" width="414" height="695"/>
                             </mapView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gwp-9g-8BL">
-                                <rect key="frame" x="344" y="685" width="50" height="50"/>
-                                <color key="backgroundColor" red="0.2470588235" green="0.31764705879999999" blue="0.70980392160000005" alpha="0.44366197183098594" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="50" id="JrH-dV-xk6"/>
-                                    <constraint firstAttribute="height" constant="50" id="ZLk-Af-Pj4"/>
-                                </constraints>
-                                <state key="normal" image="locate"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="cornerRadius" value="20"/>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="findCurrentLocation:" destination="qx8-sc-938" eventType="touchUpInside" id="YRN-uj-J2P"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pts-4d-2Ez">
                                 <rect key="frame" x="16" y="755" width="382" height="50"/>
                                 <color key="backgroundColor" red="0.2470588235" green="0.31764705879999999" blue="0.70980392160000005" alpha="1" colorSpace="calibratedRGB"/>
@@ -59,12 +44,27 @@
                                     <segue destination="ym3-Q9-cJE" kind="show" identifier="createSegue" id="GE9-eb-gZo"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jCG-wb-D5g">
+                                <rect key="frame" x="354" y="695" width="40" height="40"/>
+                                <color key="backgroundColor" white="0.36292363556338031" alpha="0.099554357394366202" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="bqt-rq-Wr4"/>
+                                    <constraint firstAttribute="width" constant="40" id="mxX-s0-ArN"/>
+                                </constraints>
+                                <state key="normal" backgroundImage="locate"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="cornerRadius" value="10"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="findCurrentLocation:" destination="qx8-sc-938" eventType="touchUpInside" id="tXi-fn-cK3"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.8822752833366394" green="0.88629978895187378" blue="0.88235598802566528" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
-                            <constraint firstItem="pts-4d-2Ez" firstAttribute="top" secondItem="gwp-9g-8BL" secondAttribute="bottom" constant="20" id="2ya-qh-8AE"/>
-                            <constraint firstItem="i36-Gn-2cd" firstAttribute="trailing" secondItem="gwp-9g-8BL" secondAttribute="trailing" constant="20" id="9bl-ss-D1Q"/>
                             <constraint firstAttribute="trailing" secondItem="8oD-Gv-w3I" secondAttribute="trailing" id="GDU-Yd-b28"/>
+                            <constraint firstItem="i36-Gn-2cd" firstAttribute="trailing" secondItem="jCG-wb-D5g" secondAttribute="trailing" constant="20" id="JcE-eQ-5MC"/>
+                            <constraint firstItem="pts-4d-2Ez" firstAttribute="top" secondItem="jCG-wb-D5g" secondAttribute="bottom" constant="20" id="Mge-9K-xG2"/>
                             <constraint firstItem="hdx-4G-mhq" firstAttribute="leading" secondItem="i36-Gn-2cd" secondAttribute="leading" id="QhX-4o-QSQ"/>
                             <constraint firstItem="pts-4d-2Ez" firstAttribute="leading" secondItem="i36-Gn-2cd" secondAttribute="leading" constant="16" id="TCE-aa-e1z"/>
                             <constraint firstItem="i36-Gn-2cd" firstAttribute="bottom" secondItem="pts-4d-2Ez" secondAttribute="bottom" constant="8" id="W9z-nC-D3Z"/>

@@ -20,7 +20,7 @@ class LocationViewController: UIViewController {
     
     var locationManager = CLLocationManager()
     var selectedCoordinate: CLLocationCoordinate2D!
-    var findLocation = false
+    var firstCoordinate: CLLocationCoordinate2D!
     
     
     // MARK: - View Life Cycle
@@ -103,8 +103,9 @@ class LocationViewController: UIViewController {
         }
         
         // Locate
-        self.findLocation = true
-        self.locationManager.requestLocation()
+        self.selectedCoordinate = self.firstCoordinate
+        addAnnotation(coordinate: self.firstCoordinate, title: "Ubicación inicial")
+        zoomToLocation(coordinate: self.firstCoordinate)
     }
     
 
@@ -118,7 +119,7 @@ class LocationViewController: UIViewController {
      */
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Verificate permissions
-        guard CLLocationManager.authorizationStatus() == .authorizedWhenInUse else {
+        guard CLLocationManager.authorizationStatus() == .authorizedWhenInUse, CLLocationManager.locationServicesEnabled() else {
             showAlert(
                 title: "Debes habilitar la localización",
                 message: "Son necesarios para crear una pregunta"
@@ -186,19 +187,11 @@ extension LocationViewController: CLLocationManagerDelegate {
         if locations.count == 1, let location = locations.last {
             // Update position
             self.selectedCoordinate = location.coordinate
+            self.firstCoordinate = location.coordinate
             
             // Show
             zoomToLocation(coordinate: self.selectedCoordinate)
             addAnnotation(coordinate: location.coordinate, title: "Ubicación inicial")
-            
-        } else if self.findLocation, let location = locations.last {
-            // Update position
-            self.selectedCoordinate = location.coordinate
-            self.findLocation = false
-            
-            // Show
-            zoomToLocation(coordinate: self.selectedCoordinate)
-            addAnnotation(coordinate: location.coordinate, title: "Ubicación actual")
         }
     }
     
@@ -209,7 +202,7 @@ extension LocationViewController: CLLocationManagerDelegate {
      */
     private func zoomToLocation(coordinate: CLLocationCoordinate2D) {
         let center = CLLocationCoordinate2D(latitude: coordinate.latitude, longitude: coordinate.longitude)
-        let span = MKCoordinateSpan(latitudeDelta: 0.03, longitudeDelta: 0.03)
+        let span = MKCoordinateSpan(latitudeDelta: 0.04, longitudeDelta: 0.04)
         let region = MKCoordinateRegion(center: center, span: span)
         self.mapView.setRegion(region, animated: true)
     }
