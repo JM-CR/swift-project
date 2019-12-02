@@ -207,6 +207,10 @@ class NewUserViewController: UIViewController, NSFetchedResultsControllerDelegat
             throw NewUserError.EmptyField(description: "Debes introducir un correo.")
         }
         
+        guard email.contains("@"), email.count > 6 else {
+            throw NewUserError.EmptyField(description: "Debes introducir un correo.")
+        }
+        
         guard self.fetchedLogin == nil else {
             throw NewUserError.EmptyField(description: "Un usuario ya se registró con ese correo.")
         }
